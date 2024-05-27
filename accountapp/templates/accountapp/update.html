@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}   <!-- {% bootstrap_form form %} 밑에 구현하면 위에 이거 꼭 선언해줘야함 -->
+{% load bootstrap4 %}
 
 {% block content %}
 
@@ -7,7 +7,7 @@
         <div class = "mb-4">
             <h4> SignUp </h4>
         </div>
-        <form action="{% url 'accountapp:create' %}" method="post">
+        <form action="{% url 'accountapp:update' pk=user.pk %}" method="post">
             {% csrf_token %}
             {% bootstrap_form form %}
             <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">

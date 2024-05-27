@@ -6,8 +6,10 @@
             <span> nav1 </span>
             <span> nav2 </span>
             <span> nav3 </span>
-            {% if not user.is_authenticated %}  # user가 로그인이 되어있지 않다면 로그인 보여주고 아니면 로그아웃 보여줌.
-            <a href="{% url 'accountapp:login' %}?next={{ request.path }}"> // next 설정함으로서 로그인하고나서 원래있던 라우터로 돌아옴
+
+            <!--user가 로그인이 되어있지 않다면 로그인 보여주고 아니면 로그아웃 보여줌.-->
+            {% if not user.is_authenticated %}
+            <a href="{% url 'accountapp:login' %}?next={{ request.path }}"> <!--next 설정함으로서 로그인하고나서 원래있던 라우터로 돌아옴-->
                 <span> login</span>
             </a>
             {% else %}
