@@ -4,12 +4,28 @@
 
 <div>
     <div style = "text-align : center; max-width : 500px; margin : 4rem auto;">
-        <p>
-           {{ target_user.date_joined }}
-        </p>
+
+        <img src ="{{target_user.profile.image.url}}" alt=""
+             style="height:10rem; width 10rem; border-radius:10rem;">
+
+        {% if target_user.profile %}  <!--타켓유저의 닉네임이 존재하면 닉네임을 보여줄것. id노출되면 보안문제 생기므로 -->
         <h2 style="font-family : 'NanumSquareB'">
-            {{ target_user.username }}
+            {{ target_user.profile.nickname }}
+            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">   <!-- 원래 사진업로드하던링크로 돌아감 -->
+                edit
+            </a>
         </h2>
+        {% else %}  #존재하지 않으면
+        <a href= "{% url 'profileapp:create' %}">     #Profile 만드는 페이지로 넘어가게 하기
+            <h2 style="font-family:'NanumSquareB'">
+                Create Profile
+            </h2>
+        </a>
+        {% endif %}
+
+        <h5 style="margin-bottom :3rem;">
+            {{target_user.profile.message}}
+        </h5>
 
  <!--본인이 본인페이지 들어갔을때 수정할 수 있는 페이지 링크 추가 -->
         {% if target_user == user %}
@@ -29,4 +45,4 @@
     </div>
 </div>
 
-{% endblock %}
+{% endblock %}    #잊지말고 마지막에 꼭 써야함. 아니면 서버연결 오류남.
