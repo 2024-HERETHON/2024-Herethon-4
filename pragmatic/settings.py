@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'profileapp',
     'articleapp',
     'commentapp',
+    'projectapp',
+    'subscribeapp',
 ]
 
 MIDDLEWARE = [
@@ -143,7 +145,7 @@ STATICFILES_DIRS = [
 import os
 from django.urls import reverse_lazy
 
-LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
+LOGIN_REDIRECT_URL = reverse_lazy('home')
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

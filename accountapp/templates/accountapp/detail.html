@@ -7,12 +7,14 @@
 
         {% if target_user.profile %}  <!--타켓유저의 닉네임이 존재하면 닉네임을 보여줄것. id노출되면 보안문제 생기므로 -->
         <img src ="{{target_user.profile.image.url}}" alt=""
-             style="height:12rem; width 12rem; border-radius:20rem; margin-bottom:2rem;">
+             style="height:12rem; width 12rem; border-radius:20rem; margin-bottom:2rem; object-fit:cover;"> <!--버튼이랑 icon 디자인적용-->
 
         <h2 style="font-family : 'NanumSquareB'">
             {{ target_user.profile.nickname }}
                 {% if target_user == urser %}
-                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">   <!-- 원래 사진업로드하던링크로 돌아감 -->
+                <a class="material-icons"
+                   style="box-shadow:0 0 4px #ccc; border-raidus:10rem; padding:.4rem;"
+                   href="{% url 'profileapp:update' pk=target_user.profile.pk %}">   <!-- 원래 사진업로드하던링크로 돌아감 -->
                  edit
                 </a>
                 {% endif %}
@@ -36,19 +38,25 @@
 
  <!--본인이 본인페이지 들어갔을때 수정할 수 있는 페이지 링크 추가 -->
         {% if target_user == user %}
-        <a href="{% url 'accountapp:update' pk=user.pk %}">
-            <p>
-                Change Info
-            </p>
-        </a>
+            <a class="material-icons"
+                   style="box-shadow:0 0 4px #ccc; border-raidus:10rem; padding:.4rem;"
+                href="{% url 'accountapp:update' pk=user.pk %}">
+                settings
+            </a>
 
         <!--본인이 본인페이지 들어갔을때 탈퇴할 수 있는 페이지 추가 -->
-        <a href = "{% url 'accountapp:delete' pk=user.pk %}">
-            <p>
-                Quit
-            </p>
-        </a>
+            <a class="material-icons"
+                   style="box-shadow:0 0 4px #ccc; border-raidus:10rem; padding:.4rem;"
+                href = "{% url 'accountapp:delete' pk=user.pk %}">
+                cancel
+            </a>
         {% endif %}
+    </div>
+
+    <div>
+
+        {% include 'snippets/list_fragment.html' with article_list=object_list %}     <!--여태까지 쓴글이 저장되어 보여짐-->
+
     </div>
 </div>
 

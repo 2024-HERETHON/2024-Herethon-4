@@ -22,3 +22,46 @@
        font-size : 13px;
     }
 }
+
+a {
+       color : black;
+}
+
+a:hover {
+    color : black;
+    text-decoration : none;
+}
+
+.pragmatic_header_nav {
+    margin : 0 0.5rem;
+}
+
+.pragmatic_header_navbar2 {
+    margin : 1rem 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

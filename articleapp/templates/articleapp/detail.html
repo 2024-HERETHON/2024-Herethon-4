@@ -15,9 +15,9 @@
 
         <img style="width:100%; border-radius:1rem; margin:2rem 0;" src="{{ target_article.image.url }}" alt="">
 
-        <p>
-            {{ target_article.content }}
-        </p>
+        <div class="text-left">
+            {{ target_article.content | safe }}
+        </div>
 
         {% if target_article.writer == user %}
          <!-- update 버튼 만든것. = 사이 공백 있으면 안됨. 오류남...-->
