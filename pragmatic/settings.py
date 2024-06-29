@@ -33,6 +33,7 @@ environ.Env.read_env(
 # 배포할때 노출시키면 안되는 따로 관리해야하는 키 .env 파일 만들어서 따로 기입해둠
 SECRET_KEY = env('SECRET_KEY')
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -50,11 +51,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'accountapp',
-    'profileapp',
     'articleapp',
-    'commentapp',
     'projectapp',
-    'subscribeapp',
 ]
 
 MIDDLEWARE = [

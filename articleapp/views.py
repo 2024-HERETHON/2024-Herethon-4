@@ -8,7 +8,8 @@ from django.views.generic.edit import FormMixin
 from articleapp.decorators import article_ownership_required
 from articleapp.forms import ArticleCreationForm
 from articleapp.models import Article
-from commentapp.forms import CommentCreationForm
+
+
 
 
 # Create your views here.
@@ -33,7 +34,7 @@ class ArticleCreateView(CreateView):
 
 class ArticleDetailView(DetailView, FormMixin):
     model = Article
-    form_class = CommentCreationForm
+    form_class = ArticleCreationForm
     context_object_name = 'target_article'
     template_name = 'articleapp/detail.html'
 
@@ -54,7 +55,6 @@ class ArticleUpdateView(UpdateView):
 
         def get_success_url(self):
             return reverse('articleapp:detail', kwargs={'pk': self.object.pk})
-
 
 @method_decorator(article_ownership_required, 'get')
 @method_decorator(article_ownership_required, 'post')

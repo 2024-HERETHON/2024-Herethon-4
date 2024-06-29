@@ -3,41 +3,36 @@
 {% block content %}
 
 <div>
-    <div style = "text-align : center; max-width : 500px; margin : 4rem auto 1.5rem auto;">
+    <div style="text-align: center; max-width: 700px; margin: 4rem auto;">
 
-        <img src ="{{target_project.image.url}}" alt=""
-             style="height:12rem; width 12rem; border-radius:20rem; margin-bottom:2rem; object-fit:cover;">
-
-        <h2 style="font-family : 'NanumSquareB'">
+        <h1>
             {{ target_project.title }}
-        </h2>
-        <h5 style="margin-bottom:3rem;"></h5>
-            {{ target_project.description }}
+        </h1>
+        <h5>
+            {{target_project.writer.profile.nickname}}
         </h5>
-    </div>
+        <hr>
 
+        <img style="width:100%; border-radius:1rem; margin:2rem 0;" src="{{ target_project.image.url }}" alt="">
 
-    <div class="text-center">
-        {% if user.is_authenticated %}
-            {% if not subscription %}
-        <!--회원가입한 사람들에게만 밑에 버튼 보이게-->
-        <a href="{% url 'subscribeapp:subscribe' %}?project_pk={{ target_project.pk}}"
-            class="btn btn-primary rounded-pill px-4">
-            Subscribe
+        <div class="text-left">
+            {{ target_project.content | safe }}
+        </div>
+
+        {% if target_project.writer == user %}
+         <!-- update 버튼 만든것. = 사이 공백 있으면 안됨. 오류남...-->
+        <a href="{% url 'projectapp:update' pk=target_project.pk %}" class="btn btn-primary rounded-pill col-3">
+            Update
         </a>
-        {% else %}
-        <a href="{% url 'subscribeapp:subscribe' %}?project_pk={{target_project.pk}}"
-           class="btn btn-dark rounded-pill px-4">
-            Unsubscribe
+
+        <a href="{% url 'projectapp:delete' pk=target_project.pk %}" class="btn btn-danger rounded-pill col-3">
+            Delete
         </a>
-            {% endif %}
         {% endif %}
-    </div>
+        <hr>
 
-    <div>
-        {% include 'snippets/list_fragment.html' with article_list=object_list %}
 
     </div>
 </div>
 
-{% endblock %}    #잊지말고 마지막에 꼭 써야함. 아니면 서버연결 오류남.
+{% endblock %}

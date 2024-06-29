@@ -20,6 +20,7 @@
         </div>
 
         {% if target_article.writer == user %}
+
          <!-- update 버튼 만든것. = 사이 공백 있으면 안됨. 오류남...-->
         <a href="{% url 'articleapp:update' pk=target_article.pk %}" class="btn btn-primary rounded-pill col-3">
             Update
@@ -31,7 +32,6 @@
         {% endif %}
         <hr>
 
-        {% include 'commentapp/create.html' with article=target_article %}
 
     </div>
 </div>

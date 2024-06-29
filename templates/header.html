@@ -1,14 +1,14 @@
 
 <div class = "pragmatic_header">
         <div>
-            <h1 class="pragmatic_logo"> pragmatic</h1>
+            <h1 class="pragmatic_logo"> Rolling Paper</h1>
         </div>
         <div class="pragmatic_header_navbar2">
             <a href="{% url 'articleapp:list' %}" class="pragmatic_header_nav"> <!--next 설정함으로서 로그인하고나서 원래있던 라우터로 돌아옴-->
-                <span> Articles </span>
+                <span> 받은 롤링페이퍼 </span>
             </a>
             <a href="{% url 'projectapp:list' %}" class="pragmatic_header_nav">
-                <span> Projects </span>
+                <span> 작성한 롤링페이퍼 </span>
             </a>
             <!--user가 로그인이 되어있지 않다면 로그인 보여주고 아니면 로그아웃 보여줌.-->
             {% if not user.is_authenticated %}
