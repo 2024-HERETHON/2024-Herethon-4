@@ -23,6 +23,9 @@ class Article(models.Model):
     created_at = models.DateField(auto_now_add=True, null=True)
     last_modified = models.DateTimeField(auto_now=True)  # 최근 수정일
 
+    def __str__(self):
+        return self.title
+
 
 
 

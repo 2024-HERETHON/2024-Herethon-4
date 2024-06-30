@@ -39,22 +39,17 @@ class ArticleDetailView(DetailView, FormMixin):
     template_name = 'articleapp/detail.html'
 
 
+@method_decorator(article_ownership_required, 'get')
+@method_decorator(article_ownership_required, 'post')
 class ArticleUpdateView(UpdateView):
-    model=Article
+    model = Article
     context_object_name = 'target_article'
-    template_name = 'articleapp/detail.html'
+    form_class = ArticleCreationForm
+    template_name = 'articleapp/update.html'
 
-    @method_decorator(article_ownership_required, 'get')    #decorators에서 정의한 메서드? def 불러오는 것.
-    @method_decorator(article_ownership_required, 'post')
-    class ArticleUpdateView(UpdateView):
-        model = Article
-        context_object_name = 'target_article'
-        form_class = ArticleCreationForm
-        template_name = 'articleapp/update.html'
+    def get_success_url(self):
+        return reverse('articleapp:detail', kwargs={'pk': self.object.pk})
 
-
-        def get_success_url(self):
-            return reverse('articleapp:detail', kwargs={'pk': self.object.pk})
 
 @method_decorator(article_ownership_required, 'get')
 @method_decorator(article_ownership_required, 'post')

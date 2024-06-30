@@ -12,4 +12,4 @@ class ArticleCreationForm(ModelForm):
     project = forms.ModelChoiceField(queryset=Project.objects.all(), required=False) #1,2,3,4 안골라도 제출되게하는 코드
     class Meta:
         model = Article
-        fields = ['title','image','content']
+        fields = ['title', 'content', 'image']
