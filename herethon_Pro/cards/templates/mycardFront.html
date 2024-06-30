@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 명함 생성 버튼(명함이 3개이면 버튼이 없어짐) -->
+    {% if card_count < 3 %}
+        <a href="{% url 'create' %}">명함생성</a><br><br>
+    {% endif %}
+
+    <!-- 명함 3개 -->
+    {% for card in cards %}
+        <p>이름 - {{ card.name }}</p>
+        <p>소속 - {{ card.position }}</p>
+        <p>직업 - {{ card.job }}</p>
+        <p> 
+            {% for keyword in card.keyword.all %}
+                저를 대표하는 키워드는 "{{ keyword.name }}" 입니다.
+            {% empty %}
+                카테고리를 설정해주세요.
+            {% endfor %}
+        </p>
+        <!-- 사진 -->
+        {% if card.image %}
+            <img width="320" height="240" src="{{ card.image.url }}">
+        {% endif %}
+        <br>
+
+        <!-- 명함 수정 버튼 -->
+        <a href="{% url 'update' card.id %}">수정하기</a>
+        <!-- 명함 삭제 버튼(명함이 1개 있을 시에는 삭제 못함) -->
+        {% if card_count != 1 %}
+            <a href="{% url 'delete' card.id %}">삭제하기</a>
+        {% endif %}
+    <br><br>
+        
+
+    <!-- 만약 명함이 없다면 -->
+    {% empty %}
+        명함을 생성해주세요!
+    {% endfor %}
+</body>
+</html>
