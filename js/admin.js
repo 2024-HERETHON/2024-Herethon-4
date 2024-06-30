@@ -189,8 +189,4 @@ function goback() {
   modal.style.display = "none";
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  showSend();
-});
-
 //프로필 클릭 시 명함으로 이동하는 코드 추가해야 함
