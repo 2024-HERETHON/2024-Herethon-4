@@ -66,6 +66,9 @@ class ProjectUpdateView(UpdateView):
         form_class = ProjectCreationForm
         template_name = 'projectapp/update.html'
 
+        def get_success_url(self):
+            return reverse('projectapp:detail', kwargs={'pk': self.object.pk})
+
 
 @method_decorator(project_ownership_required, 'get')
 @method_decorator(project_ownership_required, 'post')
@@ -74,5 +77,7 @@ class ProjectDeleteView(DeleteView):
     context_object_name = 'target_project'
     success_url = reverse_lazy('projectapp:list')    #폼이 성공적으로 제출된 후 리디렉션할 URL을 설정하는 코드. 이를 통해 해당 폼이 성공적으로 처리되었을 때, 사용자가 articleapp 애플리케이션의 list 뷰로 리디렉션됩니다.
     template_name = 'projectapp/delete.html'
+
+
 
 

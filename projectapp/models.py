@@ -10,6 +10,7 @@ class Project(models.Model):
         ('BS', '직장상사'),
         ('CW', '직장동료'),
     ]
+    writer = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='project', null=True)
     category = models.CharField(max_length=2, choices=CATEGORY_CHOICES, default='FR')
     keyword = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=100, null=True)
