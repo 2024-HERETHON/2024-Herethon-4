@@ -19,7 +19,7 @@ has_ownership = [account_ownership_required, login_required]
 class AccountCreateView(CreateView):    #django.views.generic에서 상속받아 사용
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('accountapp:hello_world') #reverse와 차이점은 함수와 클래스가 파이썬에서 불러와지는 방식의차이임. class 형 뷰에서는 reverse 사용할 수 없음. 함수형뷰에서 사용
+    success_url = reverse_lazy('accountapp:login') #reverse와 차이점은 함수와 클래스가 파이썬에서 불러와지는 방식의차이임. class 형 뷰에서는 reverse 사용할 수 없음. 함수형뷰에서 사용
     template_name = 'accountapp/create.html'
 
 
