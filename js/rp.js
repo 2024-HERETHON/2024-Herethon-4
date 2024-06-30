@@ -185,7 +185,6 @@ function showDetails(id, fp) {
     });
 }
 function goback() {
-  console.log("back btn clicked!");
   const modal = document.querySelector(".modal");
   modal.style.display = "none";
 }
