@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>명함 수정</h2>
+    <form method="POST" action="{% url 'update' card.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        이름 - <input type="text" value="{{ card.name }}" name="name"><br><br> 
+        소속 - <input type="text" value="{{ card.position }}" name="position"><br><br> 
+        직업 - <input type="text" value="{{ card.job }}" name="job"><br><br>
+        키워드 선택하기 -
+        <select name="keyword">
+            {% for keyword in keywords %}
+                <option value="{{ keyword.id }}" {% if keyword.id == card.keyword.id %} selected {% endif %}>{{ keyword.name }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        {% if card.image %}
+            기존 사진 : <img width="320" height="240" src = "{{ card.image.url }}"><br><br>
+        {% endif %}
+        사진 변경 - <input type="file" name = "image"><br><br>
+        
+        <input type = "submit" vaule = "수정하기">
+    </form>
+</body>
+</html>

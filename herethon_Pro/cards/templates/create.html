@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>명함 생성</h2>
+    <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        이름 - <input type="text" name="name"><br><br> 
+        소속 - <input type="text" name="position"><br><br> 
+        직업 - <input type="text" name="job"><br><br>
+        키워드 선택하기 -
+        <select name="keyword">
+            {% for keyword in keywords %}
+                <option value="{{ keyword.id }}">{{ keyword.name }}</option>
+            {% endfor %}
+        </select><br><br>
+        사진 - <input type="file" name = "image"><br><br>
+        <input type = "submit" vaule = "작성하기">
+    </form>
+</body>
+</html>
