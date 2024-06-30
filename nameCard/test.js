@@ -62,12 +62,35 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   let currentIndex = 0;
-
+  const cardWidth = 320;
   function showCard(index) {
     const dots = document.querySelectorAll(".dot");
-    container.style.transform = `translateX(-${index * 110}%)`;
+    container.style.transform = `translateX(-${index * cardWidth}px)`;
     dots[currentIndex].classList.remove("active");
     dots[index].classList.add("active");
     currentIndex = index;
+  }
+
+  let startX, endX;
+
+  container.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  container.addEventListener("touchend", (e) => {
+    endX = e.changedTouches[0].clientX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    if (startX - endX > 50) {
+      if (currentIndex < cardsData.length - 1) {
+        showCard(currentIndex + 1);
+      }
+    } else if (endX - startX > 50) {
+      if (currentIndex > 0) {
+        showCard(currentIndex - 1);
+      }
+    }
   }
 });
