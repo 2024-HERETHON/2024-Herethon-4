@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const cardsData = [
     {
-      userName: "홍길동",
+      userName: "홍길동이",
       birthDate: "2000.00.00",
       belong: "가나대학교",
       job: "학생/UX디자이너",
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       userName: "동길홍",
       birthDate: "1999.01.01",
-      belong: "다라대학교",
+      belong: "다라마바사아대학교",
       job: "학생/개발자",
       hashtag: "#혁신적인",
       avatar: "./avatar2.png",
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       birthDate: "2001.01.01",
       belong: "마바대학교",
       job: "학생/디자이너",
-      hashtag: "#창의적인",
+      hashtag: "#도전정신가득한",
       avatar: "./avatar3.png",
     },
   ];
@@ -36,18 +36,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const card = document.createElement("div");
     card.classList.add("card");
     card.style.backgroundImage = `url(${bgColor[index % bgColor.length]})`;
+
+    // Function to truncate text and add ellipses if it exceeds maxLength
+    const truncateText = (text, maxLength) => {
+      if (text.length > maxLength) {
+        return `${text.substring(0, maxLength)}...`;
+      } else {
+        return text;
+      }
+    };
+
     card.innerHTML = `
         <div class="info">
           <div class="infoLeft">
-            <div class="userName">${data.userName}</div>
+            <div class="userName">${truncateText(data.userName, 3)}</div>
             <div class="birthDate">${data.birthDate}</div>
-            <div class="belong">${data.belong}</div>
-            <div class="job">${data.job}</div>
+            <div class="belong">${truncateText(data.belong, 8)}</div>
+            <div class="job">${truncateText(data.job, 8)}</div>
           </div>
           <div class="infoRight">
             <div class="hashtag" style="color: ${
               htColor[index % htColor.length]
-            }">${data.hashtag}</div>
+            }">
+              ${truncateText(data.hashtag, 5)}
+            </div>
           </div>
         </div>
         <img src="${data.avatar}" alt="Avatar" class="avatar" />
