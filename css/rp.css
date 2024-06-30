@@ -31,7 +31,7 @@
   letter-spacing: -0.24px;
   opacity: 0;
   position: relative;
-  top: 35px;
+  top: 23px;
   left: 110px;
   width: 120px;
   padding: 8px 12px;
@@ -170,6 +170,7 @@
   margin-left: 228px;
 }
 .blur {
+  display: none;
   float: inline-end;
   position: relative;
   bottom: 812px;
@@ -179,6 +180,7 @@
   backdrop-filter: blur(3px);
 }
 .detail {
+  display: none;
   clear: both;
   position: relative;
   top: 175px;

@@ -45,8 +45,7 @@ function showRecv() {
   recvOpacity.style.display = "none";
   sendOpacity.style.display = "";
 
-  const fp = "/recvData.json";
-  fetch(fp)
+  fetch("/recvData.json")
     .then((response) => response.json())
     .then((json) => {
       const data = json.user;
@@ -58,12 +57,12 @@ function showRecv() {
       data.forEach((element, index) => {
         const bgColor = colors[index % colors.length];
 
-        const newSendPaper = document.createElement("div");
-        newSendPaper.className = "rp";
-        newSendPaper.style.backgroundColor = bgColor;
-        newSendPaper.dataset.id = element.id;
+        const newRecvPaper = document.createElement("div");
+        newRecvPaper.className = "rp";
+        newRecvPaper.style.backgroundColor = bgColor;
+        newRecvPaper.dataset.id = element.id;
 
-        newSendPaper.innerHTML = `
+        newRecvPaper.innerHTML = `
           <div class="rp-kw" style="color: ${bgColor};">#${element.keyword1}</div>
           <div class="rp-kw" style="color: ${bgColor};">#${element.keyword2}</div>
           <div class="rp-kw" style="color: ${bgColor};">#${element.keyword3}</div>
@@ -72,17 +71,16 @@ function showRecv() {
           <div class="rp-time">${element.time}</div>
         `;
 
-        newSendPaper.addEventListener("click", () =>
+        newRecvPaper.addEventListener("click", () =>
           showDetails(element.id, fp)
         );
 
-        sendRp.appendChild(newSendPaper);
+        recvRp.appendChild(newRecvPaper);
       });
     });
 }
 
 function showSend() {
-  const fp = "/sendData.json";
   // Update send/receive states
   sendState.style.color = "white";
   sendState.style.borderBottom = "1px solid rgb(249,232,130)";
@@ -96,7 +94,7 @@ function showSend() {
   recvOpacity.style.display = "";
 
   // Fetch data
-  fetch(fp)
+  fetch("/sendData.json")
     .then((response) => response.json())
     .then((json) => {
       const data = json.user;
