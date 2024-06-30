@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{user}의 롤링페이퍼</title>
+    <link rel="stylesheet" href="/css/rp.css" />
+    <!--회원가입 때 받아온 이름으로 출력되도록 변경-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        user님의 롤링페이퍼
+        <img
+          class="btn-share"
+          src="/img/share.png"
+          alt="share"
+          onclick="clip()"
+        />
+        <div class="tost-share">링크가 복사되었어요</div>
+      </div>
+      <div class="btn-namecard-wp">
+        명함
+        <img
+          src="/img/arrow-namecard.png"
+          alt="go to namecard btn"
+          class="btn-namcard"
+        />
+      </div>
+      <div class="rp-selector">
+        <div class="rp-selector-recv">받은 롤링페이퍼</div>
+        <div class="rp-selector-send" onclick="showSend()">
+          작성한 롤링페이퍼
+        </div>
+      </div>
+      <div class="paperlist">
+        <div class="rp-recv-list"></div>
+        <div class="rp-send-list"></div>
+        <!--받아온 데이터로 롤링페이퍼 div 추가하도록 -->
+      </div>
+      <div class="modal">
+        <div class="blur" style="z-index: 90">
+          <div class="detail" style="z-index: 100">
+            <div class="detail-top">
+              <div class="backBtn-wp">
+                <img src="/img/backBtn.png" alt="back button" class="backBtn" />
+              </div>
+              <div class="detail-kw-wp"></div>
+              <div class="detail-title"></div>
+              <div class="detail-content"></div>
+              <div class="detail-time"></div>
+              <div class="profile"></div>
+            </div>
+            <div class="detail-bot">
+              <hr class="detail-line" />
+              <div class="profile">
+                <img
+                  src="/img/prof-temp.png
+          "
+                  class="prof-img"
+                  alt="prof-img"
+                />
+                <div class="prof-name"></div>
+                <div class="prof-relationship"></div>
+                <div class="affiliation"></div>
+                <div class="occupation"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/js/rp.js"></script>
+</html>
