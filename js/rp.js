@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   showRecv();
+  const setModal = document.querySelector(".modal");
+  setModal.style.display = "none";
 });
 
-//롤링페이퍼 버튼
 const sendState = document.querySelector(".rp-selector-send");
 const recvState = document.querySelector(".rp-selector-recv");
 
@@ -20,7 +21,6 @@ function clip() {
 //공유 버튼 클릭 시 토스트창
 const tostBtn = document.querySelector(".btn-share");
 const tostMsg = document.querySelector(".tost-share");
-
 function tostOn() {
   tostMsg.classList.add("active");
   setTimeout(function () {
@@ -29,7 +29,6 @@ function tostOn() {
 }
 
 tostBtn.addEventListener("click", function () {
-  console.log("이벤트가 잘 연결 됐는지 확인");
   tostOn();
 });
 
@@ -40,10 +39,10 @@ function showRecv() {
   sendState.style.color = "#8c8c8e";
   sendState.style.borderBottom = "1px solid rgb(63,63,67)";
 
-  const sendOpacity = document.querySelector(".rp-recv-list");
-  const recvOpacity = document.querySelector(".rp-send-list");
-  recvOpacity.style.display = "none";
-  sendOpacity.style.display = "";
+  const sendOpacity = document.querySelector(".rp-send-list");
+  const recvOpacity = document.querySelector(".rp-recv-list");
+  recvOpacity.style.display = "";
+  sendOpacity.style.display = "none";
 
   fetch("/recvData.json")
     .then((response) => response.json())
@@ -85,10 +84,10 @@ function showSend() {
   recvState.style.color = "#8c8c8e";
   recvState.style.borderBottom = "1px solid rgb(63,63,67)";
 
-  const sendOpacity = document.querySelector(".rp-recv-list");
-  const recvOpacity = document.querySelector(".rp-send-list");
-  sendOpacity.style.display = "none";
-  recvOpacity.style.display = "";
+  const sendOpacity = document.querySelector(".rp-send-list");
+  const recvOpacity = document.querySelector(".rp-recv-list");
+  sendOpacity.style.display = "";
+  recvOpacity.style.display = "none";
 
   fetch("/sendData.json")
     .then((response) => response.json())
@@ -125,7 +124,14 @@ function showSend() {
     });
 }
 function showDetails(id, fp) {
-  console.log("지금 디테일 클릭 중!");
+  const colors = ["#F9E882", "#FCB05D", "#FFACD5", "#7A9EFF"];
+  const contentBgColors = {
+    "#F9E882": "#fdf2af",
+    "#FCB05D": "#FFD19B",
+    "#FFACD5": "#FFD2E5",
+    "#7A9EFF": "#AFC5FD",
+  };
+
   fetch(fp)
     .then((response) => response.json())
     .then((json) => {
@@ -138,25 +144,37 @@ function showDetails(id, fp) {
         const detailTime = modal.querySelector(".detail-time");
         const profName = modal.querySelector(".prof-name");
         const profRelationship = modal.querySelector(".prof-relationship");
+        const affiliation = modal.querySelector(".affiliation");
+        const occupation = modal.querySelector(".occupation");
+        const detailTop = modal.querySelector(".detail-top");
+        const detailBot = modal.querySelector(".detail-bot");
+
+        const index = json.user.findIndex((element) => element.id === id);
+        const bgColor = colors[index % colors.length];
+        const contentBgColor = contentBgColors[bgColor] || bgColor;
+
+        modal.style.backgroundColor = bgColor;
+        detailTop.style.backgroundColor = bgColor;
+        detailBot.style.backgroundColor = bgColor;
+        detailContent.style.backgroundColor = contentBgColor;
 
         detailKeywords.innerHTML = `
-          <div class="detail-kw">#${data.keyword1}</div>
-          <div class="detail-kw">#${data.keyword2}</div>
-          <div class="detail-kw">#${data.keyword3}</div>
+          <div class="detail-kw" style="color: ${bgColor};">#${data.keyword1}</div>
+          <div class="detail-kw" style="color: ${bgColor};">#${data.keyword2}</div>
+          <div class="detail-kw" style="color: ${bgColor};">#${data.keyword3}</div>
         `;
         detailTitle.textContent = data.title;
         detailContent.textContent = data.content;
         detailTime.textContent = data.time;
         profName.textContent = data.sender;
         profRelationship.textContent = data.relationship;
-
-        // Show modal
+        affiliation.textContent = data.affiliation;
+        occupation.textContent = data.occupation;
         modal.style.display = "block";
 
         const backBtn = modal.querySelector(".backBtn");
         backBtn.addEventListener("click", goback);
 
-        // Attach event listener to modal background to close the modal
         const blurBackground = modal.querySelector(".blur");
         blurBackground.addEventListener("click", (e) => {
           if (e.target === blurBackground) {
@@ -166,11 +184,6 @@ function showDetails(id, fp) {
       }
     });
 }
-//처음부터 모달 뜨는 것만 없애려고 임시로 넣은 코드
-const backBtn = document.querySelector(".backBtn");
-
-backBtn.addEventListener("click", goback);
-
 function goback() {
   console.log("back btn clicked!");
   const modal = document.querySelector(".modal");
@@ -180,3 +193,5 @@ function goback() {
 document.addEventListener("DOMContentLoaded", () => {
   showSend();
 });
+
+//프로필 클릭 시 명함으로 이동하는 코드 추가해야 함
