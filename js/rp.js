@@ -72,28 +72,24 @@ function showRecv() {
         `;
 
         newRecvPaper.addEventListener("click", () =>
-          showDetails(element.id, fp)
+          showDetails(element.id, "/recvData.json")
         );
 
         recvRp.appendChild(newRecvPaper);
       });
     });
 }
-
 function showSend() {
-  // Update send/receive states
   sendState.style.color = "white";
   sendState.style.borderBottom = "1px solid rgb(249,232,130)";
   recvState.style.color = "#8c8c8e";
   recvState.style.borderBottom = "1px solid rgb(63,63,67)";
 
-  // Toggle visibility of lists
   const sendOpacity = document.querySelector(".rp-recv-list");
   const recvOpacity = document.querySelector(".rp-send-list");
   sendOpacity.style.display = "none";
   recvOpacity.style.display = "";
 
-  // Fetch data
   fetch("/sendData.json")
     .then((response) => response.json())
     .then((json) => {
@@ -121,16 +117,16 @@ function showSend() {
         `;
 
         newSendPaper.addEventListener("click", () =>
-          showDetails(element.id, fp)
+          showDetails(element.id, "/sendData.json")
         );
 
         sendRp.appendChild(newSendPaper);
       });
     });
 }
-
-function showDetails(id, filepath) {
-  fetch(filepath)
+function showDetails(id, fp) {
+  console.log("지금 디테일 클릭 중!");
+  fetch(fp)
     .then((response) => response.json())
     .then((json) => {
       const data = json.user.find((element) => element.id === id);
@@ -140,29 +136,27 @@ function showDetails(id, filepath) {
         const detailTitle = modal.querySelector(".detail-title");
         const detailContent = modal.querySelector(".detail-content");
         const detailTime = modal.querySelector(".detail-time");
-        const profName = modal.querySelector(".prof-name"); //발신자 이름 어떻게 받아와야되는지 모르겠음
+        const profName = modal.querySelector(".prof-name");
         const profRelationship = modal.querySelector(".prof-relationship");
-        const affiliation = modal.querySelector(".affiliation");
-        const occupation = modal.querySelector(".occupation");
 
         detailKeywords.innerHTML = `
-        <div class="detail-kw">#${data.keyword1}</div>
-        <div class="detail-kw">#${data.keyword2}</div>
-        <div class="detail-kw">#${data.keyword3}</div>
-      `;
+          <div class="detail-kw">#${data.keyword1}</div>
+          <div class="detail-kw">#${data.keyword2}</div>
+          <div class="detail-kw">#${data.keyword3}</div>
+        `;
         detailTitle.textContent = data.title;
         detailContent.textContent = data.content;
         detailTime.textContent = data.time;
-        profName.textContent = data.sender; //발신자 이름 json으로 받나?
+        profName.textContent = data.sender;
         profRelationship.textContent = data.relationship;
-        affiliation.textContent = data.affiliation;
-        occupation.textContent = data.occupation;
 
+        // Show modal
         modal.style.display = "block";
 
         const backBtn = modal.querySelector(".backBtn");
         backBtn.addEventListener("click", goback);
 
+        // Attach event listener to modal background to close the modal
         const blurBackground = modal.querySelector(".blur");
         blurBackground.addEventListener("click", (e) => {
           if (e.target === blurBackground) {
@@ -172,7 +166,7 @@ function showDetails(id, filepath) {
       }
     });
 }
-
+//처음부터 모달 뜨는 것만 없애려고 임시로 넣은 코드
 const backBtn = document.querySelector(".backBtn");
 
 backBtn.addEventListener("click", goback);
@@ -182,3 +176,7 @@ function goback() {
   const modal = document.querySelector(".modal");
   modal.style.display = "none";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  showSend();
+});
