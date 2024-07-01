@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>명함 수정</h2>
-    <form method="POST" action="{% url 'update' card.id %}" enctype="multipart/form-data">
+    <form method="POST" action="{% url 'cards:update' card.id %}" enctype="multipart/form-data">
         {% csrf_token %}
         이름 - <input type="text" value="{{ card.name }}" name="name"><br><br> 
         소속 - <input type="text" value="{{ card.position }}" name="position"><br><br> 

@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import *
 
+app_name = 'cards'
+
 urlpatterns = [
     path('cardFront/<int:id>/', cardFront, name = "cardFront"), # 명함 앞 조회
     path('cardBack/<int:id>/', cardBack, name = "cardBack"), # 명함 뒤 조회

@@ -1,0 +1,20 @@
+<<div style = "text-align:center; margin:1rem 0;">
+    {% if page_obj.has_previous %}  <!-- 이전페이지 가지고 있는지 없는지 확인. 있으면 이전페이지로 넘어가는 버튼 만듬-->
+    <a href="{% url 'articleapp:list' %}?page={{page_obj.previous_page_number}}"
+       class="btn btn-secondary rounded-pill">
+        {{ page_obj.previous_page_number}}
+    </a>
+
+    {% endif %}
+    <!-- ? 앞 없애므로 어떤 페이지에서든 다 사용가능 -->
+    <a href="?page={{ page_obj.number}}"
+       class="btn btn-secondary rounded-pill active">
+        {{ page_obj.number }}
+    </a>
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number}}"
+       class="btn btn-secondary rounded-pill">
+        {{ page_obj.next_page_number}}
+    </a>
+    {% endif %}
+</div>
