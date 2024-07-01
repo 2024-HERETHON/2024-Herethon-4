@@ -146,6 +146,7 @@ select:required:invalid {
   padding: 17px 18px;
 }
 .addBtn {
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
   margin-top: 20px;
   position: fixed;
   bottom: 190px;
