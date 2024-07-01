@@ -64,7 +64,6 @@ textarea:focus {
 textarea {
   resize: none;
 }
-input::placeholder,
 textarea::placeholder {
   font-family: Pretendard;
   color: #8c8c8e;
@@ -78,6 +77,7 @@ textarea::placeholder {
   color: red;
 }
 .error-message {
+  float: left;
   position: relative;
   top: 5px;
   left: 5px;
@@ -88,10 +88,11 @@ textarea::placeholder {
   line-height: 10px;
   letter-spacing: -0.16px;
 }
-.byte-count {
+.byteCount {
+  float: right;
   position: relative;
   bottom: 25px;
-  left: 310px;
+  right: 8px;
   color: #8c8c8e;
   text-align: right;
   font-family: Pretendard;
@@ -100,8 +101,12 @@ textarea::placeholder {
   line-height: 19px;
   letter-spacing: -0.28px;
 }
+.exceed {
+  color: red;
+}
+
 input[type="text"] {
-  color: #fff;
+  color: white;
   font-family: Pretendard;
 }
 
@@ -131,14 +136,17 @@ select:required:invalid {
   color: #fff;
   font-family: Pretendard;
 }
+.input-title {
+  padding-bottom: 3px;
+}
 .rp-content {
   display: flex;
   width: 330px;
-  height: 200px;
+  height: 150px;
   padding: 17px 18px;
 }
 .addBtn {
-  clear: both;
+  margin-top: 20px;
   position: fixed;
   bottom: 190px;
   width: 363px;
@@ -147,9 +155,7 @@ select:required:invalid {
   text-align: center;
   border-radius: 8px;
   background-color: #8c8c8e;
-  font-family: Pretendard;
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
   line-height: 19px;
   letter-spacing: -0.28px;

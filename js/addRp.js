@@ -5,17 +5,29 @@ function checkByte(input, maxByte) {
     byteCount += charCode > 127 ? 2 : 1;
   }
   const byteCountSpan = input.nextElementSibling;
-  const errorMessage = byteCountSpan.nextElementSibling;
+  const errorMessage = byteCountSpan ? byteCountSpan.nextElementSibling : null;
+
+  if (byteCountSpan) {
+    byteCountSpan.textContent = `${byteCount}byte`;
+  }
 
   if (byteCount > maxByte) {
     input.classList.add("input-error");
-    errorMessage.textContent = "입력하신 내용을 다시 확인해 주세요";
-    errorMessage.style.display = "block";
+    if (byteCountSpan) {
+      byteCountSpan.classList.add("exceed");
+    }
+    if (errorMessage) {
+      errorMessage.textContent = "입력하신 내용을 다시 확인해 주세요";
+      errorMessage.style.display = "block";
+    }
   } else {
     input.classList.remove("input-error");
-    errorMessage.style.display = "none";
-    byteCountSpan.style.color = "#8c8c8e";
-    input.style.color = "white";
+    if (byteCountSpan) {
+      byteCountSpan.classList.remove("exceed");
+    }
+    if (errorMessage) {
+      errorMessage.style.display = "none";
+    }
   }
 
   updateButtonState();
@@ -44,16 +56,23 @@ function updateButtonState() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const inputs = document.querySelectorAll(".input-title, .rp-content");
-  inputs.forEach((input) => {
-    const errorMessage = document.createElement("div");
-    errorMessage.classList.add("error-message");
-    input.parentNode.appendChild(errorMessage);
+  const textarea = document.getElementById("rp");
+  const maxBytes = {
+    "rp-content": 228,
+    "input-title": 18,
+  };
 
-    input.addEventListener("keyup", (event) => {
-      const maxByte = input.classList.contains("rp-content") ? 228 : 18;
-      checkByte(event.target, maxByte);
-    });
+  textarea.addEventListener("input", function () {
+    checkByte(textarea, maxBytes["rp-content"]);
+  });
+
+  const titleInput = document.querySelector(".input-title");
+  const errorMessage = document.createElement("div");
+  errorMessage.classList.add("error-message");
+  titleInput.parentNode.appendChild(errorMessage);
+
+  titleInput.addEventListener("input", (event) => {
+    checkByte(event.target, maxBytes["input-title"]);
   });
 
   updateButtonState();

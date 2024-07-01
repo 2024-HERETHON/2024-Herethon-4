@@ -16,11 +16,10 @@
       <form action="" class="form-wp">
         <div class="rp-title">
           제목을 입력해 주세요
-          <input
-            type="text"
+          <textarea
             class="input-title"
             placeholder="최대 18byte까지 작성이 가능해요"
-          />
+          ></textarea>
           <div class="error-message"></div>
         </div>
         <div class="relationship-title dropdown">
@@ -51,8 +50,8 @@
             class="rp-content"
             placeholder="최대 228byte까지 작성이 가능해요"
           ></textarea>
-          <span class="byteCount"></span>
-          <div class="error-message"></div>
+          <span class="byteCount">0byte</span>
+          <div id="t-em" class="error-message"></div>
         </div>
       </form>
       <div class="addBtn">등록하기</div>
