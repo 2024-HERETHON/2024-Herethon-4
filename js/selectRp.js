@@ -16,20 +16,19 @@ function showRp() {
       const rp = document.querySelector(".rp-list");
 
       rp.innerHTML = "";
-      const colors = ["#F9E882", "#FCB05D", "#FFACD5", "#7A9EFF"];
 
       data.forEach((element, index) => {
-        const bgColor = colors[index % colors.length];
-
+        const bgColor = "#353538";
+        const innerColor = "#D3D3D3";
         const newPaper = document.createElement("div");
         newPaper.className = "rp";
         newPaper.style.backgroundColor = bgColor;
         newPaper.dataset.id = element.id;
 
         newPaper.innerHTML = `
-              <div class="rp-kw" style="color: ${bgColor};">#${element.keyword1}</div>
-              <div class="rp-kw" style="color: ${bgColor};">#${element.keyword2}</div>
-              <div class="rp-kw" style="color: ${bgColor};">#${element.keyword3}</div>
+              <div class="rp-kw" style="color: ${innerColor};">#${element.keyword1}</div>
+              <div class="rp-kw" style="color: ${innerColor};">#${element.keyword2}</div>
+              <div class="rp-kw" style="color: ${innerColor};">#${element.keyword3}</div>
               <div class="rp-content">${element.title}</div>
               <div class="rp-relationship">${element.relationship}</div>
               <div class="rp-time">${element.time}</div>
@@ -45,13 +44,8 @@ function showRp() {
 }
 
 function showDetails(id, fp) {
-  const colors = ["#F9E882", "#FCB05D", "#FFACD5", "#7A9EFF"];
-  const contentBgColors = {
-    "#F9E882": "#fdf2af",
-    "#FCB05D": "#FFD19B",
-    "#FFACD5": "#FFD2E5",
-    "#7A9EFF": "#AFC5FD",
-  };
+  const bgColor = "#F9E882";
+  const contentBgColor = "#fdf2af";
 
   fetch(fp)
     .then((response) => response.json())
@@ -71,8 +65,6 @@ function showDetails(id, fp) {
         const detailBot = modal.querySelector(".detail-bot");
 
         const index = json.user.findIndex((element) => element.id === id);
-        const bgColor = colors[index % colors.length];
-        const contentBgColor = contentBgColors[bgColor] || bgColor;
 
         modal.style.backgroundColor = bgColor;
         detailTop.style.backgroundColor = bgColor;
