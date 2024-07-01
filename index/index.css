@@ -1,70 +1,71 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
 
-@media only screen and (max-device-width: 393px) and (max-device-height: 852px) {
-  body {
-    font-family: "pretendard";
-    background: #242427;
-    color: #ffffff;
-  }
+.container {
+  width: 393px;
+  height: 852px;
+  font-family: "pretendard";
+  background: #242427;
+  color: #ffffff;
+  overflow: hidden;
+}
 
-  .header {
-    margin-top: 116px;
-    margin-left: 27px;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 26px;
-    letter-spacing: -0.44px;
-  }
+.header {
+  margin-top: 116px;
+  margin-left: 27px;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: -0.44px;
+}
 
-  .button {
-    width: 345px;
-    height: 52px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-left: 20px;
-    border: transparent;
-  }
+.button {
+  width: 345px;
+  height: 52px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 20px;
+  border: transparent;
+}
 
-  .kakao-btn {
-    background: #fee500;
-    margin-top: 324px;
-  }
-  .email-btn {
-    background: white;
-    margin-bottom: 32px;
-  }
+.kakao-btn {
+  background: #fee500;
+  margin-top: 324px;
+}
+.email-btn {
+  background: white;
+  margin-bottom: 32px;
+}
 
-  .hr-line {
-    display: flex;
-    flex-basis: 100%;
-    align-items: center;
-    color: white;
-    font-size: 12px;
-    margin: 32px 0px;
-  }
-  .hr-line::before,
-  .hr-line::after {
-    content: "";
-    flex-grow: 1;
-    background: var(--Gray-600, #515155);
-    height: 1px;
-    line-height: 0px;
-    margin: 0px 16px;
-  }
+.hr-line {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+  margin: 32px 0px;
+}
+.hr-line::before,
+.hr-line::after {
+  content: "";
+  flex-grow: 1;
+  background: var(--Gray-600, #515155);
+  height: 1px;
+  line-height: 0px;
+  margin: 0px 16px;
+}
 
-  .login-else {
-    font-size: 12px;
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: -0.24px;
-  }
-  a {
-    color: white;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: -0.24px;
-  }
+.login-else {
+  font-size: 12px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+}
+a {
+  color: white;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.24px;
 }

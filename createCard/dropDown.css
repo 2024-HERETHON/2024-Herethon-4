@@ -1,0 +1,207 @@
+.container {
+  width: 393px;
+  height: 852px;
+  background: #242427;
+  color: #ffffff;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+.header {
+  margin: 88px 24px 0px 24px;
+  display: flex;
+  align-items: center;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 18px;
+  margin-left: -30px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.36px;
+}
+
+.profile-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 40px 0px;
+}
+
+#userPhoto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.edit-button {
+  display: flex;
+  position: absolute;
+  margin-top: 90px;
+  margin-left: 70px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+.dropbtn,
+.submit-button,
+.toggle-btn {
+  width: 345px;
+}
+
+.form-group input {
+  width: 345px !important;
+  margin-top: 8px;
+  padding: 17px 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #353538;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.form-group input::placeholder {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+}
+
+.form-group input:focus {
+  border-radius: 8px;
+  border: 0.5px solid #b2b2b4;
+  background: #353538;
+  transition: ease-in-out 300ms;
+  outline: none;
+}
+.form-group input:focus::placeholder {
+  color: transparent;
+}
+.dropdown,
+.select-wrapper {
+  width: 345px;
+}
+
+.dropbtn,
+.toggle-btn {
+  margin-top: 8px;
+  background-color: #353538;
+  color: #8c8c8e;
+  padding: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  text-align: left;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.selectbox-option {
+  display: none;
+  position: absolute;
+  background-color: #353538;
+  min-width: 100%;
+  z-index: 1;
+  border-radius: 5px;
+  padding: 16px;
+}
+.selectbox-option a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.selectbox-option a:hover {
+  background-color: #2f2f32;
+}
+
+.selectbox-option .option-btn {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  border: none;
+  display: flex;
+  background-color: #353538;
+}
+
+.submit-button {
+  padding: 17px 18px;
+  margin-top: 117px;
+  margin-bottom: 54px;
+  background-color: #8c8c8e;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 300ms ease-in-out;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.selectbox-option {
+  display: none;
+  position: absolute;
+  background-color: #353538;
+  border-radius: 8px;
+  margin-top: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.selectbox-option .option-btn:hover {
+  background-color: #2f2f32;
+  color: white;
+}
+
+.toggle-btn img {
+  transition: transform 0.3s ease;
+}
+
+.selectbox-option.show {
+  display: block;
+}
