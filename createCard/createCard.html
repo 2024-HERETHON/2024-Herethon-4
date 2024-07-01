@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>명함 추가하기</title>
+    <link rel="stylesheet" href="./createCard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <button class="back-btn">
+          <img src="../image/backBtn.svg" alt="뒤로가기 버튼" />
+        </button>
+        <h1 class="title">명함 추가하기</h1>
+      </header>
+      <div class="profile-photo">
+        <img src="../image/photo.jpg" alt="Profile Picture" id="userPhoto" />
+        <button class="edit-button">
+          <img src="../image/editBtn.svg" alt="edit button" id="editBtn" />
+        </button>
+      </div>
+      <form>
+        <div class="form-group">
+          <label for="belong">소속을 입력해 주세요</label>
+          <input type="text" id="belong" placeholder="소속" />
+        </div>
+        <div class="form-group">
+          <label for="job">직업을 입력해 주세요</label>
+          <input type="text" id="job" placeholder="직업" />
+        </div>
+        <div class="form-group">
+          <label for="hashtag">키워드를 선택해 주세요</label>
+          <section class="select-wrapper" data-role="selectbox">
+            <section class="selectbox">
+              <button type="button" class="hashtag-btn">
+                키워드
+                <img src="../image/upArrow.svg" alt="" class="hashtagArrow" />
+              </button>
+              <ul class="option">
+                <li>
+                  <button type="button" class="option-btn">항목 1</button>
+                </li>
+                <li>
+                  <button type="button" class="option-btn">항목 2</button>
+                </li>
+                <li>
+                  <button type="button" class="option-btn">항목 3</button>
+                </li>
+                <li>
+                  <button type="button" class="option-btn">항목 4</button>
+                </li>
+                <li>
+                  <button type="button" class="option-btn">항목 5</button>
+                </li>
+              </ul>
+            </section>
+          </section>
+        </div>
+        <div class="form-group">
+          <label for="rollingpaper">롤링페이퍼를 선택해 주세요</label>
+          <div class="rolling-paper" id="rollingPaper">
+            <button class="rp-btn">
+              롤링페이퍼
+              <img
+                src="../image/nextArrow.svg"
+                alt=""
+                class="rpArrow"
+                onclick="location.href='select-paper.html'"
+              />
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="submit-button">추가하기</button>
+      </form>
+    </div>
+    <script src="createCard.js"></script>
+  </body>
+</html>

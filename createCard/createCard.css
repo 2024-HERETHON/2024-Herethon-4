@@ -12,12 +12,12 @@
   align-items: center;
 }
 
-.back-btn {
+.back-btn,
+.delete-btn {
   background: none;
   border: none;
   cursor: pointer;
 }
-
 .title {
   flex-grow: 1;
   text-align: center;
@@ -28,7 +28,7 @@
   letter-spacing: -0.36px;
 }
 
-.profile-pic {
+.profile-photo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,18 +60,18 @@ form {
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 2px;
 }
 
-input[type="text"],
-.dropbtn,
-.submit-button,
-.toggle-btn {
+input,
+.select-wrapper,
+.rolling-paper,
+.submit-button {
   width: 345px;
 }
 
 .form-group input {
-  width: 345px !important;
+  width: 345px;
   margin-top: 8px;
   padding: 17px 18px;
   border: none;
@@ -102,17 +102,14 @@ input[type="text"],
 .form-group input:focus::placeholder {
   color: transparent;
 }
-.dropdown,
-.select-wrapper {
-  width: 345px;
-}
 
-.dropbtn,
-.toggle-btn {
+.hashtag-btn,
+.rp-btn {
+  width: 345px;
   margin-top: 8px;
   background-color: #353538;
   color: #8c8c8e;
-  padding: 18px;
+  padding: 17px 18px;
   border: none;
   cursor: pointer;
   border-radius: 8px;
@@ -124,33 +121,62 @@ input[type="text"],
   width: 100%;
 }
 
-.selectbox-option {
-  display: none;
-  position: absolute;
-  background-color: #353538;
-  min-width: 100%;
-  z-index: 1;
-  border-radius: 5px;
-  padding: 16px;
-}
-.selectbox-option a {
+.hashtag-btn.active {
+  border: 0.5px solid #b2b2b4;
   color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+  transition: ease-in-out 300ms;
 }
 
-.selectbox-option a:hover {
-  background-color: #2f2f32;
-}
-
-.selectbox-option .option-btn {
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
+.selectbox {
+  background-color: #3f3f43;
   border: none;
-  display: flex;
-  background-color: #353538;
+  border-radius: 8px;
+  position: relative;
+  box-sizing: border-box;
+}
+.option {
+  display: none;
+  list-style: none;
+  padding: 12px;
+  margin: 10px 0;
+  background-color: #3f3f43;
+  border-radius: 8px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  overflow-y: auto;
+  z-index: 10;
+  box-sizing: border-box;
+  max-height: 199px;
+}
+.option.show {
+  display: block;
+  background-color: #3f3f43;
+}
+button.option-btn {
+  border: 0;
+  background: transparent;
+  margin: 6px;
+  color: #8c8c8e;
+}
+.option li {
+  background-color: #3f3f43;
+  padding: 6px;
+  cursor: pointer;
+}
+.option li:hover {
+  /* color: #fff !important; */
+  background-color: #2f2f32 !important;
+  border-radius: 4px !important;
+  padding: 6px !important;
+}
+button.option-btn:hover {
+  color: #fff !important;
+}
+
+.option li:last-child {
+  border-bottom: none;
 }
 
 .submit-button {
@@ -163,45 +189,4 @@ input[type="text"],
   color: white;
   cursor: pointer;
   transition: background-color 300ms ease-in-out;
-}
-
-.hide {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
-.hidden {
-  display: none;
-}
-
-.select-wrapper {
-  position: relative;
-}
-
-.selectbox-option {
-  display: none;
-  position: absolute;
-  background-color: #353538;
-  border-radius: 8px;
-  margin-top: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.selectbox-option .option-btn:hover {
-  background-color: #2f2f32;
-  color: white;
-}
-
-.toggle-btn img {
-  transition: transform 0.3s ease;
-}
-
-.selectbox-option.show {
-  display: block;
 }

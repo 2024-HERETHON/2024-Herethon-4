@@ -18,6 +18,13 @@
   line-height: 26px;
   letter-spacing: -0.44px;
 }
+img {
+  width: 341px;
+  height: auto;
+  margin-top: 68px;
+  margin-bottom: 121px;
+  margin-left: 28px;
+}
 
 .button {
   width: 345px;
@@ -30,7 +37,7 @@
 
 .kakao-btn {
   background: #fee500;
-  margin-top: 324px;
+  /* margin-top: 324px; */
 }
 .email-btn {
   background: white;

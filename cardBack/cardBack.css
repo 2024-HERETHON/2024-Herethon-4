@@ -1,0 +1,265 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+
+.container {
+  width: 393px;
+  height: 852px;
+  font-family: "pretendard";
+  background: #242427;
+  color: #ffffff;
+  margin: 24px;
+  overflow: hidden;
+}
+
+.header {
+  margin-top: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+.title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.36px;
+}
+
+.shareBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  right: 25px;
+  top: 3px;
+}
+
+.dumy {
+  display: flex;
+  align-items: center;
+}
+
+.cardAddBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  flex-grow: 2;
+  margin-top: 44px;
+  margin-left: 35px;
+}
+
+#tost-message {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+  text-align: center;
+  padding: 8px 12px;
+  margin-top: 28px;
+  margin-left: 131px;
+  border-radius: 4px;
+  background: #3f3f43;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  width: 117px;
+  align-items: center;
+}
+
+#tost-message.active {
+  opacity: 1;
+  transition: ease-in-out 300ms;
+}
+
+.carousel {
+  position: relative;
+  margin-top: 117px;
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cards-container {
+  display: flex;
+  transition: 300ms ease-in-out;
+}
+
+.card {
+  min-width: 90%;
+  margin-top: 45px;
+  margin-left: 20px;
+  margin-right: 13px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+}
+
+.card.is-flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8.1px;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.info {
+  display: flex;
+  margin: 32px;
+}
+.infoLeft {
+  text-align: left;
+}
+.infoRight {
+  margin-left: auto;
+}
+
+.myName {
+  color: #2f2f32;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: -0.44px;
+}
+
+.myBirth,
+.myAffiliation,
+.myJob,
+.myHashtag {
+  margin-top: 8px;
+  color: #515155;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: -0.28px;
+}
+
+.myHashtag {
+  margin-top: 40px;
+  text-align: right;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: -0.44px;
+}
+
+.myAvatar {
+  width: 220px;
+  height: 220px;
+  position: absolute;
+  bottom: 20px;
+  left: 60%;
+  top: 44%;
+  transform: translateX(-50%);
+}
+
+.first {
+  margin: 20px 21px 13px 21px;
+  display: flex;
+  flex-direction: column;
+}
+.tags {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12px;
+}
+.tag {
+  margin-right: 7px;
+  padding: 4px 5px;
+  border-radius: 3px;
+  background: #2f2f32;
+  overflow: hidden;
+  color: #f9e882;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-size: 9.5px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.191px;
+}
+.titleZone {
+  display: flex;
+  color: #2f2f32;
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 16.684px; /* 116.667% */
+  letter-spacing: -0.286px;
+}
+.content {
+  color: #2f2f32;
+  text-align: center;
+  margin: 10px 21px;
+  border-radius: 8px;
+  display: flex;
+  height: 165px;
+  padding: 16px 14px;
+  justify-content: center;
+  align-items: center;
+}
+.writeDate {
+  color: #515155;
+  text-align: right;
+  margin-right: 20px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 5px;
+  background-color: #7b7b7e;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.modifyBtn {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 150px;
+  margin-top: 30px;
+  margin: 30px 0px 48px 145px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #fff;
+}
