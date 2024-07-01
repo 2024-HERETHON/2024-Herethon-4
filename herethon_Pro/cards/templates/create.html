@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>명함 생성</h2>
-    <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+    <form method="POST" action="{% url 'cards:create' %}" enctype="multipart/form-data">
         {% csrf_token %}
         이름 - <input type="text" name="name"><br><br> 
         소속 - <input type="text" name="position"><br><br> 

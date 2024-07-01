@@ -8,7 +8,7 @@
 <body>
     <!-- 명함 생성 버튼(명함이 3개이면 버튼이 없어짐) -->
     {% if card_count < 3 %}
-        <a href="{% url 'create' %}">명함생성</a><br><br>
+        <a href="{% url 'cards:create' %}">명함생성</a><br><br>
     {% endif %}
 
     <!-- 명함 3개 -->
@@ -30,10 +30,10 @@
         <br>
 
         <!-- 명함 수정 버튼 -->
-        <a href="{% url 'update' card.id %}">수정하기</a>
+        <a href="{% url 'cards:update' card.id %}">수정하기</a>
         <!-- 명함 삭제 버튼(명함이 1개 있을 시에는 삭제 못함) -->
         {% if card_count != 1 %}
-            <a href="{% url 'delete' card.id %}">삭제하기</a>
+            <a href="{% url 'cards:delete' card.id %}">삭제하기</a>
         {% endif %}
     <br><br>
         
