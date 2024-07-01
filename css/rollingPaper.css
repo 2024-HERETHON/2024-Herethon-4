@@ -248,37 +248,50 @@
 .prof-img {
   float: left;
 }
+.prof-right {
+  float: left;
+  height: 50px;
+  width: 250px;
+}
+.prof-name,
+.prof-relationship,
+.affiliation,
+.occupation {
+  color: #515155;
+  font-family: Pretendard;
+}
 .prof-name {
   float: left;
-  color: #515155;
+  margin-left: 10px;
   font-size: 18px;
   font-weight: 700;
   line-height: 21px;
   letter-spacing: -0.36px;
-  margin-left: 10px;
 }
-.prof-relationship,
-.affiliation,
-.occupation {
+.prof-relationship {
   float: left;
-  color: #515155;
+  padding-top: 1px;
+  margin-left: 10px;
   font-size: 12px;
   font-weight: 400;
   line-height: 19px;
   letter-spacing: -0.24px;
 }
-
-.prof-relationship {
-  margin-left: 8px;
-  margin-top: 2px;
-}
 .affiliation {
-  position: relative;
-  margin-top: 25px;
-  right: 73px;
+  clear: both;
+  padding-top: 3px;
+  margin-right: 160px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: -0.24px;
 }
 .occupation {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: -0.24px;
   position: relative;
-  margin-top: 25px;
-  right: 65px;
+  bottom: 19px;
+  left: 5px;
 }

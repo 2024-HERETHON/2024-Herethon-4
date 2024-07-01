@@ -13,93 +13,25 @@
   letter-spacing: -0.36px;
   padding-top: 1px;
 }
-
+.btn-back {
+  float: left;
+}
 .title {
   margin-top: 20%;
+  margin-right: 40px;
   height: 50px;
   color: #fff;
 }
-.btn-share {
-  position: relative;
-  top: 5px;
-  left: 70px;
-}
-.tost-share {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 19px;
-  letter-spacing: -0.24px;
-  opacity: 0;
-  position: relative;
-  top: 23px;
-  left: 110px;
-  width: 120px;
-  padding: 8px 12px;
-  align-items: center;
-  border-radius: 4px;
-  background: #3f3f43;
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease-in-out;
-}
-.tost-share.active {
-  opacity: 100%;
-  bottom: 50px;
-}
-.btn-namecard-wp {
-  margin-left: 67%;
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 19px;
-  letter-spacing: -0.28px;
-  display: inline-flex;
-  padding: 8px 12px;
-  align-items: center;
-  border-radius: 50px;
-  border: 0.5px solid #fff;
-  top: 150px;
-  left: 128px;
-}
-
-.rp-selector {
-  margin-top: 5%;
-  width: 365px;
-  border-bottom: 1px solid #3f3f43;
-}
-.rp-selector-recv,
-.rp-selector-send {
-  display: inline-block;
-  position: relative;
-  right: 70px;
-  top: 1px;
-  font-size: 16px;
-  font-weight: 500;
-  padding-bottom: 8px;
-  line-height: 19px;
-  letter-spacing: -0.32px;
-}
-.rp-selector-recv {
-  color: #fff;
-  border-bottom: 1px solid #f9e882;
-}
-.rp-selector-send {
-  color: #8c8c8e;
-  margin-left: 10px;
-  border-bottom: none;
-}
-
 ::-webkit-scrollbar {
   width: 2px;
 }
 
 .paperlist {
   width: 100%;
-  height: 70%;
+  height: 77.5%;
   position: relative;
-  top: 20px;
+  top: 5px;
   overflow-y: scroll;
-  max-height: 70%;
 }
 
 .rp {
@@ -267,6 +199,7 @@
 .prof-img {
   float: left;
 }
+
 .prof-right {
   float: left;
   height: 50px;
