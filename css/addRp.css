@@ -113,6 +113,14 @@ input[type="text"] {
 select:focus {
   outline: none;
 }
+select:hover,
+textarea:hover,
+input:hover {
+  transition: 300ms ease-in-out;
+  border-radius: 8px;
+  border: 0.5px solid #b2b2b4;
+  background: #353538;
+}
 select {
   width: 365.97px;
   color: #fff;
