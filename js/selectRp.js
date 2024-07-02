@@ -6,7 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const sendState = document.querySelector(".rp-selector-send");
 const recvState = document.querySelector(".rp-selector-recv");
+let selectedRp = null;
+let clickCount = 0;
 
+const selectBtn = document.querySelector(".selectBtn");
+selectBtn.style.transition = "background-color 300ms ease-in-out";
 // 받은 롤링페이퍼 확인
 function showRp() {
   fetch("/userData.json")
@@ -34,13 +38,63 @@ function showRp() {
               <div class="rp-time">${element.time}</div>
             `;
 
-        newPaper.addEventListener("click", () =>
-          showDetails(element.id, "/userData.json")
-        );
-
+        newPaper.addEventListener("click", () => {
+          toggleSelection(newPaper, element.id);
+        });
         rp.appendChild(newPaper);
       });
     });
+}
+
+function toggleSelection(rpElement, id) {
+  const selectedBgColor = "#F9E882";
+  const selectedTextColor = "#2F2F32";
+  const unselectedBgColor = "#353538";
+  const unselectedKwColor = "#D3D3D3";
+
+  if (selectedRp && selectedRp !== rpElement) {
+    // 이전 선택된 롤링페이퍼의 색상 원상복귀
+    resetRpStyle(selectedRp, unselectedBgColor, unselectedKwColor);
+    selectedRp = null;
+    clickCount = 0;
+  }
+
+  clickCount++;
+
+  if (clickCount === 1) {
+    // 새로운 롤링페이퍼 선택 시 색상 변경
+    rpElement.style.backgroundColor = selectedBgColor;
+    rpElement.querySelectorAll(".rp-kw").forEach((kw) => {
+      kw.style.color = selectedBgColor;
+    });
+    rpElement.querySelector(".rp-content").style.color = selectedTextColor;
+    rpElement.querySelector(".rp-relationship").style.color = selectedTextColor;
+    rpElement.querySelector(".rp-time").style.color = selectedTextColor;
+    selectedRp = rpElement;
+    activateSelectBtn(true);
+  } else if (clickCount >= 2) {
+    showDetails(id, "/userData.json");
+  }
+}
+
+function resetRpStyle(rpElement, bgColor, kwColor) {
+  rpElement.style.backgroundColor = bgColor;
+  rpElement.querySelectorAll(".rp-kw").forEach((kw) => {
+    kw.style.color = kwColor;
+  });
+  rpElement.querySelector(".rp-content").style.color = kwColor;
+  rpElement.querySelector(".rp-relationship").style.color = kwColor;
+  rpElement.querySelector(".rp-time").style.color = kwColor;
+}
+
+function activateSelectBtn(activate) {
+  if (activate) {
+    selectBtn.style.backgroundColor = "#F9E882";
+    selectBtn.style.cursor = "pointer";
+  } else {
+    selectBtn.style.backgroundColor = "transparent";
+    selectBtn.style.cursor = "default";
+  }
 }
 
 function showDetails(id, fp) {
@@ -63,8 +117,6 @@ function showDetails(id, fp) {
         const occupation = modal.querySelector(".occupation");
         const detailTop = modal.querySelector(".detail-top");
         const detailBot = modal.querySelector(".detail-bot");
-
-        const index = json.user.findIndex((element) => element.id === id);
 
         modal.style.backgroundColor = bgColor;
         detailTop.style.backgroundColor = bgColor;
@@ -97,10 +149,12 @@ function showDetails(id, fp) {
       }
     });
 }
+
 function goback() {
   const modal = document.querySelector(".modal");
   modal.style.display = "none";
+  clickCount = 1;
 }
 
-//프로필 클릭 시 명함으로 이동하는 코드 추가해야 함
-//작성화면으로 넘어가는 코드 추가, 뒤로가기 추가, 모달창 명함바로가기 추가
+// 프로필 클릭 시 명함으로 이동하는 코드 추가해야 함
+// 작성화면으로 넘어가는 코드 추가, 뒤로가기 추가, 모달창 명함바로가기 추가
