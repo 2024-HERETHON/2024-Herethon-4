@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'cards',
     'users',
     'accounts',
+    'articleapp',
+    'projectapp',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +131,25 @@ STATIC_URL = 'static/'
 AUTH_USER_MODEL = 'users.user'  # users앱의 모델을 사용자 인증 모델로 사용할 것
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#특정 앱에 종속되어있지 않은 static 파일을 관리하기 위해 static 디렉토리 따로 만듬. 그 경로 적은것.
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+import os
+from django.urls import reverse_lazy
+
+LOGIN_REDIRECT_URL = reverse_lazy('home')
+LOGOUT_REDIRECT_URL = reverse_lazy('accounts:login')
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #media 파일 서버에 올렸을때 지정될 root 경로에 대한 정보
+
+
+

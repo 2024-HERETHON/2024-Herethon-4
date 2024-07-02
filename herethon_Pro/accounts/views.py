@@ -28,5 +28,5 @@ def login_view(request):
     form = AuthenticationForm(request, data = request.POST)
     if form.is_valid():
         login(request, form.user_cache)
-        return redirect('accounts:list') # 수정필요
+        return redirect('home') # 수정필요
     return render(request, 'accounts/login.html', {'form' : form})
