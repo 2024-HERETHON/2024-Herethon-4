@@ -22,15 +22,26 @@
           ></textarea>
           <div class="error-message"></div>
         </div>
-        <div class="relationship-title dropdown">
+        <div class="relationship-title">
           {user}님과 어떤 관계인가요?
-          <select name="relationship" id="relationship" required>
-            <option name="rel" value="" selected disabled>관계</option>
-            <option value="family">가족</option>
-            <option value="friend">지인</option>
-            <option value="superior">직장 상사</option>
-            <option value="etc">기타</option>
-          </select>
+          <div class="dropdown">
+            <div class="dropdown-selected">
+              관계
+              <img
+                class="select-btn"
+                src="/img/select-arrow.png"
+                alt="select-btn"
+              />
+            </div>
+            <div class="dropdown-option">
+              <ul class="dropdown-list">
+                <li data-value="family">가족</li>
+                <li data-value="friend">지인</li>
+                <li data-value="superior">직장 상사</li>
+                <li data-value="etc">기타</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class="kw-title">
           {user}님의 대표 키워드 세 개는 무엇인가요?
