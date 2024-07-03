@@ -1,0 +1,173 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+
+.container {
+  margin: 0 auto;
+  padding-left: 25px;
+  width: 393px;
+  height: 852px;
+  background: #242427;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: -0.36px;
+  padding-top: 1px;
+}
+.btn-back {
+  float: left;
+}
+.title {
+  margin-top: 20%;
+  margin-right: 45px;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+}
+
+.rp-title,
+.relationship-title,
+.kw-title,
+.content-title {
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: -0.32px;
+  float: left;
+}
+.rp-title {
+  margin-bottom: 20px;
+}
+.relationship-title,
+.kw-title {
+  margin-bottom: 25px;
+}
+input,
+select,
+textarea {
+  margin-left: 2px;
+  margin-top: 10px;
+  width: 330px;
+  padding: 17px 18px;
+  border-radius: 8px;
+  background: #353538;
+  border: none;
+  color: #fff;
+  font-family: Pretendard;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+textarea {
+  resize: none;
+}
+textarea::placeholder {
+  font-family: Pretendard;
+  color: #8c8c8e;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: -0.28px;
+}
+.input-error {
+  border: 1px solid red;
+  color: red;
+}
+.error-message {
+  float: left;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  color: red;
+  font-size: 10px;
+  display: none;
+  font-weight: 400;
+  line-height: 10px;
+  letter-spacing: -0.16px;
+}
+.byteCount {
+  float: right;
+  position: relative;
+  bottom: 25px;
+  right: 8px;
+  color: #8c8c8e;
+  text-align: right;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: -0.28px;
+}
+.exceed {
+  color: red;
+}
+
+input[type="text"] {
+  color: white;
+  font-family: Pretendard;
+}
+
+select:focus {
+  outline: none;
+}
+select:hover,
+textarea:hover,
+input:hover {
+  transition: 300ms ease-in-out;
+  border-radius: 8px;
+  border: 0.5px solid #b2b2b4;
+  background: #353538;
+}
+select {
+  width: 365.97px;
+  color: #fff;
+  appearance: none;
+  background: url("/img/select-arrow.png") no-repeat right 24px center;
+  background-color: #353538;
+}
+select option[value=""][disabled] {
+  display: none;
+}
+select:required:invalid {
+  color: #8c8c8e;
+}
+.kw {
+  float: left;
+  height: 19px;
+  width: 76px;
+  margin-right: 12px;
+  padding: 17px 18px;
+  text-align: center;
+  color: #fff;
+  font-family: Pretendard;
+}
+.input-title {
+  padding-bottom: 3px;
+}
+.rp-content {
+  display: flex;
+  width: 330px;
+  height: 150px;
+  padding: 17px 18px;
+}
+.addBtn {
+  float: left;
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+  position: relative;
+  top: 75px;
+  width: 365px;
+  height: 34px;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #8c8c8e;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: -0.28px;
+  margin-left: 2px;
+  padding-top: 15px;
+}

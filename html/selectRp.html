@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{user}의 롤링페이퍼</title>
+    <link rel="stylesheet" href="/css/selectRp.css" />
+    <!--회원가입 때 받아온 이름으로 출력되도록 변경-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <img src="/img/arrow-backBtn.png" alt="backBtn" class="btn-back" />
+        롤링페이퍼 선택
+      </div>
+      <div class="paperlist">
+        <div class="rp-list"></div>
+      </div>
+      <div class="modal" style="display: none">
+        <div class="blur" style="z-index: 90">
+          <div class="detail" style="z-index: 100">
+            <div class="detail-top">
+              <div class="backBtn-wp">
+                <img src="/img/backBtn.png" alt="back button" class="backBtn" />
+              </div>
+              <div class="detail-kw-wp"></div>
+              <div class="detail-title"></div>
+              <div class="detail-content"></div>
+              <div class="detail-time"></div>
+              <div class="profile"></div>
+            </div>
+            <div class="detail-bot">
+              <hr class="detail-line" />
+              <div class="profile">
+                <img
+                  src="/img/prof-temp.png
+          "
+                  class="prof-img"
+                  alt="prof-img"
+                />
+                <div class="prof-right">
+                  <div class="prof-name"></div>
+                  <div class="prof-relationship"></div>
+                  <div class="affiliation"></div>
+                  <div class="occupation"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="selectBtn" style="z-index: 1000">선택하기</div>
+    </div>
+  </body>
+  <script src="/js/selectRp.js"></script>
+</html>

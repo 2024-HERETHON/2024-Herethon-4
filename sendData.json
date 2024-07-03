@@ -1,0 +1,58 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "sender": "김철수",
+      "title": "이것은 바로 몇바이",
+      "relationship": "친구",
+      "keyword1": "친절함",
+      "keyword2": "상냥함",
+      "keyword3": "다정함",
+      "content": "길동아 너는 정말 친절하고 좋은 아이야 하하 계속 나와 친구를 해주겠어? 내년에도 같은 반하자! 화이팅~",
+      "time": "2024년 6월 29일",
+      "affiliation": "성신여자대학교",
+      "occupation": "학생/UX디자이너"
+    },
+
+    {
+      "id": 2,
+      "sender": "김바보",
+      "title": "내가 누구게",
+      "relationship": "언니",
+      "keyword1": "사랑스러움",
+      "keyword2": "바보같음",
+      "keyword3": "친절함",
+      "content": "언니는 항상 인사를 먼저 건네는 착한 사람입니다.",
+      "time": "2024년 6월 29일",
+      "affiliation": "동덕여자대학교",
+      "occupation": "학생/UX디자이너"
+    },
+    {
+      "id": 3,
+      "sender": "윤헤헤",
+      "title": "길동아ㅋㅋ",
+      "relationship": "친구",
+      "keyword1": "친절함",
+      "keyword2": "상냥함",
+      "keyword3": "다정함",
+      "content": "길동이는 항상 인사를 먼저 건네는 착한 사람입니다.",
+      "time": "2024년 6월 29일",
+      "affiliation": "성신여자대학교",
+      "occupation": "학생/UX디자이너"
+    },
+
+    {
+      "id": 4,
+      "sender": "김철수",
+      "title": "길동이 바보~",
+      "relationship": "언니",
+      "keyword1": "사랑스러움",
+      "keyword2": "바보같음",
+      "keyword3": "친절함",
+      "content": "언니는 항상 인사를 먼저 건네는 착한 사람입니다.",
+      "time": "2024년 6월 29일",
+      "affiliation": "성신여자대학교",
+      "occupation": "학생/UX디자이너"
+    }
+  ]
+}

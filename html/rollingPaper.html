@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{user}의 롤링페이퍼</title>
+    <link rel="stylesheet" href="/css/rollingPaper.css" />
+    <!--회원가입 때 받아온 이름으로 출력되도록 변경-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <img src="/img/arrow-backBtn.png" alt="backBtn" class="btn-back" />
+        user님의 롤링페이퍼
+        <img
+          class="btn-share"
+          src="/img/share.png"
+          alt="share"
+          onclick="clip()"
+        />
+        <div class="tost-share">링크가 복사되었어요</div>
+      </div>
+      <img src="/img/addRpBtn.png" alt="add button" class="btn-add" />
+      <div class="btn-namecard-wp">
+        명함
+        <img
+          src="/img/arrow-namecard.png"
+          alt="go to namecard btn"
+          class="btn-namcard"
+        />
+      </div>
+      <div class="paperlist">
+        <div class="rp-list"></div>
+      </div>
+      <div class="modal" style="display: none">
+        <div class="blur" style="z-index: 90">
+          <div class="detail" style="z-index: 100">
+            <div class="detail-top">
+              <div class="backBtn-wp">
+                <img src="/img/backBtn.png" alt="back button" class="backBtn" />
+              </div>
+              <div class="detail-kw-wp"></div>
+              <div class="detail-title"></div>
+              <div class="detail-content"></div>
+              <div class="detail-time"></div>
+              <div class="profile"></div>
+            </div>
+            <div class="detail-bot">
+              <hr class="detail-line" />
+              <div class="profile">
+                <img
+                  src="/img/prof-temp.png
+          "
+                  class="prof-img"
+                  alt="prof-img"
+                />
+                <div class="prof-right">
+                  <div class="prof-name"></div>
+                  <div class="prof-relationship"></div>
+                  <div class="affiliation"></div>
+                  <div class="occupation"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/js/rollingPaper.js"></script>
+</html>

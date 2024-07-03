@@ -1,0 +1,149 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "sender": "뉴유저",
+      "title": "저 새로 왔어요 ",
+      "relationship": "친구",
+      "keyword1": "친절함",
+      "keyword2": "상냥함",
+      "keyword3": "다정함",
+      "content": "길동아 내년에도 같은 반하자! 화이팅~",
+      "time": "2024년 6월 29일",
+      "affiliation": "성신여자대학교",
+      "occupation": "학생/UX디자이너"
+    },
+
+    {
+      "id": 2,
+      "sender": "뉴비",
+      "title": "이것은 바로 몇바이트일까",
+      "relationship": "언니",
+      "keyword1": "사랑스러움",
+      "keyword2": "바보같음",
+      "keyword3": "친절함",
+      "content": "환영해주세요~",
+      "time": "2024년 6월 29일",
+      "affiliation": "동덕여자대학교",
+      "occupation": "학생/UX디자이너"
+    },
+    {
+      "id": 3,
+      "sender": "또또",
+      "title": "길동이 최고.",
+      "relationship": "친구",
+      "keyword1": "친절함",
+      "keyword2": "상냥함",
+      "keyword3": "다정함",
+      "content": "길동이는 항상 인사를 먼저 건네는 착한 사람입니다.",
+      "time": "2024년 6월 29일",
+      "affiliation": "덕성여자대학교",
+      "occupation": "학생/UX디자이너"
+    },
+
+    {
+      "id": 4,
+      "sender": "둘리",
+      "title": "길동이 친절해요.",
+      "relationship": "친구",
+      "keyword1": "친절함",
+      "keyword2": "상냥함",
+      "keyword3": "다정함",
+      "content": "길동아 너는 정말 친절하고 좋은 아이야 내년에도 같은 반하자! 화이팅~",
+      "time": "2024년 6월 30일",
+      "affiliation": "숙명여자대학교",
+      "occupation": "학생/UX디자이너"
+    },
+    {
+      "id": 5,
+      "sender": "둘리",
+      "title": "길동이 친절해요.",
+      "relationship": "친구",
+      "keyword1": "친절함",
+      "keyword2": "상냥함",
+      "keyword3": "다정함",
+      "content": "길동아 너는 정말 친절하고 좋은 아이야 내년에도 같은 반하자! 화이팅~",
+      "time": "2024년 6월 30일",
+      "affiliation": "숙명여자대학교",
+      "occupation": "학생/UX디자이너"
+    },
+    {
+      "id": 6,
+      "sender": "둘리",
+      "title": "길동이 친절해요.",
+      "relationship": "친구",
+      "keyword1": "친절함",
+      "keyword2": "상냥함",
+      "keyword3": "다정함",
+      "content": "길동아 너는 정말 친절하고 좋은 아이야 내년에도 같은 반하자! 화이팅~",
+      "time": "2024년 6월 30일",
+      "affiliation": "숙명여자대학교",
+      "occupation": "학생/UX디자이너"
+    },
+    {
+      "id": 6,
+      "sender": "둘리",
+      "title": "길동이 친절해요.",
+      "relationship": "친구",
+      "keyword1": "친절함",
+      "keyword2": "상냥함",
+      "keyword3": "다정함",
+      "content": "길동아 너는 정말 친절하고 좋은 아이야 내년에도 같은 반하자! 화이팅~",
+      "time": "2024년 6월 30일",
+      "affiliation": "숙명여자대학교",
+      "occupation": "학생/UX디자이너"
+    },
+    {
+      "id": 6,
+      "sender": "둘리",
+      "title": "길동이 친절해요.",
+      "relationship": "친구",
+      "keyword1": "친절함",
+      "keyword2": "상냥함",
+      "keyword3": "다정함",
+      "content": "길동아 너는 정말 친절하고 좋은 아이야 내년에도 같은 반하자! 화이팅~",
+      "time": "2024년 6월 30일",
+      "affiliation": "숙명여자대학교",
+      "occupation": "학생/UX디자이너"
+    },
+    {
+      "id": 6,
+      "sender": "둘리",
+      "title": "길동이 친절해요.",
+      "relationship": "친구",
+      "keyword1": "친절함",
+      "keyword2": "상냥함",
+      "keyword3": "다정함",
+      "content": "길동아 너는 정말 친절하고 좋은 아이야 내년에도 같은 반하자! 화이팅~",
+      "time": "2024년 6월 30일",
+      "affiliation": "숙명여자대학교",
+      "occupation": "학생/UX디자이너"
+    },
+    {
+      "id": 6,
+      "sender": "둘리",
+      "title": "길동이 친절해요.",
+      "relationship": "친구",
+      "keyword1": "친절함",
+      "keyword2": "상냥함",
+      "keyword3": "다정함",
+      "content": "길동아 너는 정말 친절하고 좋은 아이야 내년에도 같은 반하자! 화이팅~",
+      "time": "2024년 6월 30일",
+      "affiliation": "숙명여자대학교",
+      "occupation": "학생/UX디자이너"
+    },
+    {
+      "id": 6,
+      "sender": "둘리",
+      "title": "길동이 친절해요.",
+      "relationship": "친구",
+      "keyword1": "친절함",
+      "keyword2": "상냥함",
+      "keyword3": "다정함",
+      "content": "길동아 너는 정말 친절하고 좋은 아이야 내년에도 같은 반하자! 화이팅~",
+      "time": "2024년 6월 30일",
+      "affiliation": "숙명여자대학교",
+      "occupation": "학생/UX디자이너"
+    }
+  ]
+}

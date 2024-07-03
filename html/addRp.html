@@ -1,0 +1,60 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{user}의 롤링페이퍼</title>
+    <link rel="stylesheet" href="/css/addRp.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <img src="/img/arrow-backBtn.png" alt="backBtn" class="btn-back" />
+        롤링페이퍼 작성하기
+      </div>
+      <form action="" class="form-wp">
+        <div class="rp-title">
+          제목을 입력해 주세요
+          <textarea
+            class="input-title"
+            placeholder="최대 25byte까지 작성이 가능해요"
+          ></textarea>
+          <div class="error-message"></div>
+        </div>
+        <div class="relationship-title dropdown">
+          {user}님과 어떤 관계인가요?
+          <select name="relationship" id="relationship" required>
+            <option name="rel" value="" selected disabled>관계</option>
+            <option value="family">가족</option>
+            <option value="friend">지인</option>
+            <option value="superior">직장 상사</option>
+            <option value="etc">기타</option>
+          </select>
+        </div>
+        <div class="kw-title">
+          {user}님의 대표 키워드 세 개는 무엇인가요?
+          <div class="kw-wp">
+            <input type="text" class="kw" placeholder="#키워드" />
+            <input type="text" class="kw" placeholder="#키워드" />
+            <input type="text" class="kw" placeholder="#키워드" />
+          </div>
+          <div class="error-message"></div>
+        </div>
+        <div class="content-title">
+          {user}님에 대한 롤링페이퍼를 적어주세요
+          <textarea
+            name="rollingpaper"
+            id="rp"
+            class="rp-content"
+            placeholder="최대 228byte까지 작성이 가능해요"
+          ></textarea>
+          <span class="byteCount">0byte</span>
+          <div id="t-em" class="error-message"></div>
+        </div>
+      </form>
+      <div class="addBtn">등록하기</div>
+    </div>
+    <script src="/js/addRp.js"></script>
+  </body>
+</html>
