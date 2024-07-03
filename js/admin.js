@@ -19,7 +19,7 @@ function clip() {
   document.body.removeChild(textarea);
 }
 //공유 버튼 클릭 시 토스트창
-const tostBtn = document.querySelector(".btn-share");
+const tostBtn = document.querySelector(".btn-kakao");
 const tostMsg = document.querySelector(".tost-share");
 function tostOn() {
   tostMsg.classList.add("active");

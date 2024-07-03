@@ -4,6 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
   setModal.style.display = "none";
 });
 
+const backBtn = document.querySelector(".btn-back");
+backBtn.addEventListener("click", () => {
+  window.open("/html/rollingPaper.html", "_self");
+}); // 수정: 명함 추가하기 페이지로 이동하도록
+
 const sendState = document.querySelector(".rp-selector-send");
 const recvState = document.querySelector(".rp-selector-recv");
 let selectedRp = null;
@@ -11,6 +16,7 @@ let clickCount = 0;
 
 const selectBtn = document.querySelector(".selectBtn");
 selectBtn.style.transition = "background-color 300ms ease-in-out";
+
 // 받은 롤링페이퍼 확인
 function showRp() {
   fetch("/userData.json")
@@ -90,6 +96,7 @@ function resetRpStyle(rpElement, bgColor, kwColor) {
 function activateSelectBtn(activate) {
   if (activate) {
     selectBtn.style.backgroundColor = "#F9E882";
+    selectBtn.style.color = "#2F2F32";
     selectBtn.style.cursor = "pointer";
   } else {
     selectBtn.style.backgroundColor = "transparent";

@@ -154,12 +154,12 @@ select:required:invalid {
   padding: 17px 18px;
 }
 .addBtn {
+  float: left;
   transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
-  margin-top: 20px;
-  position: fixed;
-  bottom: 190px;
-  width: 363px;
-  height: 37px;
+  position: relative;
+  top: 75px;
+  width: 365px;
+  height: 34px;
   color: #fff;
   text-align: center;
   border-radius: 8px;
@@ -168,5 +168,6 @@ select:required:invalid {
   font-weight: 500;
   line-height: 19px;
   letter-spacing: -0.28px;
+  margin-left: 2px;
   padding-top: 15px;
 }

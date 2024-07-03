@@ -56,16 +56,19 @@
   text-align: center;
 }
 .rp-kw {
-  width: 26px;
+  width: 25px;
   height: 10px;
   margin-right: 5px;
   font-size: 8px;
   font-weight: 400;
   line-height: 10px;
   letter-spacing: -0.16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .detail-kw {
-  width: 50px;
+  width: 60px;
   height: 20px;
   color: #f9e882;
   font-size: 12px;

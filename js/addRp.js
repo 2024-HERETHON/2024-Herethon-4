@@ -1,3 +1,8 @@
+const backBtn = document.querySelector(".btn-back");
+backBtn.addEventListener("click", () => {
+  window.open("/html/rollingPaper.html", "_self");
+});
+//사용자별 id값 알아와서 경로 뒤에 추가하는 방식으로 변경
 function checkByte(input, maxByte) {
   let byteCount = 0;
   for (let i = 0; i < input.value.length; i++) {
@@ -59,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const textarea = document.getElementById("rp");
   const maxBytes = {
     "rp-content": 228,
-    "input-title": 18,
+    "input-title": 25,
   };
 
   textarea.addEventListener("input", function () {

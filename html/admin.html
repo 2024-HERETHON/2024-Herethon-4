@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:url" content="http://127.0.0.1:5500/html/admin.html" />
+    <meta property="og:title" content="Gleam을 통해 마음을 표현해 보세요!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/img/shareImg.png" />
+    <meta
+      property="og:description"
+      content="친구로부터 초대장이 도착했어요. 지금 롤링페이퍼를 남겨주세요!"
+    />
     <title>{user}의 롤링페이퍼</title>
     <link rel="stylesheet" href="/css/admin.css" />
     <!--회원가입 때 받아온 이름으로 출력되도록 변경-->
@@ -11,13 +19,10 @@
     <div class="container">
       <div class="title">
         user님의 롤링페이퍼
-        <img
-          class="btn-share"
-          src="/img/share.png"
-          alt="share"
-          onclick="clip()"
-        />
-        <div class="tost-share">링크가 복사되었어요</div>
+        <a class="btn-kakao" href="javascript:kakaoShare()"
+          ><img class="btn-kakao" src="/img/share.png" alt="kakaotalk"
+        /></a>
+        <div class="tost-share">카카오톡으로 요청을 보냈어요</div>
       </div>
       <div class="btn-namecard-wp">
         명함
@@ -73,4 +78,17 @@
     </div>
   </body>
   <script src="/js/admin.js"></script>
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <script type="text/javascript">
+    Kakao.init("7b6f288c02d16c4d6ed16b656e5ed6e7");
+    console.log(Kakao.isInitialized());
+
+    function kakaoShare() {
+      Kakao.Share.createScrapButton({
+        container: ".btn-kakao",
+        requestUrl: "http://127.0.0.1:5500",
+        templateId: 109650,
+      });
+    }
+  </script>
 </html>

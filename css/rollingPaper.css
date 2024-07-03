@@ -92,7 +92,9 @@
   padding: 12px;
   border-radius: 8px;
   background: #f9e882;
+  display: block;
 }
+
 /*키워드 공통 디자인*/
 .rp-kw,
 .detail-kw {
@@ -105,16 +107,19 @@
   text-align: center;
 }
 .rp-kw {
-  width: 26px;
+  width: 25px;
   height: 10px;
   margin-right: 5px;
   font-size: 8px;
   font-weight: 400;
   line-height: 10px;
   letter-spacing: -0.16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .detail-kw {
-  width: 50px;
+  width: 60px;
   height: 20px;
   color: #f9e882;
   font-size: 12px;
@@ -123,12 +128,11 @@
   line-height: 19px;
   letter-spacing: -0.24px;
 }
-
 .rp-content {
   clear: both;
   position: relative;
-  width: 330px;
-  height: 18px;
+  width: 150px;
+  height: 23px;
   top: 12px;
   color: #2f2f32;
   font-size: 15px;
@@ -138,17 +142,25 @@
 }
 .rp-relationship,
 .rp-time {
-  display: inline-block;
-  width: 45px;
+  width: 50px;
   color: #2f2f32;
   font-size: 9px;
   font-weight: 400;
   letter-spacing: -0.16px;
   text-align: left;
-  margin-top: 20px;
+  margin-top: 13px;
+}
+.rp-relationship {
+  width: 55px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
 .rp-time {
-  display: inline-block;
+  position: relative;
+  bottom: 34px;
+  left: 50px;
   width: 65px;
   margin-left: 35px;
 }

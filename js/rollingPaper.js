@@ -3,6 +3,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const setModal = document.querySelector(".modal");
   setModal.style.display = "none";
 });
+const backBtn = document.querySelector(".btn-back");
+backBtn.addEventListener("click", () => {
+  window.open("/html/admin.html", "_self");
+}); // 수정: 어디로 이동해야하는지?
+
+const addBtn = document.querySelector(".btn-add");
+addBtn.addEventListener("click", () => {
+  window.open("/html/addRp.html", "_self");
+});
 
 const sendState = document.querySelector(".rp-selector-send");
 const recvState = document.querySelector(".rp-selector-recv");
