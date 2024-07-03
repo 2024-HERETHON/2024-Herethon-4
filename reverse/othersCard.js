@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const cardsData = [
     {
-      myName: "홍길동이",
+      myName: "김김철수",
       myBirth: "2000.00.00",
       myAffiliation: "가나대학교",
       myJob: "학생/UX디자이너",
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       myAvatar: "../img/initPhoto.svg",
     },
     {
-      myName: "홍길동",
+      myName: "김철수",
       myBirth: "1999.01.01",
       myAffiliation: "다라마바사아대학교",
       myJob: "학생/개발자",
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       myAvatar: "../img/initPhoto.svg",
     },
     {
-      myName: "홍길동",
+      myName: "김철수",
       myBirth: "2001.01.01",
       myAffiliation: "마바대학교",
       myJob: "학생/디자이너",
@@ -35,20 +35,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const othersData = [
     {
-      othersName: "김철수",
-      othersBirth: "2000.00.00",
-      othersAffiliation: "가나대학교",
-      othersJob: "학생/UX디자이너",
-      othersHashtag: "#주도적인",
-      othersAvatar: "../img/initPhoto.svg",
+      tagFirst: "#키워드",
+      tagSecond: "#키워드",
+      tagThird: "#키워드",
+      title: "제목",
+      content: "철수는 착하고 배려심이 깊은 친구입니다.",
+      writeDate: "2024.07.03",
+      writerPhoto: "../img/borderPhoto.svg",
+      writerName: "홍길동",
+      relation: "친구",
+      writerBelong: "가나대학교",
+      writerJob: "학생/UX디자이너",
     },
     {
-      othersName: "김김철수",
-      othersBirth: "1999.01.01",
-      othersAffiliation: "다라마바사아대학교",
-      othersJob: "학생/개발자",
-      othersHashtag: "#혁신적인",
-      othersAvatar: "../img/initPhoto.svg",
+      tagFirst: "#키워드",
+      tagSecond: "#키워드",
+      tagThird: "#키워드",
+      title: "제목",
+      content: "철수는 착하고 배려심이 깊은 친구입니다.",
+      writeDate: "2024.07.03",
+      writerPhoto: "../img/borderPhoto.svg",
+      writerName: "홍길동",
+      relation: "친구",
+      writerBelong: "가나대학교",
+      writerJob: "학생/UX디자이너",
+    },
+    {
+      tagFirst: "#키워드",
+      tagSecond: "#키워드",
+      tagThird: "#키워드",
+      title: "제목",
+      content: "철수는 착하고 배려심이 깊은 친구입니다.",
+      writeDate: "2024.07.03",
+      writerPhoto: "../img/borderPhoto.svg",
+      writerName: "홍길동",
+      relation: "친구",
+      writerBelong: "가나대학교",
+      writerJob: "학생/UX디자이너",
     },
   ];
 
@@ -104,30 +127,31 @@ document.addEventListener("DOMContentLoaded", () => {
     cardBack.innerHTML = `
       <div class="first">
         <div class="tags">
-          <div class="tag">#키워드</div>
-          <div class="tag">#키워드</div>
-          <div class="tag">#키워드</div>
+          <div class="tag">${othersData[index].tagFirst}</div>
+          <div class="tag">${othersData[index].tagSecond}</div>
+          <div class="tag">${othersData[index].tagThird}</div>
         </div>
-        <div class="titleZone">제목</div>
+        <div class="titleZone">${othersData[index].title}</div>
       </div>
       <div class="main">
         <div class="content" style="background-color: ${
           contentZone[index % contentZone.length]
-        }">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-        </div>
-        <div class="writeDate">2024.07.02</div>
+        }">${truncateText(othersData[index].content, 100)}</div>
+        <div class="writeDate">${othersData[index].writeDate}</div>
       </div>
-      <a href="../html/othersCard.html">
+      <a href="./othersCard.html">
         <div class="clickable-area">
-          <img src="../img/borderPhoto.svg" alt="callerPhoto" class="callerPhoto" />
+          <img src="${
+            othersData[index].writerPhoto
+          }" alt="callerPhoto" class="callerPhoto" />
           <div class="whole">
             <div class="top">
-              <div class="othersName">김철수</div>
-              <div class="relation">친구</div>
+              <div class="othersName">${othersData[index].writerName}</div>
+              <div class="relation">${othersData[index].relation}</div>
             </div>
             <div class="down">
-              <div class="belong">가나대학교</div>
-              <div class="detail">프론트엔드 개발자</div>
+              <div class="belong">${othersData[index].writerBelong}</div>
+              <div class="detail">${othersData[index].writerJob}</div>
             </div>
           </div>
           <div class="go">

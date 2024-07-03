@@ -1,0 +1,163 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+
+.container {
+  width: 393px;
+  height: 852px;
+  font-family: "pretendard";
+  background: #242427;
+  color: #ffffff;
+  overflow: hidden;
+  /* margin: 24px; */
+}
+.header {
+  margin: 88px 24px 0px 24px;
+  display: flex;
+  align-items: center;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.36px;
+}
+
+.shareBtn {
+  background: #242427;
+  border: #242427;
+  cursor: pointer;
+  position: relative;
+  right: 25px;
+  top: 3px;
+}
+
+.dumy {
+  display: flex;
+  align-items: center;
+}
+#toast-message {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+  text-align: center;
+  padding: 8px 12px;
+  margin-top: 28px;
+  margin-left: 125px;
+  border-radius: 4px;
+  background: #3f3f43;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  width: 117px;
+  align-items: center;
+}
+
+#toast-message.active {
+  opacity: 1;
+  transition: ease-in-out 300ms;
+}
+.cardAddBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  flex-grow: 2;
+  margin-top: 33px;
+  margin-left: 42px;
+}
+.carousel {
+  width: 286px;
+  height: 406px;
+  background-image: url(../img/card-pink.svg);
+  /* position: relative; */
+  /* margin-top: 117px; */
+  /* width: 90%; */
+  /* display: block; */
+  /* margin: 0 auto; */
+  margin-left: 57px;
+  margin-top: 45px;
+  text-align: center;
+  border-radius: 10px;
+}
+.mycardFront {
+  /* width: 90%; */
+  /* background: url(../img/card-pink.svg); */
+  /* margin: 20px 40px; */
+  border-radius: 10px;
+  /* padding: 15px; */
+  color: #515155;
+  /* box-sizing: border-box; */
+}
+
+.info {
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.infoLeft {
+  text-align: left;
+}
+.infoRight {
+  text-align: right;
+  /* margin-top: 38px; */
+}
+.myName {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.myBirth,
+.myAffiliation,
+.myJob {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.myHashtag {
+  color: #ff77ba;
+  font-size: 22px;
+  font-weight: 700;
+}
+.myAvatar {
+  width: 220px;
+  height: 220px;
+  margin-left: 50px;
+  margin-top: 7px;
+}
+
+.modifyBtn {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 150px;
+  margin-top: 30px;
+  margin: 30px 0px 48px 145px;
+  cursor: pointer;
+}
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 5px;
+  background-color: #7b7b7e;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
