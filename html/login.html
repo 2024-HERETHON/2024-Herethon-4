@@ -18,9 +18,9 @@
       </header>
       <form class="form" id="loginForm" method="get">
         <div class="form-group">
-          <label for="email">이메일</label>
-          <input type="email" id="userEmail" placeholder="example@gleam.com" />
-          <div class="emailError">입력하신 내용을 다시 확인해 주세요</div>
+          <label for="name">이름</label>
+          <input type="text" id="userName" placeholder="이름" />
+          <!-- <div class="emailError">입력하신 내용을 다시 확인해 주세요</div> -->
         </div>
         <div class="form-group">
           <label for="password">비밀번호</label>
@@ -29,11 +29,11 @@
             id="userPassword"
             placeholder="영문, 숫자 포함 8~12자"
           />
-          <div class="passwordError">입력하신 내용을 다시 확인해 주세요</div>
+          <!-- <div class="passwordError">입력하신 내용을 다시 확인해 주세요</div> -->
         </div>
-        <a href="../html/myCard.html">
-          <button type="submit" class="submit-btn">로그인</button>
-        </a>
+        <button type="submit" class="submit-btn" id="submitBtn" disabled>
+          로그인
+        </button>
       </form>
     </div>
     <script src="../js/login.js"></script>
