@@ -81,4 +81,40 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   updateButtonState();
+
+  const dropdownSelected = document.querySelector(".dropdown-selected");
+  const dropdownList = document.querySelector(".dropdown-list");
+  const options = dropdownList.querySelectorAll("li");
+  const selectBtn = document.querySelector(".select-btn");
+
+  dropdownSelected.addEventListener("click", function () {
+    dropdownList.style.display =
+      dropdownList.style.display === "block" ? "none" : "block";
+    dropdownSelected.classList.toggle("active");
+  });
+
+  options.forEach((option) => {
+    option.addEventListener("click", function () {
+      dropdownSelected.textContent = this.textContent;
+      dropdownSelected.appendChild(selectBtn); // Add the arrow image back
+      dropdownSelected.setAttribute(
+        "data-value",
+        this.getAttribute("data-value")
+      );
+      dropdownList.style.display = "none";
+      dropdownSelected.classList.remove("active");
+      dropdownSelected.style.color = "white";
+    });
+  });
+
+  // Close the dropdown if the user clicks outside of it
+  window.addEventListener("click", function (event) {
+    if (
+      !dropdownSelected.contains(event.target) &&
+      !dropdownList.contains(event.target)
+    ) {
+      dropdownList.style.display = "none";
+      dropdownSelected.classList.remove("active");
+    }
+  });
 });
