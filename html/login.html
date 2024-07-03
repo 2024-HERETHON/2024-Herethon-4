@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인</title>
-    <link rel="stylesheet" href="./login.css" />
+    <link rel="stylesheet" href="../css/login.css" />
   </head>
   <body>
     <div class="container">
       <header class="header">
-        <button class="back-btn">
-          <img src="../image/backBtn.svg" alt="뒤로가기 버튼" />
-        </button>
+        <a href="../html/index.html">
+          <button class="back-btn">
+            <img src="../img/backBtn.svg" alt="뒤로가기 버튼" />
+          </button>
+        </a>
         <h1 class="title">로그인</h1>
       </header>
       <form class="form" id="loginForm" method="get">
@@ -29,9 +31,11 @@
           />
           <div class="passwordError">입력하신 내용을 다시 확인해 주세요</div>
         </div>
-        <button type="submit" class="submit-btn">로그인</button>
+        <a href="../html/myCard.html">
+          <button type="submit" class="submit-btn">로그인</button>
+        </a>
       </form>
     </div>
-    <script src="./login.js"></script>
+    <script src="../js/login.js"></script>
   </body>
 </html>

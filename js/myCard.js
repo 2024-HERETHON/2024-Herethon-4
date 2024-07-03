@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const bgColor = [
-    "../image/card-pink.svg",
-    "../image/card-yellow.svg",
-    "../image/card-blue.svg",
+    "../img/card-pink.svg",
+    "../img/card-yellow.svg",
+    "../img/card-blue.svg",
   ];
   const htColor = ["#ff77ba", "#FCB05D", "#5583FF"];
 
@@ -13,23 +13,42 @@ document.addEventListener("DOMContentLoaded", () => {
       myAffiliation: "가나대학교",
       myJob: "학생/UX디자이너",
       myHashtag: "#주도적인",
-      myAvatar: "../image/avatar.png",
+      myAvatar: "../img/initPhoto.svg",
     },
     {
-      myName: "동길홍",
+      myName: "홍길동",
       myBirth: "1999.01.01",
       myAffiliation: "다라마바사아대학교",
       myJob: "학생/개발자",
       myHashtag: "#혁신적인",
-      myAvatar: "../image/avatar2.png",
+      myAvatar: "../img/initPhoto.svg",
     },
     {
-      myName: "길동홍",
+      myName: "홍길동",
       myBirth: "2001.01.01",
       myAffiliation: "마바대학교",
       myJob: "학생/디자이너",
       myHashtag: "#도전정신가득한",
-      myAvatar: "../image/avatar3.png",
+      myAvatar: "../img/initPhoto.svg",
+    },
+  ];
+
+  const othersData = [
+    {
+      othersName: "김철수",
+      othersBirth: "2000.00.00",
+      othersAffiliation: "가나대학교",
+      othersJob: "학생/UX디자이너",
+      othersHashtag: "#주도적인",
+      othersAvatar: "../img/initPhoto.svg",
+    },
+    {
+      othersName: "김김철수",
+      othersBirth: "1999.01.01",
+      othersAffiliation: "다라마바사아대학교",
+      othersJob: "학생/개발자",
+      othersHashtag: "#혁신적인",
+      othersAvatar: "../img/initPhoto.svg",
     },
   ];
 
@@ -98,14 +117,24 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="writeDate">2024.07.02</div>
       </div>
-      <div class="clickable-area" onclick="navigateToOtherPage()">
-        <img src="../image/callerPhoto.png" alt="callerPhoto" class="callerPhoto" />
-        <div class="name">김철수</div>
-        <div class="relation">관계</div>
-        <div class=""></div>
-        <div class="detail">상세정보</div>
-        <img src="../image/detailBtn.png" />
-      </div>
+      <a href="../html/othersCard.html">
+        <div class="clickable-area">
+          <img src="../img/borderPhoto.svg" alt="callerPhoto" class="callerPhoto" />
+          <div class="whole">
+            <div class="top">
+              <div class="othersName">김철수</div>
+              <div class="relation">친구</div>
+            </div>
+            <div class="down">
+              <div class="belong">가나대학교</div>
+              <div class="detail">프론트엔드 개발자</div>
+            </div>
+          </div>
+          <div class="go">
+            <img src="../img/detailBtn.svg" />
+          </div>
+        </div>
+      </a>
     `;
 
     cardInner.appendChild(cardFront);
@@ -134,41 +163,18 @@ document.addEventListener("DOMContentLoaded", () => {
     currentIndex = index;
   }
 
-  let startX, endX;
+  let toastMessage = document.getElementById("toast-message");
+  let toastBtn = document.getElementsByClassName("shareBtn")[0];
 
-  container.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-  });
-
-  container.addEventListener("touchend", (e) => {
-    endX = e.changedTouches[0].clientX;
-    handleSwipe();
-  });
-
-  function handleSwipe() {
-    if (startX - endX > 50) {
-      if (currentIndex < cardsData.length - 1) {
-        showCard(currentIndex + 1);
-      }
-    } else if (endX - startX > 50) {
-      if (currentIndex > 0) {
-        showCard(currentIndex - 1);
-      }
-    }
-  }
-
-  let tostMessage = document.getElementById("tost-message");
-  let tostBtn = document.getElementsByClassName("shareBtn")[0];
-
-  tostBtn.addEventListener("click", function () {
+  toastBtn.addEventListener("click", function () {
     console.log("이벤트가 잘 연결 됐는지 확인");
-    tostOn();
+    toastOn();
   });
 
-  function tostOn() {
-    tostMessage.classList.add("active");
+  function toastOn() {
+    toastMessage.classList.add("active");
     setTimeout(function () {
-      tostMessage.classList.remove("active");
+      toastMessage.classList.remove("active");
     }, 1000);
   }
 });

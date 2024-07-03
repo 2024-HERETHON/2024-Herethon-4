@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>명함 추가하기</title>
+    <link rel="stylesheet" href="../css/createCard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <a href="../html/myCard.html">
+          <button class="back-btn" type="button">
+            <img src="../img/backBtn.svg" alt="뒤로가기 버튼" />
+          </button>
+        </a>
+        <h1 class="title">명함 추가하기</h1>
+      </header>
+      <div class="profile-photo">
+        <img
+          src="../img/borderPhoto.svg"
+          alt="Profile Picture"
+          id="userPhoto"
+        />
+        <button class="edit-button">
+          <img src="../img/editBtn.svg" alt="edit button" id="editBtn" />
+          <input type="file" id="fileInput" style="display: none" />
+        </button>
+      </div>
+      <form>
+        <div class="form-group">
+          <label for="belong">소속을 입력해 주세요</label>
+          <input type="text" id="belong" placeholder="소속" />
+          <!-- <div class="belongError">입력하신 내용을 다시 확인해 주세요</div> -->
+        </div>
+        <div class="form-group">
+          <label for="job">직업을 입력해 주세요</label>
+          <input type="text" id="job" placeholder="직업" />
+          <!-- <div class="jobError">입력하신 내용을 다시 확인해 주세요</div> -->
+        </div>
+        <div class="form-group">
+          <label for="hashtag">키워드를 선택해 주세요</label>
+          <div class="custom-select">
+            <div class="select-trigger">
+              <span>키워드</span>
+              <div class="hashtag-btn">
+                <img src="../img/upArrow.svg" alt="" id="hashtagArrow" />
+              </div>
+            </div>
+            <div class="custom-options">
+              <span class="custom-option" data-value="option1">항목 1</span>
+              <span class="custom-option" data-value="option2">항목 2</span>
+              <span class="custom-option" data-value="option3">항목 3</span>
+              <span class="custom-option" data-value="option4">항목 4</span>
+              <span class="custom-option" data-value="option5">항목 5</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="rollingpaper">롤링페이퍼를 선택해 주세요</label>
+          <div class="rolling-paper" id="rollingPaper">
+            <a href="#">
+              <button class="rp-btn">
+                롤링페이퍼
+                <img src="../img/nextArrow.svg" alt="" class="rpArrow" />
+              </button>
+            </a>
+          </div>
+        </div>
+        <button type="submit" class="submit-button">추가하기</button>
+      </form>
+    </div>
+    <script src="../js/createCard.js"></script>
+  </body>
+</html>

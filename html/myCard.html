@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내 명함 조회</title>
+    <link rel="stylesheet" href="../css/myCard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <button class="backBtn" type="button">
+          <img src="../img/backBtn.svg" alt="뒤로가기 버튼" />
+        </button>
+        <h1 class="title">홍길동 님의 명함</h1>
+        <button class="shareBtn">
+          <img src="../img/shareBtn.svg" alt="공유하기 버튼" />
+        </button>
+      </header>
+      <div class="dumy">
+        <div id="toast-message">링크가 복사되었어요</div>
+        <!-- <div id="delete-message">명함이 삭제 되었어요</div> -->
+        <a href="../html/createCard.html">
+          <button class="cardAddBtn" type="button">
+            <img src="../img/cardAddBtn.svg" />
+          </button>
+        </a>
+      </div>
+      <div class="carousel">
+        <div class="cards-container" id="cards-container">
+          <!-- 카드 안의 내용이 보일 곳 -->
+        </div>
+      </div>
+      <a href="../html/modifyCard.html">
+        <button class="modifyBtn">
+          <img src="../img/modifyBtn.svg" alt="수정하기 버튼" />
+        </button>
+      </a>
+      <div class="dots" id="dots">
+        <!-- 카드의 개수에 따라 점의 개수도 정해짐 -->
+      </div>
+    </div>
+    <script src="../js/myCard.js"></script>
+  </body>
+</html>
