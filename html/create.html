@@ -3,37 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>명함 수정하기</title>
-    <link rel="stylesheet" href="../css/modifyCard.css" />
+    <title>명함 추가하기</title>
+    <link rel="stylesheet" href="../css/create.css" />
   </head>
   <body>
     <div class="container">
       <header class="header">
         <a href="../html/myCard.html">
-          <button class="back-btn">
+          <button class="back-btn" type="button">
             <img src="../img/backBtn.svg" alt="뒤로가기 버튼" />
           </button>
         </a>
-        <h1 class="title">명함 수정하기</h1>
-        <div class="modal">
-          <div class="modal-popup">
-            <img src="../img/danger.svg" id="dangerPhoto" />
-            <p>정말 삭제하시겠어요?</p>
-            <div class="modalBtns">
-              <button type="button" class="close">취소</button>
-              <!-- <a href="../cardBack/cardBack.html"> -->
-              <button type="button" class="delete">삭제하기</button>
-              <!-- </a> -->
-            </div>
-          </div>
-        </div>
-        <button class="delete-btn">
-          <img
-            src="../img/deleteBtn.svg"
-            class="deleteBtn"
-            alt="삭제하기 버튼"
-          />
-        </button>
+        <h1 class="title">명함 추가하기</h1>
       </header>
       <div class="profile-photo">
         <img
@@ -50,12 +31,12 @@
         <div class="form-group">
           <label for="belong">소속을 입력해 주세요</label>
           <input type="text" id="belong" placeholder="소속" />
-          <div class="belongError">입력하신 내용을 다시 확인해 주세요</div>
+          <!-- <div class="belongError">입력하신 내용을 다시 확인해 주세요</div> -->
         </div>
         <div class="form-group">
           <label for="job">직업을 입력해 주세요</label>
           <input type="text" id="job" placeholder="직업" />
-          <div class="jobError">입력하신 내용을 다시 확인해 주세요</div>
+          <!-- <div class="jobError">입력하신 내용을 다시 확인해 주세요</div> -->
         </div>
         <div class="form-group">
           <label for="hashtag">키워드를 선택해 주세요</label>
@@ -89,6 +70,6 @@
         <button type="submit" class="submit-button">추가하기</button>
       </form>
     </div>
-    <script src="../js/modifyCard.js"></script>
+    <script src="../js/create.js"></script>
   </body>
 </html>
