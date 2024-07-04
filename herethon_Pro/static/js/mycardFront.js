@@ -51,15 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
     card.style.backgroundImage = `url(${bgColor[index % bgColor.length]})`;
 
     // Function to truncate text and add ellipses if it exceeds maxLength
-    const truncateText = (text, maxLength) => {
-      if (text.length > maxLength) {
-        return `${text.substring(0, maxLength)}...`;
-      } else {
-        return text;
-      }
-    };
-
-    // container.appendChild(card);
+    // const truncateText = (text, maxLength) => {
+    //   if (text.length > maxLength) {
+    //     return `${text.substring(0, maxLength)}...`;
+    //   } else {
+    //     return text;
+    //   }
+    // };
 
     const dot = document.createElement("span");
     dot.classList.add("dot");

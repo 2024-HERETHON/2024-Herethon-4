@@ -60,11 +60,16 @@
                 {% endfor %}
             </div>
         </div>
+
+        <!-- 명함 없을 때 update 숨김처리 : 에러 해결 -->
+        {% if cards %}
         <a href="{% url 'cards:update' cards.0.id %}">
             <button class="modifyBtn">
                 <img src="{% static 'img/modifyBtn.svg' %}" alt="수정하기 버튼">
             </button>
         </a>
+        {% endif %}
+
         <div class="dots" id="dots">
             {% for card in cards %}
             <span class="dot {% if forloop.first %}active{% endif %}" onclick="showCard({{ forloop.counter0 }})"></span>
