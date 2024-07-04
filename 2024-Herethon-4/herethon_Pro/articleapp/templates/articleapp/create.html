@@ -1,17 +1,88 @@
-{% extends 'base.html' %}
-{% load bootstrap4 %}   <!-- {% bootstrap_form form %} 밑에 구현하면 위에 이거 꼭 선언해줘야함 -->
-
-{% block content %}
-
-    <div style = "text-align: center; max-width: 500px; margin : 4rem auto">
-        <div class = "mb-4">
-            <h4> Create Paper </h4>
+<!-- index.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{user}}의 롤링페이퍼</title>
+    <link rel="stylesheet" href="{% static 'css/addRp.css' %}" />
+    <style>
+      button.addBtn {
+        border: none;
+        border-radius: 8px;
+        background: #8c8c8e;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 19px;
+        letter-spacing: -0.28px;
+        padding: 17px 18px;
+        width: 366px;
+        height: 51px;
+        cursor: pointer;
+        transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <img
+          src="{% static '/img/arrow-backBtn.png' %}"
+          alt="backBtn"
+          class="btn-back"
+        />
+        롤링페이퍼 작성하기
+      </div>
+      <form
+        action="{% url 'articleapp:create' %}"
+        method="post"
+        enctype="multipart/form-data"
+        class="form-wp"
+      >
+        {% csrf_token %}
+        <div class="rp-title">
+          제목을 입력해 주세요
+          <textarea
+            class="input-title"
+            placeholder="최대 25byte까지 작성이 가능해요"
+          ></textarea>
+          <div class="error-message"></div>
         </div>
-        <form action="{% url 'articleapp:create' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {% bootstrap_form form %}
-            <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
-        </form>
+        <div class="relationship-title dropdown">
+          {{user}}님과 어떤 관계인가요?
+          <select name="relationship" id="relationship" required>
+            <option name="rel" value="" selected disabled>관계</option>
+            <option value="family">가족</option>
+            <option value="friend">지인</option>
+            <option value="superior">직장 상사</option>
+            <option value="etc">기타</option>
+          </select>
+        </div>
+        <div class="kw-title">
+          {{user}}님의 대표 키워드 세 개는 무엇인가요?
+          <div class="kw-wp">
+            <input type="text" class="kw" placeholder="#키워드" />
+            <input type="text" class="kw" placeholder="#키워드" />
+            <input type="text" class="kw" placeholder="#키워드" />
+          </div>
+          <div class="error-message"></div>
+        </div>
+        <div class="content-title">
+          {{user}}님에 대한 롤링페이퍼를 적어주세요
+          <textarea
+            name="rollingpaper"
+            id="rp"
+            class="rp-content"
+            placeholder="최대 228byte까지 작성이 가능해요"
+          ></textarea>
+          <span class="byteCount">0byte</span>
+          <div id="t-em" class="error-message"></div>
+        </div>
+      </form>
+      <button type="submit" class="addBtn">등록하기</button>
     </div>
-
-{% endblock %}
+    <script src="{% static '/js/addRp.js' %}"></script>
+  </body>
+</html>
