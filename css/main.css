@@ -18,11 +18,14 @@
   line-height: 26px;
   letter-spacing: -0.44px;
 }
-img {
+.logo img {
   width: 341px;
   height: auto;
-  margin-top: 68px;
-  margin-bottom: 121px;
+  display: flex;
+  align-items: center;
+  /* margin: 90px 28px; */
+  margin-top: 86px;
+  margin-bottom: 122px;
   margin-left: 28px;
 }
 
@@ -31,17 +34,20 @@ img {
   height: 52px;
   border-radius: 8px;
   cursor: pointer;
-  margin-left: 20px;
+  margin-left: 24px;
   border: transparent;
+  /* margin-top: 170px; */
 }
 
-.kakao-btn {
-  background: #fee500;
-  /* margin-top: 324px; */
-}
 .email-btn {
+  padding: 17px 18px;
   background: white;
-  margin-bottom: 32px;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+}
+.email-btn img {
+  margin-right: 90px;
 }
 
 .hr-line {
