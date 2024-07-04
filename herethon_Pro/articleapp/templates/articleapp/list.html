@@ -31,6 +31,7 @@
 </style>
   {% if article_list %}
   <div class="container">
+    <p><a href="{% url 'cards:mycardFront' %}">내 명함 조회하기</a></p>
     {% for article in article_list %}
     <a href = "{% url 'articleapp:detail' pk=article.pk %}">
        <!-- 앞으로 이부분만 수정하면 카드레이아웃 모두 변경 및 적용 한번에 되는것-->

@@ -35,6 +35,8 @@
         {% if card_count != 1 %}
             <a href="{% url 'cards:delete' card.id %}">삭제하기</a>
         {% endif %}
+        <!-- 명함 뒤로 가는 링크 -->
+        <a href="{% url 'cards:mycardBack' card.id %}">명함 뒤 보기</a>
     <br><br>
         
 

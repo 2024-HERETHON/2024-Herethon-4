@@ -24,6 +24,8 @@
         {% endif %}
         사진 변경 - <input type="file" name = "image"><br><br>
         
+        <a href="{% url 'cards:mycardRolling' card.id %}">롤링페이퍼 수정하기</a><br><br>
+
         <input type = "submit" vaule = "수정하기">
     </form>
 </body>

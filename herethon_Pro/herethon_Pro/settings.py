@@ -128,7 +128,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-AUTH_USER_MODEL = 'users.user'  # users앱의 모델을 사용자 인증 모델로 사용할 것
+AUTH_USER_MODEL = 'users.User'  # users앱의 모델을 사용자 인증 모델로 사용할 것
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

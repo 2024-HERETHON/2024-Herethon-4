@@ -1,7 +1,10 @@
+from django.conf import settings
 from django.db import models
 import os
 from uuid import uuid4
 from django.utils import timezone
+from django.contrib.auth.models import User
+from articleapp.models import Article
 
 # 이미지 파일 경로 중복 방지
 def upload_filepath(instance, filename):
@@ -17,22 +20,19 @@ class Keyword(models.Model):
         return f'{self.name}'
 
 class Card(models.Model):
-    # <앞>
-    # 6) 해당 키워드 언급 빈도 수
-    # 7) 링크 복사 버튼
-
-    # <뒤>
-    # 해당 키워드 포함된 롤링페이퍼
-    # 1) 롤링페이퍼 내용
-    # 2) 작성자
-    # 3) 작성 날짜
-
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) # 사용자
     name = models.TextField()   # 이름
     position = models.TextField()   # 소속 
     job = models.TextField()    # 직업
     keyword = models.ManyToManyField(to = Keyword, through = "CardKeyword", related_name = "cards") # 키워드
     image = models.ImageField(upload_to = upload_filepath, blank = True)
     created_at = models.DateTimeField(auto_now_add = True)
+
+    # 롤링페이퍼와 연결
+    selected_article = models.ForeignKey(Article, null=True, blank=True, on_delete=models.SET_NULL, related_name='cards')
+
+    def __str__(self):
+        return self.name
 
 # 키워드 중간테이블
 class CardKeyword(models.Model):

@@ -20,13 +20,14 @@ def signup_view(request):
     else:
         return render(request, 'accounts/signup.html', {'form' : form})
     
-# 로그인
+# 로그인 - 뷰 수정(에러메시지가 뜨게)
 def login_view(request):
-    if request.method == "GET":
-        return render(request, 'accounts/login.html', {'form' : AuthenticationForm})
-    
-    form = AuthenticationForm(request, data = request.POST)
-    if form.is_valid():
-        login(request, form.user_cache)
-        return redirect('home') # 수정필요
+    if request.method == 'GET':
+        form = LoginForm()
+    elif request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            request.session['user'] = form.user_id
+            return redirect('/')
+
     return render(request, 'accounts/login.html', {'form' : form})
