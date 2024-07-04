@@ -22,7 +22,7 @@ def signup_view(request):
     
 # 로그인 - 뷰 수정(에러메시지가 뜨게)
 def login_view(request):
-    if request.methon == "GET":
+    if request.method == "GET":
         return render(request, 'accounts/login.html', {'form' : AuthenticationForm})
     
     form = AuthenticationForm(request, data = request.POST)
