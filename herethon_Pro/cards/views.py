@@ -2,10 +2,13 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .models import Card, Keyword
 from articleapp.models import Article   # articleapp에 있는 모델 사용
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 # 명함조회 - 앞
 def cardFront(request):
-    return render(request, "cardFront.html")
+    author = get_object_or_404(User, id=id)
+    articles = Article.objects.filter(writer=author)
+    return render(request, 'cardFront.html', {'author': author, 'articles': articles})
 
 # 명함조회 - 뒤
 def cardBack(request):

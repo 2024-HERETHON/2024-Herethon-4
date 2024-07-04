@@ -22,12 +22,11 @@ def signup_view(request):
     
 # 로그인 - 뷰 수정(에러메시지가 뜨게)
 def login_view(request):
-    if request.method == 'GET':
-        form = LoginForm()
-    elif request.method == "POST":
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            request.session['user'] = form.user_id
-            return redirect('/')
-
+    if request.methon == "GET":
+        return render(request, 'accounts/login.html', {'form' : AuthenticationForm})
+    
+    form = AuthenticationForm(request, data = request.POST)
+    if form.is_valid():
+        login(request, form.user_cache)
+        return redirect('home')
     return render(request, 'accounts/login.html', {'form' : form})
