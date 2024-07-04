@@ -39,6 +39,12 @@ def select_rolling_paper(request, id):
             card.selected_article = selected_article
             card.save()
         return redirect('cards:update', id=card.id)
+    
+# 롤링페이퍼 자세히 보기
+def detail(request, id):
+    card = get_object_or_404(Card, id=id)
+    selected_article = card.selected_article
+    return render(request, 'detail.html', {'card' : card, 'selected_article': selected_article})
 
 # 내 명함 만들기 (create)
 @login_required

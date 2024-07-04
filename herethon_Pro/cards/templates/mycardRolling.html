@@ -13,6 +13,7 @@
 
         {% for article in articles %}
             <input type="radio" name="selected_article" value="{{ article.id }}" {% if card.selected_article and card.selected_article.id == article.id %}checked{% endif %}>
+            <p>제목 - {{ article.title }}</p>
             <p>내용 - {{ article.content }}</p>
             <p>작성자 - {{ article.writer }}</p>
             <p>키워드 - {{ article.keyword }}</p>

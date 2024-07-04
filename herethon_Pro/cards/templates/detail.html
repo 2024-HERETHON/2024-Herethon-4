@@ -6,18 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>선택된 롤링페이퍼(명함 뒤)</h2><br><br>
-
     {% if selected_article %}
-        <p>제목 - {{ selected_article.title }}</p>
-        <p>작성자 - {{ selected_article.writer }}</p>
+        <h2>{{ selected_article.title }}</h2>
+        <p>내용 - {{ selected_article.content }}</p>
         <p>날짜 - {{ selected_article.created_at }}</p>
+
+        <p>작성자 - {{ selected_article.writer }}</p>
     {% else %}
         <p>선택된 롤링페이퍼가 없습니다.</p>
     {% endif %}
-
-    <a href="{% url 'cards:mycardFront' %}">앞면보기</a>
-    <a href="{% url 'cards:detail' card.id %}">자세히</a>
-
 </body>
 </html>
