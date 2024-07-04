@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+
+  .container {
+    padding : 0;
+    margin : 0, auto;
+    }
+
+  .container a {
+    width : 45%;
+    max-width : 250px;
+   }
+
+  .container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius : 1rem;
+  }
+
+  .container img{
+    width : 100%;
+    border-radius : 1rem;
+  }
+
+
+</style>
+  {% if article_list %}
+  <div class="container">
+    <p><a href="{% url 'cards:mycardFront' %}">내 명함 조회하기</a></p>
+    {% for article in article_list %}
+    <a href = "{% url 'articleapp:detail' pk=article.pk %}">
+       <!-- 앞으로 이부분만 수정하면 카드레이아웃 모두 변경 및 적용 한번에 되는것-->
+      {% include 'snippets/card.html' with article=article %} <!--include에 작성한 article이 외부 card.html article과 같다는거 나타내기 위해 with 구문 사용. 외부에 구현한 내용이므로 % include로 불러온것-->
+    </a>
+    {% endfor %}
+  </div>
+  <script src = "{% static 'js/magicgrid.js' %}"></script>
+  {% else %}
+  <div class="text-center">
+    <h1>No Article YET!</h1>
+  </div>
+  {% endif %}
+
+  {% include 'snippets/pagination.html' with page_obj=page_obj %}
+
+  <div style="text-align:center">
+    <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
+      Create Article
+    </a>
+  </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

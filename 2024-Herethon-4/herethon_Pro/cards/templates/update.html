@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>명함 수정</h2>
+    <form method="POST" action="{% url 'cards:update' card.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% if card.image %}
+        기존 사진 : <img width="320" height="240" src = "{{ card.image.url }}"><br><br>
+        {% endif %}
+        사진 변경 - <input type="file" name = "image"><br><br>
+
+        이름을 입력해 주세요<br>
+        <input type="text" value="{{ card.name }}" name="name"><br><br> 
+        소속을 입력해 주세요<br>
+        <input type="text" value="{{ card.position }}" name="position"><br><br> 
+        직업을 입력해 주세요<br>
+        <input type="text" value="{{ card.job }}" name="job"><br><br>
+        키워드를 선택해 주세요<br>
+        <select name="keyword">
+            {% for keyword in keywords %}
+                <option value="{{ keyword.id }}" {% if keyword.id == card.keyword.id %} selected {% endif %}>{{ keyword.name }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <a href="{% url 'cards:mycardRolling' card.id %}">롤링페이퍼를 선택해 주세요</a><br><br>
+
+        <input type = "submit" vaule = "수정하기">
+    </form>
+</body>
+</html>

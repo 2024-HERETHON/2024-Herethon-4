@@ -1,0 +1,66 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>로그인</h2>
+    <form method="POST" action="{% url 'accounts:login' %}">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">로그인</button>
+    </form>
+  </body>
+</html> -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <a href="../html/main.html">
+          <button class="back-btn">
+            <img src="{% static 'img/backBtn.svg' %}" alt="뒤로가기 버튼" />
+          </button>
+        </a>
+        <h1 class="title">로그인</h1>
+      </header>
+      <form
+        class="form"
+        id="loginForm"
+        method="POST"
+        action="{% url 'accounts:login' %}"
+      >
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="name">이름</label>
+          <input
+            type="text"
+            id="id_username"
+            name="username"
+            placeholder="이름"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">비밀번호</label>
+          <input
+            type="password"
+            id="id_password"
+            name="password"
+            placeholder="영문, 숫자 포함 8~12자"
+          />
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">로그인</button>
+      </form>
+    </div>
+    <script src="{% static 'js/login.js' %}"></script>
+  </body>
+</html>
