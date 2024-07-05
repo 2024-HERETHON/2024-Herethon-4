@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const cardsData = [
     {
-      myName: "홍길동이",
-      myBirth: "2000.00.00",
-      myAffiliation: "가나대학교",
-      myJob: "학생/UX디자이너",
+      myName: "성윤정",
+      myBirth: "0000.00.00",
+      myAffiliation: "숙명여자대학교",
+      myJob: "학생/프론트개발자",
       myHashtag: "#주도적인",
-      myAvatar: "../img/initPhoto.svg",
+      myAvatar: "../img/avatar.png",
     },
     {
       myName: "홍길동",
