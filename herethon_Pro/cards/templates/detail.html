@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{user}}님의 롤링페이퍼</title>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+  </head>
+  <body>
+    {% if selected_article %}
+    <div class="container">
+      <div class="modal">
+        <div class="blur" style="z-index: 9">
+          <div class="detail" style="z-index: 100">
+            <div class="detail-top">
+              <div class="backBtn-wp">
+                <a href="{% url 'cards:mycardRolling' card.id %}">
+                  <img
+                    src="{% static 'img/backBtn.png' %}"
+                    alt="back button"
+                    class="backBtn"/></a>
+              </div>
+              <div class="detail-kw-wp"></div>
+              <div class="detail-title">{{ selected_article.title }}</div>
+              <div class="detail-content">{{ selected_article.content }}</div>
+              <div class="detail-time">{{ selected_article.created_at }}</div>
+              <div class="profile"></div>
+            </div>
+            <div class="detail-bot">
+              <hr class="detail-line" />
+              <div class="profile">
+                <img
+                  src="{% static 'img/prof-temp.png' %}"
+                  class="prof-img"
+                  alt="prof-img"
+                />
+                <div class="prof-right">
+                  <div class="prof-name">{{ selected_article.user }}</div>
+                  <div class="prof-relationship">
+                    {{ selected_article.get_position_display }}
+                  </div>
+                  <div class="affiliation"></div>
+                  <div class="occupation"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% else %}
+      <p>선택된 롤링페이퍼가 없습니다.</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="http://127.0.0.1:8000/articles/RollFront" />
+    <meta property="og:title" content="{% if article %}{{ article.name }}의 롤링페이퍼{% endif %}" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="{% static 'img/shareImg.png' %}" />
+    <meta property="og:description" content="친구로부터 초대장이 도착했어요. 지금 롤링페이퍼를 남겨주세요!" />
+    <title>{% if article %}{{ article.name }}의 롤링페이퍼{% endif %}</title>
+    <link rel="stylesheet" href="{% static 'css/rollingPaper.css' %}" />
+    <style>
+        .addRpBtn{
+            position: relative;
+            right: 250px;
+            top: 60px;
+        }
+        .btn-kakao{
+            position: relative;
+            top: 3px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            {{user}}님의 롤링페이퍼
+            <a class ="addRpBtn" href="{% url 'articleapp:create' %}"><img src="{% static 'img/addRpBtn.png' %}" alt=""></a>
+            {% if article %}{{ article.name }}님의 롤링페이퍼{% endif %}
+            <a class="btn-kakao" href="javascript:kakaoShare()" onclick="kakaoShare()">
+                <img class="btn-kakao" src="{% static 'img/share.png' %}" alt="kakaotalk">
+            </a>
+        </div>
+        <a href="{% url 'cards:mycardFront' %}">
+            <div class="btn-namecard-wp">
+                명함
+                <img src="{% static 'img/arrow-namecard.png' %}" alt="go to namecard btn" class="btn-namecard" />
+            </div>
+        </a>
+        <div class="paperlist">
+            <div class="rp-list">
+                {% for article in articles %}
+                    <div class="rp">
+                        <div class="rp-kw">#{{ article.keyword }}</div>
+                        <div class="rp-kw">#{{ article.keyword2 }}</div>
+                        <div class="rp-kw">#{{ article.keyword3 }}</div>
+                        <div class="rp-content">{{ article.name }}</div>
+                        <div class="rp-relationship">{{ article.position }}</div>
+                        <div class="rp-time">{{ article.created_at }}</div>
+                    </div>
+                {% empty %}
+                    작성한 롤링페이퍼가 없습니다.
+                {% endfor %}
+            </div>
+        </div>
+        <div class="modal" style="display: none;">
+            <div class="blur" style="z-index: 90;">
+                <div class="detail" style="z-index: 100;">
+                    <div class="detail-top">
+                        <div class="backBtn-wp">
+                            <img src="{% static 'img/backBtn.png' %}" alt="back button" class="backBtn" />
+                        </div>
+                        <div class="detail-kw-wp">
+                            <div class="detail-kw">#{{ article.keyword }}</div>
+                            <div class="detail-kw">#{{ article.keyword2 }}</div>
+                            <div class="detail-kw">#{{ article.keyword3 }}</div>
+                        </div>
+                        <div class="detail-title">{{article.name}}</div>
+                        <div class="detail-content">{{article.content}}</div>
+                        <div class="detail-time">{{article.created_at}}</div>
+                        <div class="profile"></div>
+                    </div>
+                    <div class="detail-bot">
+                        <hr class="detail-line" />
+                        <div class="profile">
+                            <img class="namecard" src="{% static 'img/namecardBtn.png' %}"></img>
+                            <img src="{% static 'img/prof-temp.png' %}" class="prof-img" alt="prof-img" />
+                            <div class="prof-right" style="position: relative;top: 12px;">
+                                <div class="prof-name">{{article.name}}</div>
+                                <div class="prof-relationship">{{article.position}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/rollingPaper.js' %}"></script>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            Kakao.init("7b6f288c02d16c4d6ed16b656e5ed6e7");
+
+            function kakaoShare() {
+                Kakao.Share.createScrapButton({
+                    container: ".btn-kakao",
+                    requestUrl: "http://127.0.0.1:8000/articles/RollFront",
+                    templateId: 109650,
+                });
+            }
+        });
+    </script>
+</body>
+</html>

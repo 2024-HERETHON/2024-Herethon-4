@@ -1,0 +1,314 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+.container {
+  margin: 0 auto;
+  padding-left: 25px;
+  width: 393px;
+  height: 852px;
+  background: #242427;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: -0.36px;
+  padding-top: 1px;
+}
+
+.title {
+  margin-top: 20%;
+  height: 50px;
+  color: #fff;
+}
+.btn-kakao {
+  position: relative;
+  top: 3px;
+  left: 38px;
+}
+.tost-share {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: -0.24px;
+  opacity: 0;
+  position: relative;
+  top: 23px;
+  left: 100px;
+  width: 140px;
+  padding: 8px 12px;
+  align-items: center;
+  border-radius: 4px;
+  background: #3f3f43;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+}
+.tost-share.active {
+  opacity: 100%;
+  bottom: 50px;
+}
+.btn-namecard-wp {
+  margin-left: 67%;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: -0.28px;
+  display: inline-flex;
+  padding: 8px 12px;
+  align-items: center;
+  border-radius: 50px;
+  border: 0.5px solid #fff;
+  top: 150px;
+  left: 128px;
+}
+
+.rp-selector {
+  margin-top: 5%;
+  width: 365px;
+  border-bottom: 1px solid #3f3f43;
+}
+.rp-selector-recv,
+.rp-selector-send {
+  display: inline-block;
+  position: relative;
+  right: 70px;
+  top: 1px;
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 8px;
+  line-height: 19px;
+  letter-spacing: -0.32px;
+}
+.rp-selector-recv {
+  color: #fff;
+  border-bottom: 1px solid #f9e882;
+}
+.rp-selector-send {
+  color: #8c8c8e;
+  margin-left: 10px;
+  border-bottom: none;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+.paperlist {
+  width: 100%;
+  height: 70%;
+  position: relative;
+  top: 20px;
+  overflow-y: scroll;
+  max-height: 70%;
+}
+
+.rp {
+  float: left;
+  width: 150px;
+  height: 70px;
+  margin-right: 18px;
+  margin-bottom: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f9e882;
+  display: block;
+}
+
+/*키워드 공통 디자인*/
+.rp-kw,
+.detail-kw {
+  float: left;
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 0.5px solid #2f2f32;
+  background: #2f2f32;
+  color: #f9e882;
+  text-align: center;
+}
+.rp-kw {
+  width: 25px;
+  height: 10px;
+  margin-right: 5px;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 10px;
+  letter-spacing: -0.16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.detail-kw {
+  width: 60px;
+  height: 20px;
+  color: #f9e882;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: -0.24px;
+}
+.rp-content {
+  clear: both;
+  position: relative;
+  width: 150px;
+  height: 23px;
+  top: 12px;
+  color: #2f2f32;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+  text-align: left;
+}
+.rp-relationship,
+.rp-time {
+  width: 50px;
+  color: #2f2f32;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: -0.16px;
+  text-align: left;
+  margin-top: 13px;
+}
+.rp-relationship {
+  width: 55px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+.rp-time {
+  position: relative;
+  bottom: 34px;
+  left: 50px;
+  width: 65px;
+  margin-left: 35px;
+}
+.blur {
+  float: inline-end;
+  position: relative;
+  bottom: 812px;
+  width: 418px;
+  height: 853px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+.detail {
+  clear: both;
+  position: relative;
+  top: 175px;
+  left: 24px;
+}
+
+.detail-top,
+.detail-bot {
+  width: 369px;
+  background: #f9e882;
+}
+.detail-top {
+  height: 410px;
+  border-radius: 8px 8px 16px 16px;
+}
+
+.backBtn {
+  float: right;
+  width: 20px;
+  height: 19px;
+  margin-top: 23px;
+  margin-right: 23px;
+}
+.detail-kw-wp {
+  padding-top: 23px;
+  padding-left: 23px;
+}
+.detail-kw {
+  margin-right: 10px;
+}
+
+.detail-title {
+  clear: both;
+  position: relative;
+  text-align: center;
+  left: 20px;
+  top: 15px;
+  padding-bottom: 15px;
+  width: 320px;
+  height: 21px;
+}
+
+.detail-content {
+  width: 280px;
+  height: 210px;
+  text-align: left;
+  border-radius: 8px;
+  background: #fdf2af;
+  padding: 20px 18px;
+  margin-left: 22px;
+  margin-top: 15px;
+  color: #2f2f32;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: -0.28px;
+}
+.detail-time {
+  height: 21px;
+  color: #515155;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: -0.28px;
+  padding-right: 24px;
+  padding-top: 20px;
+}
+.detail-line {
+  margin-top: 0px;
+  color: #8c8c8e;
+  width: 315px;
+  border: none;
+  border-top: 1px dashed #8c8c8e;
+}
+.detail-bot {
+  height: 100px;
+  border-radius: 16px 16px 8px 8px;
+}
+.profile {
+  padding: 14px 22px;
+}
+
+.prof-img {
+  float: left;
+}
+.prof-right {
+  float: left;
+  height: 50px;
+  width: 250px;
+}
+.prof-name,
+.prof-relationship,
+.affiliation,
+.occupation {
+  color: #515155;
+  font-family: Pretendard;
+}
+.prof-name {
+  float: left;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: -0.36px;
+}
+.namecard {
+  position: relative;
+  top: 8px;
+}
+.prof-relationship {
+  float: left;
+  padding-top: 1px;
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: -0.24px;
+}

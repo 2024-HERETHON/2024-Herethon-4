@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 명함 조회</title>
+    <link rel="stylesheet" href="{% static 'css/mycardFront.css' %}">
+    <script src="{% static 'js/mycardFront.js' %}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="#">
+                <button class="backBtn" type="button">
+                    <img src="{% static 'img/backBtn.svg' %}" alt="뒤로가기 버튼">
+                </button>
+            </a>
+            <h1 class="title">{{ request.user.username }}님의 명함</h1>
+            <button class="shareBtn">
+                <img src="{% static 'img/shareBtn.svg' %}" alt="공유하기 버튼">
+            </button>
+        </header>
+        <div class="dumy">
+            <div id="toast-message">링크가 복사되었어요</div>
+            {% if cards.count < 3 %}
+            <a href="{% url 'cards:create' %}">
+                <button class="cardAddBtn" type="button">
+                    <img src="{% static 'img/cardAddBtn.svg' %}">
+                </button>
+            </a>
+            {% endif %}
+        </div>
+        <div class="carousel">
+            <div class="cards-container" id="cards-container">
+                {% for card in cards %}
+                <div class="card" data-id="{{ card.id }}" style="background-image: url('{% static "img/cardpink.svg" %}')">
+                    <a href="{% url 'cards:mycardBack' card.id %}">
+                        <div class="info">
+                            <div class="infoLeft">
+                                <div class="userName">{{ card.name }}</div>
+                                <div class="belong">{{ card.position }}</div>
+                                <div class="job">{{ card.job }}</div>
+                            </div>
+                            <div class="infoRight">
+                              {% for keyword in card.keyword.all %}
+                                <div class="hashtag" style="color: {% cycle '#ff77ba' '#FCB05D' '#5583FF' %}">
+                                    {{ keyword.name }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% if card.image %}
+                        <img src="{{ card.image.url }}" alt="Avatar" class="avatar">
+                        {% else %}
+                        <img src="{% static 'img/initPhoto.svg' %}" alt="Avatar" class="avatar">
+                        {% endif %}
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- 명함 없을 때 update 숨김처리 : 에러 해결 -->
+        {% if cards %}
+        <a id="modify-link" href="{% url 'cards:update' cards.0.id %}">
+            <button class="modifyBtn">
+                <img src="{% static 'img/modifyBtn.svg' %}" alt="수정하기 버튼">
+            </button>
+        </a>
+        {% endif %}
+
+        <div class="dots" id="dots">
+            {% for card in cards %}
+            <span class="dot {% if forloop.first %}active{% endif %}" onclick="showCard({{ forloop.counter0 }})"></span>
+            {% endfor %}
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const bgColor = [
+                "{% static 'img/cardpink.svg' %}",
+                "{% static 'img/cardyellow.svg' %}",
+                "{% static 'img/cardblue.svg' %}",
+            ];
+            const htColor = ["#ff77ba", "#FCB05D", "#5583FF"];
+
+            const container = document.getElementById("cards-container");
+            const dotsContainer = document.getElementById("dots");
+            const modifyLink = document.getElementById("modify-link");
+
+            // Update card background colors
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.backgroundImage = `url(${bgColor[index % bgColor.length]})`;
+            });
+
+            let currentIndex = 0;
+            const cardWidth = 320;
+
+            function showCard(index) {
+                const dots = document.querySelectorAll(".dot");
+                container.style.transform = `translateX(-${index * cardWidth}px)`;
+                dots[currentIndex].classList.remove("active");
+                dots[index].classList.add("active");
+                currentIndex = index;
+
+                // 수정하기 id 동적으로 설정
+                const currentCardId = cards[index].dataset.id;
+                modifyLink.href = `/cards/update/${currentCardId}/`;
+            }
+
+
+            let toastMessage = document.getElementById("toast-message");
+            let toastBtn = document.getElementsByClassName("shareBtn")[0];
+
+            toastBtn.addEventListener("click", function () {
+                console.log("이벤트가 잘 연결 됐는지 확인");
+                toastOn();
+            });
+
+            function toastOn() {
+                toastMessage.classList.add("active");
+                setTimeout(function () {
+                    toastMessage.classList.remove("active");
+                }, 1000);
+            }
+
+            // Add the showCard function to the global scope
+            window.showCard = showCard;
+        });
+    </script>
+</body>
+</html>

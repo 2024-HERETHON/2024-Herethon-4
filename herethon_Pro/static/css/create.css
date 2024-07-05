@@ -1,0 +1,179 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+.container {
+  width: 393px;
+  height: 852px;
+  font-family: "pretendard";
+  background: #242427;
+  color: #ffffff;
+  overflow-y: auto;
+}
+
+.container::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.header {
+  margin-top: 88px;
+  display: flex;
+  align-items: center;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 24px;
+}
+
+.title {
+  flex-grow: 1;
+  /* margin-top: -30px; */
+  /* display: flex; */
+  /* justify-content: center; */
+  margin-left: 88px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.36px;
+}
+a {
+  text-decoration-line: none;
+}
+
+.profile-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 40px 0px;
+}
+
+#userPhoto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.edit-button {
+  display: flex;
+  position: absolute;
+  margin-top: 90px;
+  margin-left: 70px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 28px;
+}
+
+input,
+.custom-select,
+.rolling-paper,
+.submit-button {
+  width: 345px;
+}
+
+.form-group input {
+  width: 345px;
+  margin-top: 8px;
+  padding: 17px 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #353538;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.form-group input::placeholder {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+}
+
+.form-group input:focus {
+  border-radius: 8px;
+  border: 0.5px solid #b2b2b4;
+  background: #353538;
+  transition: ease-in-out 300ms;
+  outline: none;
+}
+
+.form-group input:focus::placeholder {
+  color: transparent;
+}
+
+.keyword-title {
+  font-size: 16px;
+  /* margin-bottom: 20px; */
+  font-weight: 500;
+}
+.keyword-title :hover {
+  transition: 300ms ease-in-out;
+  border-radius: 8px;
+  border: 0.5px solid #b2b2b4;
+  background: #353538;
+}
+
+.styled-select {
+  margin-top: 8px;
+  width: 345px;
+  /* width: 100%; */
+  border-radius: 8px;
+  background-color: #353538;
+  padding: 17px 18px;
+  color: #8c8c8e;
+  font-size: 14px;
+  font-weight: 500;
+  appearance: none;
+  border: none;
+}
+
+.styled-select:focus {
+  outline: none;
+  color: white;
+}
+
+.submit-button {
+  padding: 17px 18px;
+  margin-top: 117px;
+  margin-bottom: 54px;
+  background-color: #f9e882;
+  border: none;
+  border-radius: 5px;
+  color: #2f2f32;
+  cursor: pointer;
+  /* transition: background-color 300ms ease-in-out; */
+}
+
+.nameError,
+.belongError,
+.jobError {
+  visibility: hidden;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.16px;
+  margin-top: 8px;
+  color: #ff4a4a;
+}
+
+.nameError.show,
+.belongError.show,
+.jobError.show {
+  visibility: visible;
+}
