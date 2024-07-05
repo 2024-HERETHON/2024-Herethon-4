@@ -12,12 +12,14 @@ def create(request):
         keyword2 = request.POST.get('keyword2')
         keyword3 = request.POST.get('keyword3')
         content = request.POST.get('content')
+        title = request.POST.get('title')
         user = request.user
 
         # Article 객체 생성 및 저장
         article = Article.objects.create(
             user=user,
             name=name,
+            title=title,
             position=position,
             content=content,
             keyword=keyword,
@@ -39,3 +41,6 @@ def detail(request):
 def detail2(request, id):
     article = get_object_or_404(Article, id=id)
     return render(request, 'articleapp/article_list.html', {'article' : article})
+
+
+

@@ -4,11 +4,8 @@ from projectapp.views import ProjectListView, ProjectCreateView, ProjectDetailVi
 
 app_name = 'projectapp'
 
-urlpatterns=[
-    path('list/', ProjectListView.as_view(), name='list'),
-    path('create/', ProjectCreateView.as_view(), name='create'),
-    path('detail/<int:pk>', ProjectDetailView.as_view(), name='detail'),
-    path('update/<int:pk>/', ProjectUpdateView.as_view(), name='update'),
-    path('delete/<int:pk>/', ProjectDeleteView.as_view(), name='delete'),
-
-]
+urlpatterns = [
+    path('create/', views.create, name='create'),
+    path('detail/', views.detail, name='detail'),
+    path('detail2/<int:id>/', views.detail2, name='detail2'),
+ ] # 수정된 부분

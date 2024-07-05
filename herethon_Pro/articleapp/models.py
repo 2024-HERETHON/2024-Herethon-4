@@ -5,6 +5,7 @@ class Article(models.Model):
     keyword = models.TextField(max_length=20)
     keyword2 = models.TextField(max_length=20)
     keyword3 = models.TextField(max_length=20)
+    title = models.TextField(max_length=100)
     POSITION_CHOICES = [
         ('family', '가족'),
         ('friend', '지인'),
