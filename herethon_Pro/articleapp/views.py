@@ -1,9 +1,8 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views.decorators.http import require_http_methods
-
 from articleapp.models import Article  # articleapp에 있는 모델 사용
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from users.models import User
 
 # 롤링페이퍼 조회
 @login_required
@@ -15,10 +14,8 @@ def RollFront(request):
 def RollBack(request):
     return render(request, "RollBack.html")
 
-
 def home(request):
     return render(request, 'articleapp/home.html')
-
 
 # 내 롤링페이퍼 만들기 (create)
 @login_required
@@ -29,7 +26,7 @@ def create(request):
         content = request.POST.get('content')
         keyword = request.POST.get('keyword')  # 폼에서 받아오는 데이터의 키 이름 확인
         image = request.FILES.get('image')
-
+        share = request.POST.get('share') == 'on'  # 폼에서 'share' 필드 처리
         user = request.user  # 현재 로그인한 사용자 정보 가져오기
 
         # Article 객체 생성 및 저장
@@ -95,10 +92,10 @@ def detail(request, pk):
         'article': article,
     }
 
+    return render(request, 'detail.html', context)  # 잘못된 중괄호 제거 및 올바른 return 문 추가
 
-    return redirect('home')  # 생성 후 기본 홈페이지로 리디렉션
 
-return render(request, 'create.html')
+
 
 
 

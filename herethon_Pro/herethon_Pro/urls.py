@@ -13,6 +13,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('articles/', include('articleapp.urls')),
     path('projects/', include('projectapp.urls')),
-    path('RollBack/<int:id>/', RollBack, name = "rollBack"), #
+    path('rollback/', views.RollBack, name='RollBack'),
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
