@@ -97,26 +97,14 @@
             <div class="jobError">입력하신 내용을 다시 확인해 주세요</div>
             </div>
             <div class="form-group">
-            <label for="hashtag">키워드를 선택해 주세요</label>
-            <div class="custom-select" name="keyword">
-                <div class="select-trigger">
-                <span>키워드</span>
-                <div class="hashtag-btn">
-                    <img src="{% static 'img/upArrow.svg' %}" alt="" id="hashtagArrow" />
-                </div>
-                </div>
-                <div class="custom-options">
-                {% for keyword in keywords %}
-                <span class="custom-option" data-value="{{ keyword.id }}" {% if keyword.id == card.keyword.id %} selected {% endif %}>{{ keyword.name }}</span>
-                {% endfor %}
-                </div>
-            </div>
-            <!-- 키워드를 선택해 주세요<br>
-            <select name="keyword">
-                {% for keyword in keywords %}
-                    <option value="{{ keyword.id }}" {% if keyword.id == card.keyword.id %} selected {% endif %}>{{ keyword.name }}</option>
-                {% endfor %}
-            </select> -->
+              <div class="keyword-title dropdown">
+                키워드를 선택해 주세요<br>
+                <select name="keyword" class="styled-select">
+                    {% for keyword in keywords %}
+                        <option value="{{ keyword.id }}" {% if keyword.id == card.keyword.id %} selected {% endif %}>{{ keyword.name }}</option>
+                    {% endfor %}
+                </select>
+              </div>
             </div>
             <button type="submit" class="submit-button">추가하기</button>
       </form>

@@ -16,16 +16,19 @@
     <p>내용 - {{ selected_article.content }}</p>
     <p>시간 - {{ selected_article.created_at }}</p>
     <p>
-      작성자(관계) - {{ selected_article.writer }}({{
-      selected_article.get_category_display }})
+      작성자(관계) -
+      <a href="{% url 'cards:cardFront' selected_article.writer.id %}"
+        >{{ selected_article.writer }}</a
+      >
+      ({{ selected_article.get_category_display }})
     </p>
     <p>직업 - {{ card.job }}</p>
     <p>소속 - {{ card.position }}</p>
+
     {% else %}
     <p>선택된 롤링페이퍼가 없습니다.</p>
     {% endif %}
 
     <a href="{% url 'cards:mycardFront' %}">앞면보기</a>
-    <a href="{% url 'cards:detail' card.id %}">자세히</a>
   </body>
 </html>

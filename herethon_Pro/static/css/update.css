@@ -153,11 +153,10 @@ form {
 }
 
 .form-group {
-  margin-bottom: 28px;
+  margin-bottom: 40px;
 }
 
 input,
-.custom-select,
 .rolling-paper,
 .submit-button {
   width: 345px;
@@ -197,97 +196,59 @@ input,
   color: transparent;
 }
 
-.custom-select-wrapper {
-  position: relative;
-  display: inline-block;
-  user-select: none;
-}
-
-.custom-select {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.select-trigger {
-  margin-top: 8px;
-  color: #8c8c8e;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 8px;
-  background: #353538;
-  padding: 13px 14px;
-  font-size: 14px;
-  font-style: normal;
+.keyword-title {
+  font-size: 16px;
+  /* margin-bottom: 20px; */
   font-weight: 500;
-  line-height: 19px; /* 135.714% */
-  letter-spacing: -0.28px;
-  cursor: pointer;
 }
-
-.select-trigger.active {
+.keyword-title :hover {
+  transition: 300ms ease-in-out;
+  border-radius: 8px;
   border: 0.5px solid #b2b2b4;
-  color: white;
-  transition: ease-in-out 300ms;
+  background: #353538;
 }
 
-.custom-options {
-  padding: 10px 10px;
+.styled-select {
   margin-top: 8px;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background-color: #3f3f43;
-  color: #8c8c8e;
+  width: 345px;
   border-radius: 8px;
-  display: none;
-  z-index: 1;
-}
-
-.custom-option {
+  background-color: #353538;
+  padding: 17px 18px;
+  color: #8c8c8e;
   font-size: 14px;
   font-weight: 500;
-  display: flex;
-  padding: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  appearance: none;
+  border: none;
+  margin-bottom: 3px;
 }
 
-.custom-option:hover {
-  border-radius: 4px;
-  background-color: #2f2f32;
+.styled-select:focus {
+  outline: none;
   color: white;
-  padding: 10px;
-}
-
-.custom-select.open .custom-options {
-  display: block;
 }
 
 .rp-btn {
-  width: 345px;
+  width: 310px;
   margin-top: 8px;
+
   background-color: #353538;
   color: white;
   padding: 17px 18px;
-  border: none;
-  cursor: pointer;
+  font-size: 14px;
   border-radius: 8px;
   text-align: left;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
 }
 
-.hashtag-btn.active {
+/* .hashtag-btn.active {
   border: 0.5px solid #b2b2b4;
   color: white;
   transition: ease-in-out 300ms;
-}
+} */
 
 .submit-button {
   padding: 17px 18px;
@@ -317,4 +278,15 @@ input,
 .belongError.show,
 .jobError.show {
   visibility: visible;
+}
+
+.rp-btn a {
+  text-decoration-line: none;
+  background-color: #353538;
+  color: white;
+  /* width: 345px; */
+  /* padding: 17px 18px; */
+}
+.rp-btn a:visited {
+  color: white;
 }
