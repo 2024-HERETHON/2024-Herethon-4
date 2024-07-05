@@ -1,33 +1,99 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h2>롤링페이퍼 선택</h2><br><br>
+    <link rel="stylesheet" href="{% static 'css/selectRp.css' %}">
+    <style>
+       .details-btn {
+  width: 30px;
+position: relative;
+left: 308px;
 
-    <form method="POST" action = "{% url 'cards:select_rolling_paper' card.id %}">
-        {% csrf_token %}
+bottom: 80px;
+  background: none;
+  padding: 4px 8px;
+  align-items: center;
+  gap: 2px;
+  border-radius: 25px;
+  border: 0.5px solid #515155;
+  color: #515155;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 7px;
+  font-weight: 500;
+  line-height: 9.5px; /* 135.714% */
+  letter-spacing: -0.14px;
+}
+.list {
+    width: 370px;
+    height: 670px;
+    overflow-y: scroll; 
+    scrollbar-width: none; 
+    -ms-overflow-style: none;  
+}
 
-        {% for article in articles %}
-            <input type="radio" name="selected_article" value="{{ article.id }}" {% if card.selected_article and card.selected_article.id == article.id %}checked{% endif %}>
+.list::-webkit-scrollbar {
+    display: none;
+}
+.selectBtn {
+    z-index: 100;
+    position: relative;
+      bottom: 55px;
+      right: 13px;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 500;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  letter-spacing: -0.28px;
+  width: 367px;
+  height: 55px;
+  color: white;
+  border-radius: 8px;
+  background: #8c8c8e;
+}
+.selectBtn {
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
 
-            <p>키워드 - {{ article.keyword }}</p>
-
-            <p>제목 - {{ article.title }}</p>
-            <p>작성자 - {{ article.writer }}({{ article.get_category_display }})</p>
-            <p>날짜 - {{ article.created_at }}</p>
-
-            <a href="{% url 'cards:detail' card.id %}">자세히</a><br><br>
-
-        {% empty %}
-        아직 롤링페이퍼가 없습니다.
-
-        {% endfor %}
-
-        <input type="submit" value="선택완료">
-    </form>
-</body>
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <img
+          src="{% static '/img/arrow-backBtn.png' %}"
+          alt="backBtn"
+          class="btn-back"
+        />
+        롤링페이퍼 선택
+      </div>
+<div class="list">
+      <form
+        method="POST"
+        action="{% url 'cards:select_rolling_paper' card.id %}"
+      >
+        {% csrf_token %} {% for article in articles %} 
+        <div class="rp" style="background-color: #353538;"
+        name="selected_article" value="{{ article.id }}" {% if card.selected_article and card.selected_article.id == article.id %}checked{% endif %}>
+        <div class="rp-kw" style="color: #D3D3D3">#{{ article.keyword }}</div>
+        <div class="rp-kw" style="color: #D3D3D3">#{{ article.keyword }}</div>
+        <div class="rp-kw" style="color: #D3D3D3">#{{ article.keyword }}</div>
+        <div class="rp-content" style="color: #D3D3D3;">{{ article.title }}</div>
+        <div class="rp-relationship" style="color: #D3D3D3;">{{ article.writer }}({{ article.get_category_display }})</div>
+        <div class="rp-time" style="color: #D3D3D3;">{{ article.created_at }}</div>
+        <a class="details-btn" href="{% url 'cards:detail' card.id %}" style="display: none; width: 20px; text-decoration-line:none;">자세히</a><br /><br />
+     </div>
+        {% empty %} 아직 롤링페이퍼가 없습니다. {% endfor %}
+    </div>
+        <button type="submit" value="선택완료" class="selectBtn" >선택하기</button>
+      </form>
+    
+</div>
+  </body>
+  <script src="{% static 'js/selectRp.js' %}"></script>
 </html>
