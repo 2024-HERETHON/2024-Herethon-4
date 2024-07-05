@@ -57,15 +57,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  const nameInput = document.getElementById("name");
   const belongInput = document.getElementById("belong");
   const jobInput = document.getElementById("job");
   const submitButton = document.querySelector(".submit-button");
 
-  let belongError = document.querySelector(".belongError");
-  let jobError = document.querySelector(".jobError");
+  // let nameError = document.querySelector(".nameError");
+  // let belongError = document.querySelector(".belongError");
+  // let jobError = document.querySelector(".jobError");
 
   function checkInputs() {
-    if (belongInput.value.trim() !== "" && jobInput.value.trim() !== "") {
+    if (
+      nameInput.value.trim() !== "" &&
+      belongInput.value.trim() !== "" &&
+      jobInput.value.trim() !== ""
+    ) {
       submitButton.style.backgroundColor = "#f9e882";
       submitButton.style.transition = "ease-in-out 300ms";
       submitButton.style.color = "#2f2f32";
