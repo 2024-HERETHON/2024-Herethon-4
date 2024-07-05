@@ -2,7 +2,6 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .models import Card, Keyword
 from articleapp.models import Article   # articleapp에 있는 모델 사용
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from users.models import User
 
 # 명함조회 - 앞
