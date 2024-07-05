@@ -55,38 +55,46 @@
         <h1 class="title">명함 수정하기</h1>
         {% if card_count != 1 %}
         <a href="{% url 'cards:delete' card.id %}">
-        <button class="delete-btn">
-          <img
-            src="{% static 'img/deleteBtn.svg' %}"
-            class="deleteBtn"
-            alt="삭제하기 버튼"
-          />
-        </button>
+          <button class="delete-btn">
+            <img
+              src="{% static 'img/deleteBtn.svg' %}"
+              class="deleteBtn"
+              alt="삭제하기 버튼"
+            />
+          </button>
         </a>
         {% endif %}
       </header>
+      <form method="POST" action="{% url 'cards:update' card.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
         <div class="profile-photo">
+          {% if card.image %}
+            <img
+              src="{{ card.image.url }}"
+              alt="Profile Picture"
+              id="userPhoto"
+            />
+          {% else %}
             <img
               src="{% static 'img/borderPhoto.svg' %}"
               alt="Profile Picture"
               id="userPhoto"
             />
-            <button class="edit-button" aria-label="Edit Profile Picture">
+            {% endif %}
+            <button class="edit-button">
+              <input
+                type="file"
+                id="fileInput"
+                name="image"
+                style="opacity: 0; position: absolute; width: 100%; height: 100%; top: 0; left: 0; cursor: pointer;"
+              />
               <img
                 src="{% static 'img/editBtn.svg' %}"
                 alt="edit button"
                 id="editBtn"
               />
-              <input
-                type="file"
-                id="fileInput"
-                name="image"
-                style="display: none"
-              />
             </button>
           </div>
-          <form method="POST" action="{% url 'cards:update' card.id %}" enctype="multipart/form-data">
-            {% csrf_token %}
             <div class="form-group">
                 <label for="name">이름을 입력해 주세요</label>
                 <input type="text" id="name" placeholder="이름" value="{{ card.name }}" name="name"/>
@@ -127,12 +135,12 @@
             <div class="form-group">
             <label for="rollingpaper">롤링페이퍼를 선택해 주세요</label>
             <div class="rolling-paper" id="rollingPaper">
-                <a href="#">
+              <a href="{% url 'cards:mycardRolling' card.id %}">
                 <button class="rp-btn">
                     롤링페이퍼
                     <img src="{% static 'img/nextArrow.svg' %}" alt="" class="rpArrow" />
                 </button>
-                </a>
+              </a>
             </div>
             </div>
             <button type="submit" class="submit-button">수정하기</button>

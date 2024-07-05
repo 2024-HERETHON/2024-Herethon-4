@@ -55,32 +55,32 @@
         </a>
         <h1 class="title">명함 추가하기</h1>
       </header>
-        <div class="profile-photo">
-            <img
-              src="{% static 'img/borderPhoto.svg' %}"
-              alt="Profile Picture"
-              id="userPhoto"
-            />
-            <button class="edit-button" aria-label="Edit Profile Picture">
-              <img
-                src="{% static 'img/editBtn.svg' %}"
-                alt="edit button"
-                id="editBtn"
-              />
-              <input
-                type="file"
-                id="fileInput"
-                name="image"
-                style="display: none"
-              />
-            </button>
-          </div>
-          <form
+      <form
       method="POST"
       action="{% url 'cards:create' %}"
       enctype="multipart/form-data"
     >
             {% csrf_token %}
+        <div class="profile-photo">
+          <img
+          src="{% static 'img/borderPhoto.svg' %}"
+          alt="Profile Picture"
+          id="userPhoto"
+        />
+        <button class="edit-button">
+          <input
+            type="file"
+            id="fileInput"
+            name="image"
+            style=" opacity: 0; position: absolute; width: 100%; height: 100%; cursor: pointer;"
+          />
+          <img
+            src="{% static 'img/editBtn.svg' %}"
+            alt="edit button"
+            id="editBtn"
+          />
+        </button>
+          </div>
             <div class="form-group">
                 <label for="name">이름을 입력해 주세요</label>
                 <input type="text" id="name" placeholder="이름" value="{{ card.name }}" name="name"/>
@@ -97,7 +97,7 @@
             <div class="jobError">입력하신 내용을 다시 확인해 주세요</div>
             </div>
             <div class="form-group">
-            <!-- <label for="hashtag">키워드를 선택해 주세요</label>
+            <label for="hashtag">키워드를 선택해 주세요</label>
             <div class="custom-select" name="keyword">
                 <div class="select-trigger">
                 <span>키워드</span>
@@ -110,13 +110,13 @@
                 <span class="custom-option" data-value="{{ keyword.id }}" {% if keyword.id == card.keyword.id %} selected {% endif %}>{{ keyword.name }}</span>
                 {% endfor %}
                 </div>
-            </div> -->
-            키워드를 선택해 주세요<br>
+            </div>
+            <!-- 키워드를 선택해 주세요<br>
             <select name="keyword">
                 {% for keyword in keywords %}
                     <option value="{{ keyword.id }}" {% if keyword.id == card.keyword.id %} selected {% endif %}>{{ keyword.name }}</option>
                 {% endfor %}
-            </select>
+            </select> -->
             </div>
             <button type="submit" class="submit-button">추가하기</button>
       </form>
