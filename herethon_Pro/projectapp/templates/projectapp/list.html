@@ -1,60 +1,63 @@
-{% extends 'base.html' %}
 {% load static %}
-{% block content %}
 
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:url" content="http://127.0.0.1:5500/html/admin.html" />
+    <meta property="og:title" content="Gleam을 통해 마음을 표현해 보세요!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/img/shareImg.png" />
+    <meta
+      property="og:description"
+      content="친구로부터 초대장이 도착했어요. 지금 롤링페이퍼를 남겨주세요!"
+    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{user}}의 롤링페이퍼</title>
+    <link rel="stylesheet" href="{% static '/css/admin.css' %}" />
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+          user님의 롤링페이퍼
+          <a class="btn-kakao" href="javascript:kakaoShare()"
+            ><img class="btn-kakao" src="{% static '/img/share.png' %}" alt="kakaotalk"
+          /></a>
+          <div class="tost-share">카카오톡으로 요청을 보냈어요</div>
+        </div>
+        <div class="btn-namecard-wp">
+          명함
+          <img
+            src="{% static '/img/arrow-namecard.png' %}"
+            alt="go to namecard btn"
+            class="btn-namcard"
+          />
+        </div>
+        <div class="rp-selector">
+          <div class="rp-selector-recv" onclick="showRecv()">받은 롤링페이퍼</div>
 
-  .container {
-    padding : 0;
-    margin : 0, auto;
-    }
-
-
-  .container div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border-radius : 1rem;
-  }
-
-  .container img{
-    width : 7rem;
-    height : 7rem;
-    object-fit : cover;
-    border-radius : 1rem;
-  }
-
-
-</style>
-  {% if project_list %}
-  <div class="container">
-    <p><a href="{% url 'cards:mycardFront' %}">내 명함 조회하기</a></p>
-    
-    {% for project in project_list %}
-    <a href = "{% url 'projectapp:detail' pk=project.pk %}">
-       <!-- 앞으로 이부분만 수정하면 카드레이아웃 모두 변경 및 적용 한번에 되는것-->
-      {% include 'snippets/card_project.html' with project=project %} <!--include에 작성한 article이 외부 card.html article과 같다는거 나타내기 위해 with 구문 사용. 외부에 구현한 내용이므로 % include로 불러온것-->
-    </a>
-    {% endfor %}
-  </div>
-  <script src = "{% static 'js/magicgrid.js' %}"></script>
-  {% else %}
-  <div class="text-center">
-      <h1>No Project YET!</h1>
-  </div>
-  {% endif %}
-
-  {% include 'snippets/pagination.html' with page_obj=page_obj %}
-
-  <div style="text-align:center">
-    <a href="{% url 'projectapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
-      Create Project
-    </a>
-  </div>
-
-{% endblock %}
-
+          <div class="rp-selector-send" onclick="showSend()">
+            작성한 롤링페이퍼
+          </div></div>
+        <div class="paperlist">
+          <div class="rp-recv-list"><div class="rp">
+            {% if article %}
+            <div class="rp-kw">#{{ article.keyword }}</div>
+          <div class="rp-kw" >#{{ article.keyword2 }}</div>
+          <div class="rp-kw">#{{ article.keyword3 }}</div>
+          <div class="rp-content">{{ article.name }}</div>
+          <div class="rp-relationship">{{ article.position }}</div>
+          <div class="rp-time">{{ article.created_at }}</div>
+          </div>
+          {% endif %}
+        </div>
+          <div class="rp-send-list"></div>
+        </div>
+</body>
+<script src="{% static 'js/admin.js' %}"></script>
+</html>
 
 
 

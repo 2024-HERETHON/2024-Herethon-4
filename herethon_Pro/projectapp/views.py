@@ -8,6 +8,7 @@ from .models import Project
 def project_create(request):
     if request.method == "POST":
         name = request.POST.get('name')
+        title = request.POST.get('title')
         position = request.POST.get('position')
         keyword = request.POST.get('keyword')
         keyword2 = request.POST.get('keyword2')
@@ -19,6 +20,7 @@ def project_create(request):
         project = Project.objects.create(
             user=user,
             name=name,
+            title=title,
             position=position,
             content=content,
             keyword=keyword,
@@ -34,12 +36,12 @@ def project_create(request):
 @require_http_methods(["GET", "POST"])
 
 def project_detail(request):
-    articles = Project.objects.filter(user=request.user).order_by('-id')
-    return render(request, 'articleapp/detail.html', {'articles': articles})
+    projects = Project.objects.filter(user=request.user).order_by('-id')
+    return render(request, 'projectapp/detail.html', {'projects': projects})
 
 def project_detail2(request, id):
-    article = get_object_or_404(Project, id=id)
-    return render(request, 'articleapp/article_list.html', {'article' : article})
+    project = get_object_or_404(Project, id=id)
+    return render(request, 'projectapp/list.html', {'projects' : project})
 
 def project_update(request, id):
     project = get_object_or_404(Project, id = id)
@@ -52,3 +54,4 @@ def project_update(request, id):
 
         return redirect('projects:detail')
     return render(request, 'update.html', {'project' : project })
+

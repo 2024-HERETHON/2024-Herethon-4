@@ -1,11 +1,16 @@
 from django.urls import path
+from projectapp import views  # 추가
 
-from projectapp.views import ProjectListView, ProjectCreateView, ProjectDetailView, ProjectUpdateView, ProjectDeleteView
 
 app_name = 'projectapp'
 
 urlpatterns = [
-    path('create/', views.create, name='create'),
-    path('detail/', views.detail, name='detail'),
-    path('detail2/<int:id>/', views.detail2, name='detail2'),
+    path('create/', views.project_create, name='create'),
+    path('detail/<int:project_id>/', views.project_detail, name='detail'),
+    path('detail2/<int:id>/', views.project_detail2, name='detail2'),
+
  ] # 수정된 부분
+
+
+
+
