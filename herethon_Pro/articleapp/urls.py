@@ -1,13 +1,13 @@
-from django.urls import path    #선언주의
-from . import views
+from django.contrib import admin
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from articleapp import views  # 추가
 
 app_name = 'articleapp'
 
 urlpatterns = [
-    path('list/', views.ArticleListView.as_view(), name='list'),
-    path('create/', views.ArticleCreateView.as_view(), name='create'),
-    path('detail/<int:pk>/', views.ArticleDetailView.as_view(), name='detail'),
-    path('update/<int:pk>/', views.ArticleUpdateView.as_view(), name='update'),
-    path('delete/<int:pk>/', views.ArticleDeleteView.as_view(), name='delete'),
-
-]
+    path('create/', views.create, name='create'),
+    path('detail/', views.detail, name='detail'), 
+    path('detail2/<int:id>/', views.detail2, name='detail2'),
+ ] # 수정된 부분

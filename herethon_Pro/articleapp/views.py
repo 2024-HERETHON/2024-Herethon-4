@@ -1,63 +1,41 @@
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from django.urls import reverse, reverse_lazy
-from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
-from django.views.generic.edit import FormMixin
+from django.views.decorators.http import require_http_methods
+from .models import Article
 
-from articleapp.decorators import article_ownership_required
-from articleapp.forms import ArticleCreationForm
-from articleapp.models import Article
+@login_required
+def create(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        position = request.POST.get('position')
+        keyword = request.POST.get('keyword')
+        keyword2 = request.POST.get('keyword2')
+        keyword3 = request.POST.get('keyword3')
+        content = request.POST.get('content')
+        user = request.user
 
-@method_decorator(login_required, 'get')
-@method_decorator(login_required, 'post')
-class ArticleCreateView(CreateView):
-    model = Article
-    form_class = ArticleCreationForm
-    template_name = 'articleapp/create.html'
+        # Article 객체 생성 및 저장
+        article = Article.objects.create(
+            user=user,
+            name=name,
+            position=position,
+            content=content,
+            keyword=keyword,
+            keyword2=keyword2,
+            keyword3=keyword3,
 
-#서버에서 writer 값 지정해주는 코드
-    def form_valid(self, form):
-        temp_article = form.save(commit=False)
-        temp_article.writer = self.request.user
-        temp_article.save()
-        return super().form_valid(form)
+        )
+        # 생성된 글의 detail 페이지로 리디렉션
+        return redirect('articleapp:detail')
+    return render(request, 'articleapp/create.html')
 
+@login_required
+@require_http_methods(["GET", "POST"])
 
-    def get_success_url(self):
-        return reverse('articleapp:detail', kwargs={'pk': self.object.pk})
+def detail(request):
+    articles = Article.objects.filter(user=request.user).order_by('-id') 
+    return render(request, 'articleapp/detail.html', {'articles': articles})
 
-
-class ArticleDetailView(DetailView, FormMixin):
-    model = Article
-    form_class = ArticleCreationForm
-    context_object_name = 'target_article'
-    template_name = 'articleapp/detail.html'
-
-
-@method_decorator(article_ownership_required, 'get')
-@method_decorator(article_ownership_required, 'post')
-class ArticleUpdateView(UpdateView):
-    model = Article
-    context_object_name = 'target_article'
-    form_class = ArticleCreationForm
-    template_name = 'articleapp/update.html'
-
-    def get_success_url(self):
-        return reverse('articleapp:detail', kwargs={'pk': self.object.pk})
-
-
-@method_decorator(article_ownership_required, 'get')
-@method_decorator(article_ownership_required, 'post')
-class ArticleDeleteView(DeleteView):
-    model = Article
-    context_object_name = 'target_article'
-    success_url = reverse_lazy('articleapp:list')    #폼이 성공적으로 제출된 후 리디렉션할 URL을 설정하는 코드. 이를 통해 해당 폼이 성공적으로 처리되었을 때, 사용자가 articleapp 애플리케이션의 list 뷰로 리디렉션됩니다.
-    template_name = 'articleapp/delete.html'
-
-
-class ArticleListView(ListView):
-    model = Article
-    context_object_name = 'article_list'
-    template_name = 'articleapp/list.html'
-    paginate_by = 2   # 한 페이지당 2개씩 보여지고 남는건 다음 페이지로 넘어가는것.
+def detail2(request, id):
+    article = get_object_or_404(Article, id=id)
+    return render(request, 'articleapp/article_list.html', {'article' : article})
