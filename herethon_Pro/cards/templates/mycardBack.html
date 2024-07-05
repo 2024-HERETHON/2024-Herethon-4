@@ -10,9 +10,17 @@
     <br /><br />
 
     {% if selected_article %}
+    <p>키워드 - {{ selected_article.keyword }}</p>
+
     <p>제목 - {{ selected_article.title }}</p>
-    <p>작성자 - {{ selected_article.writer }}</p>
-    <p>날짜 - {{ selected_article.created_at }}</p>
+    <p>내용 - {{ selected_article.content }}</p>
+    <p>시간 - {{ selected_article.created_at }}</p>
+    <p>
+      작성자(관계) - {{ selected_article.writer }}({{
+      selected_article.get_category_display }})
+    </p>
+    <p>직업 - {{ card.job }}</p>
+    <p>소속 - {{ card.position }}</p>
     {% else %}
     <p>선택된 롤링페이퍼가 없습니다.</p>
     {% endif %}

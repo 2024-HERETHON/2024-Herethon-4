@@ -1,0 +1,228 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+
+.container {
+  width: 393px;
+  height: 852px;
+  font-family: "pretendard";
+  background: #242427;
+  color: #ffffff;
+  overflow: hidden;
+  /* margin: 24px; */
+}
+.header {
+  margin: 88px 24px 0px 24px;
+  display: flex;
+  align-items: center;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.36px;
+}
+
+.shareBtn {
+  background: #242427;
+  border: #242427;
+  cursor: pointer;
+  position: relative;
+  right: 25px;
+  top: 3px;
+}
+
+.dumy {
+  display: flex;
+  align-items: center;
+}
+#toast-message {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+  text-align: center;
+  padding: 8px 12px;
+  margin-top: 28px;
+  margin-left: 125px;
+  border-radius: 4px;
+  background: #3f3f43;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  width: 117px;
+  align-items: center;
+}
+
+#toast-message.active {
+  opacity: 1;
+  transition: ease-in-out 300ms;
+}
+
+.carousel {
+  position: relative;
+  margin-top: 117px;
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cards-container {
+  display: flex;
+  transition: 300ms ease-in-out;
+}
+.card {
+  min-width: 90%;
+  margin-top: 42px;
+  margin-left: 18px;
+  margin-right: 13px;
+  width: 286px;
+  height: 406px;
+  border-radius: 8px;
+  background: no-repeat center center;
+  background-size: cover;
+  box-sizing: border-box;
+  text-align: left;
+  color: #515155;
+  position: relative;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.first {
+  margin: 20px 21px 13px 21px;
+  display: flex;
+  flex-direction: column;
+}
+.tags {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12px;
+}
+.tag {
+  margin-right: 7px;
+  padding: 4px 5px;
+  border-radius: 3px;
+  background: #2f2f32;
+  overflow: hidden;
+  color: #f9e882;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-size: 9.5px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.191px;
+}
+.titleZone {
+  display: flex;
+  color: #2f2f32;
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 16.684px; /* 116.667% */
+  letter-spacing: -0.286px;
+}
+.content {
+  color: #2f2f32;
+  text-align: center;
+  margin: 10px 21px;
+  border-radius: 8px;
+  display: flex;
+  height: 165px;
+  padding: 16px 14px;
+  justify-content: center;
+  align-items: center;
+}
+.writeDate {
+  font-size: 11px;
+  color: #515155;
+  text-align: right;
+  margin-right: 20px;
+  margin-top: 13px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.clickable-area {
+  display: flex;
+  align-items: center;
+  padding: 20px 21px;
+  margin: 13px;
+  border-top: 1.5px dashed #8c8c8e;
+  color: #515155;
+}
+
+.callerPhoto {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.whole {
+  margin-left: 7px;
+}
+.top,
+.down {
+  display: flex;
+  align-items: center;
+}
+.top {
+  margin-bottom: 4px;
+}
+.othersName {
+  font-weight: 700;
+  margin-right: 7px;
+  width: 36.546px;
+  height: 16.684px;
+  font-size: 14.301px;
+  line-height: 16.684px; /* 116.667% */
+  letter-spacing: -0.286px;
+}
+
+.belong,
+.relation,
+.detail {
+  margin-right: 7px;
+  font-size: 9.534px;
+  font-weight: 400;
+  line-height: 15.095px; /* 158.333% */
+  letter-spacing: -0.191px;
+}
+.go {
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 5px;
+  background-color: #7b7b7e;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #fff;
+}

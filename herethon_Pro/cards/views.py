@@ -3,17 +3,19 @@ from .models import Card, Keyword
 from articleapp.models import Article   # articleapp에 있는 모델 사용
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from users.models import User
 
 # 명함조회 - 앞
-def cardFront(request):
-    author = get_object_or_404(User, id=id)
-    articles = Article.objects.filter(writer=author)
-    return render(request, 'cardFront.html', {'author': author, 'articles': articles})
+def cardFront(request, id):
+    writer = get_object_or_404(User, id=id)
+    cards = Card.objects.filter(user=writer).order_by('-id') 
+    return render(request, "cardFront.html", {'cards' : cards})
 
 # 명함조회 - 뒤
-def cardBack(request):
-    return render(request, "cardBack.html")
-
+def cardBack(request, id):
+    card = get_object_or_404(Card, id=id)
+    selected_article = card.selected_article
+    return render(request, "cardBack.html", {'card' : card, 'selected_article': selected_article})
 # 내 명함 보기 - 앞
 def mycardFront(request):
     cards = Card.objects.filter(user=request.user).order_by('-id')  # 로그인 한 사용자가 쓴 명함 불러오기
