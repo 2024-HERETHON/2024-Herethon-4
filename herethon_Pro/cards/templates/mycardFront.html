@@ -16,7 +16,7 @@
                     <img src="{% static 'img/backBtn.svg' %}" alt="뒤로가기 버튼">
                 </button>
             </a>
-            <h1 class="title">홍길동 님의 명함</h1>
+            <h1 class="title">{{ request.user.username }}님의 명함</h1>
             <button class="shareBtn">
                 <img src="{% static 'img/shareBtn.svg' %}" alt="공유하기 버튼">
             </button>
@@ -34,7 +34,7 @@
         <div class="carousel">
             <div class="cards-container" id="cards-container">
                 {% for card in cards %}
-                <div class="card" style="background-image: url('{% static "img/cardpink.svg" %}')">
+                <div class="card" data-id="{{ card.id }}" style="background-image: url('{% static "img/cardpink.svg" %}')">
                     <a href="{% url 'cards:mycardBack' card.id %}">
                         <div class="info">
                             <div class="infoLeft">
@@ -63,7 +63,7 @@
 
         <!-- 명함 없을 때 update 숨김처리 : 에러 해결 -->
         {% if cards %}
-        <a href="{% url 'cards:update' cards.0.id %}">
+        <a id="modify-link" href="{% url 'cards:update' cards.0.id %}">
             <button class="modifyBtn">
                 <img src="{% static 'img/modifyBtn.svg' %}" alt="수정하기 버튼">
             </button>
@@ -87,6 +87,7 @@
 
             const container = document.getElementById("cards-container");
             const dotsContainer = document.getElementById("dots");
+            const modifyLink = document.getElementById("modify-link");
 
             // Update card background colors
             const cards = document.querySelectorAll('.card');
@@ -103,6 +104,10 @@
                 dots[currentIndex].classList.remove("active");
                 dots[index].classList.add("active");
                 currentIndex = index;
+
+                // 수정하기 id 동적으로 설정
+                const currentCardId = cards[index].dataset.id;
+                modifyLink.href = `/cards/update/${currentCardId}/`;
             }
 
             let toastMessage = document.getElementById("toast-message");

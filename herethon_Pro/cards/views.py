@@ -4,11 +4,11 @@ from articleapp.models import Article   # articleapp에 있는 모델 사용
 from django.contrib.auth.decorators import login_required
 from users.models import User
 
-# 명함조회 - 앞
+#명함조회 - 앞
 def cardFront(request, id):
     writer = get_object_or_404(User, id=id)
     cards = Card.objects.filter(user=writer).order_by('-id') 
-    return render(request, "cardFront.html", {'cards' : cards})
+    return render(request, "cardFront.html", {'cards' : cards, 'writer' : writer})
 
 # 명함조회 - 뒤
 def cardBack(request, id):
@@ -113,3 +113,14 @@ def delete(request, id):
     card = get_object_or_404(Card, id = id)
     card.delete()
     return redirect('cards:mycardFront')
+
+def article_detail(request, article_id):
+    article = get_object_or_404(Article, id=article_id)
+    data = {
+        'title': article.title,
+        'content': article.content,
+        'created_at': article.created_at.strftime('%Y-%m-%d %H:%M'),
+        'writer': article.writer,
+        'category': article.get_category_display(),
+    }
+    return JsonResponse(data)

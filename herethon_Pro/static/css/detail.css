@@ -1,0 +1,158 @@
+.container {
+  margin: 0 auto;
+  padding-left: 25px;
+  width: 393px;
+  height: 852px;
+  background: #242427;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: -0.36px;
+  padding-top: 1px;
+}
+.blur {
+  float: inline-end;
+  position: relative;
+  width: 418px;
+  height: 853px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+.detail {
+  clear: both;
+  position: relative;
+  top: 175px;
+  left: 24px;
+}
+
+.detail-top,
+.detail-bot {
+  width: 369px;
+  background: #f9e882;
+}
+.detail-top {
+  height: 410px;
+  border-radius: 8px 8px 16px 16px;
+}
+
+.backBtn {
+  float: right;
+  width: 20px;
+  height: 19px;
+  margin-top: 23px;
+  margin-right: 23px;
+}
+.detail-kw-wp {
+  padding-top: 23px;
+  padding-left: 23px;
+}
+.detail-kw {
+  margin-right: 10px;
+}
+
+.detail-title {
+  clear: both;
+  position: relative;
+  text-align: center;
+  left: 20px;
+  top: 15px;
+  padding-bottom: 15px;
+  width: 320px;
+  height: 21px;
+}
+
+.detail-content {
+  width: 280px;
+  height: 210px;
+  text-align: left;
+  border-radius: 8px;
+  background: #fdf2af;
+  padding: 20px 18px;
+  margin-left: 22px;
+  margin-top: 15px;
+  color: #2f2f32;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: -0.28px;
+}
+.detail-time {
+  height: 21px;
+  color: #515155;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: -0.28px;
+  padding-right: 24px;
+  padding-top: 20px;
+}
+.detail-line {
+  margin-top: 0px;
+  color: #8c8c8e;
+  width: 315px;
+  border: none;
+  border-top: 1px dashed #8c8c8e;
+}
+.detail-bot {
+  height: 100px;
+  border-radius: 16px 16px 8px 8px;
+}
+.profile {
+  padding: 14px 22px;
+}
+
+.prof-img {
+  float: left;
+}
+.prof-right {
+  font-size: 16px;
+  float: left;
+  height: 50px;
+  width: 250px;
+  position: relative;
+  top: 12px;
+}
+.prof-name,
+.prof-relationship,
+.affiliation,
+.occupation {
+  color: #515155;
+  font-family: Pretendard;
+}
+.prof-name {
+  float: left;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: -0.36px;
+}
+.prof-relationship {
+  float: left;
+  padding-top: 3px;
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: -0.24px;
+}
+.affiliation {
+  clear: both;
+  padding-top: 3px;
+  margin-right: 160px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: -0.24px;
+}
+.occupation {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: -0.24px;
+  position: relative;
+  bottom: 19px;
+  left: 5px;
+}

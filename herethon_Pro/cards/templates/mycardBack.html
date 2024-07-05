@@ -49,7 +49,7 @@
             <button class="backBtn" type="button">
                 <img src="{% static 'img/backBtn.svg' %}" alt="뒤로가기 버튼">
             </button>
-            <h1 class="title">홍길동 님의 명함</h1>
+            <h1 class="title">{{ request.user.username }}님의 명함</h1>
             <button class="shareBtn">
                 <img src="{% static 'img/shareBtn.svg' %}" alt="공유하기 버튼">
             </button>
@@ -77,7 +77,7 @@
                     </a>
                     <a href="{% url 'cards:cardFront' selected_article.writer.id %}">
                         <div class="clickable-area">
-                            <img src="{{ selected_article.writerPhoto }}" class="callerPhoto" alt="Writer Photo">
+                            <img src="{% static 'img/initPhoto.svg' %}" class="callerPhoto" alt="Writer Photo">
                             <div class="whole">
                                 <div class="top">
                                     <div class="othersName">{{ selected_article.writer }}</div>
