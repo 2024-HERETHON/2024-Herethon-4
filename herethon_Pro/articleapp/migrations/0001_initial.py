@@ -18,12 +18,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Article',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('category', models.CharField(choices=[('FR', '친구'), ('BS', '직장상사'), ('CW', '직장동료')], default='FR', max_length=2)),
                 ('keyword', models.CharField(max_length=100, null=True)),
                 ('title', models.CharField(max_length=100, null=True)),
                 ('image', models.ImageField(upload_to='articles/')),
-                ('content', models.TextField(null=True)),
+                ('content', models.TextField(null=False)),
+                ('name', models.TextField()),
                 ('share', models.TextField(blank=True)),
                 ('created_at', models.DateField(auto_now_add=True, null=True)),
                 ('last_modified', models.DateTimeField(auto_now=True)),

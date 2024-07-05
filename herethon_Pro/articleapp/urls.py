@@ -1,13 +1,13 @@
-from django.urls import path    #선언주의
-from . import views
+from django.urls import path
+from articleapp.views import RollFront, create, update, delete, detail, RollBack
 
 app_name = 'articleapp'
 
 urlpatterns = [
-    path('list/', views.ArticleListView.as_view(), name='list'),
-    path('create/', views.ArticleCreateView.as_view(), name='create'),
-    path('detail/<int:pk>/', views.ArticleDetailView.as_view(), name='detail'),
-    path('update/<int:pk>/', views.ArticleUpdateView.as_view(), name='update'),
-    path('delete/<int:pk>/', views.ArticleDeleteView.as_view(), name='delete'),
-
+    path('RollFront/', RollFront, name="RollFront"),  # 롤링페이퍼 전체조회
+    path('RollBack/<int:id>/', RollBack, name = "RollBack"),
+    path('create/', create, name="create"),  # 롤링페이퍼 생성
+    path('update/<int:id>/', update, name="update"),  # 롤링페이퍼 수정
+    path('delete/<int:id>/', delete, name="delete"),  # 롤링페이퍼 삭제
+    path('detail/<int:id>/', detail, name="detail"), # 롤링페이퍼 상세조회
 ]

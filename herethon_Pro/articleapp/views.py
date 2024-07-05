@@ -1,63 +1,104 @@
+from django.shortcuts import get_object_or_404, render, redirect
+from django.views.decorators.http import require_http_methods
+
+from articleapp.models import Article  # articleapp에 있는 모델 사용
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from django.urls import reverse, reverse_lazy
-from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
-from django.views.generic.edit import FormMixin
+from django.contrib.auth.models import User
 
-from articleapp.decorators import article_ownership_required
-from articleapp.forms import ArticleCreationForm
-from articleapp.models import Article
+# 롤링페이퍼 조회
+@login_required
+def RollFront(request):
+    author = request.user  # 현재 로그인한 사용자 정보 가져오기
+    articles = Article.objects.filter(user=author)
+    return render(request, 'detail.html', {'author': author, 'articles': articles})
 
-@method_decorator(login_required, 'get')
-@method_decorator(login_required, 'post')
-class ArticleCreateView(CreateView):
-    model = Article
-    form_class = ArticleCreationForm
-    template_name = 'articleapp/create.html'
-
-#서버에서 writer 값 지정해주는 코드
-    def form_valid(self, form):
-        temp_article = form.save(commit=False)
-        temp_article.writer = self.request.user
-        temp_article.save()
-        return super().form_valid(form)
+def RollBack(request):
+    return render(request, "RollBack.html")
 
 
-    def get_success_url(self):
-        return reverse('articleapp:detail', kwargs={'pk': self.object.pk})
+def home(request):
+    return render(request, 'articleapp/home.html')
 
 
-class ArticleDetailView(DetailView, FormMixin):
-    model = Article
-    form_class = ArticleCreationForm
-    context_object_name = 'target_article'
-    template_name = 'articleapp/detail.html'
+# 내 롤링페이퍼 만들기 (create)
+@login_required
+def create(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        position = request.POST.get('position')
+        content = request.POST.get('content')
+        keyword = request.POST.get('keyword')  # 폼에서 받아오는 데이터의 키 이름 확인
+        image = request.FILES.get('image')
+
+        user = request.user  # 현재 로그인한 사용자 정보 가져오기
+
+        # Article 객체 생성 및 저장
+        article = Article.objects.create(
+            user=user,
+            name=name,
+            position=position,
+            content=content,
+            keyword=keyword,  # 필드 이름 확인
+            image=image,
+        )
+
+        return redirect('articleapp:RollFront')
+    return render(request, 'create.html')
+
+# 내 롤링페이퍼 수정
+@login_required
+def update(request, id):
+    article = get_object_or_404(Article, id=id)
+
+    if request.method == "POST":
+        article.name = request.POST.get('name')
+        article.position = request.POST.get('position')
+        article.content = request.POST.get('content')
+        article.keyword = request.POST.get('keyword')  # 폼에서 받아오는 데이터의 키 이름 확인
+
+        image = request.FILES.get('image')
+        if image:
+            article.image.delete()
+            article.image = image
+
+        article.save()
+        return redirect('articleapp:RollFront')
+    return render(request, 'update.html', {'article': article})
+
+# 내 롤링페이퍼 삭제
+@login_required
+def delete(request, id):
+    article = get_object_or_404(Article, id=id)
+    article.delete()
+    return redirect('articleapp:RollFront')
+
+@login_required
+@require_http_methods(["GET", "POST"])
+def detail(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+
+    if request.method == 'POST':
+        content = request.POST.get('content', '')
+        name = request.POST.get('name', '')
+        position = request.POST.get('position', '')
+
+        # Article 객체 수정
+        article.name = name
+        article.position = position
+        article.content = content
+
+        article.save()
+
+        return redirect('articleapp:detail', pk=article.pk)  # 수정된 글의 상세 페이지로 리디렉션
+
+    context = {
+        'article': article,
+    }
 
 
-@method_decorator(article_ownership_required, 'get')
-@method_decorator(article_ownership_required, 'post')
-class ArticleUpdateView(UpdateView):
-    model = Article
-    context_object_name = 'target_article'
-    form_class = ArticleCreationForm
-    template_name = 'articleapp/update.html'
+    return redirect('home')  # 생성 후 기본 홈페이지로 리디렉션
 
-    def get_success_url(self):
-        return reverse('articleapp:detail', kwargs={'pk': self.object.pk})
+return render(request, 'create.html')
 
 
-@method_decorator(article_ownership_required, 'get')
-@method_decorator(article_ownership_required, 'post')
-class ArticleDeleteView(DeleteView):
-    model = Article
-    context_object_name = 'target_article'
-    success_url = reverse_lazy('articleapp:list')    #폼이 성공적으로 제출된 후 리디렉션할 URL을 설정하는 코드. 이를 통해 해당 폼이 성공적으로 처리되었을 때, 사용자가 articleapp 애플리케이션의 list 뷰로 리디렉션됩니다.
-    template_name = 'articleapp/delete.html'
 
-
-class ArticleListView(ListView):
-    model = Article
-    context_object_name = 'article_list'
-    template_name = 'articleapp/list.html'
-    paginate_by = 2   # 한 페이지당 2개씩 보여지고 남는건 다음 페이지로 넘어가는것.

@@ -21,12 +21,21 @@ def signup_view(request):
         return render(request, 'accounts/signup.html', {'form' : form})
     
 # 로그인 - 뷰 수정(에러메시지가 뜨게)
+# accounts/views.py
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login
+
+
 def login_view(request):
-    if request.method == "GET":
-        return render(request, 'accounts/login.html', {'form' : AuthenticationForm})
-    
-    form = AuthenticationForm(request, data = request.POST)
-    if form.is_valid():
-        login(request, form.user_cache)
-        return redirect('home')
-    return render(request, 'accounts/login.html', {'form' : form})
+    if request.method == 'POST':
+        form = AuthenticationForm(request, request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')  # 'home'로 리다이렉션
+    else:
+        form = AuthenticationForm(request)
+
+    return render(request, 'accounts/login.html', {'form': form})

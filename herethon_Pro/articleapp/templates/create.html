@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>롤링페이퍼 생성</h2>
+    <form method="POST" action="{% url 'articleapp:create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        이름을 입력해 주세요<br>
+        <input type="text" name="name"><br><br>
+
+        관계 입력해 주세요<br>
+        <input type="text" name="position"><br><br>
+
+        키워드 입력해 주세요<br>
+        <select name="keyword">
+        <option value="happy">행복</option>
+        <option value="sad">슬픔</option>
+        <option value="angry">분노</option>
+        <option value="depression">우울</option>
+        </select><br><br>
+
+        내용을 입력해 주세요<br>
+        <input type="text" name="content"><br><br>
+
+        사진<br>
+        <input type="file" name = "image"><br><br>
+        <a href="{% url 'RollBack.html' article.id %}">Article Detail</a>
+        <input type = "submit" value = "작성하기">
+    </form>
+</body>
+</html>
