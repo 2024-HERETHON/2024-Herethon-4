@@ -301,6 +301,7 @@ input,
   transition: background-color 300ms ease-in-out;
 }
 
+.nameError,
 .belongError,
 .jobError {
   visibility: hidden;
@@ -310,8 +311,10 @@ input,
   letter-spacing: -0.16px;
   margin-top: 8px;
   color: #ff4a4a;
+  /* border: 0.5px solid #ff4a4a; */
 }
 
+.nameError.show,
 .belongError.show,
 .jobError.show {
   visibility: visible;

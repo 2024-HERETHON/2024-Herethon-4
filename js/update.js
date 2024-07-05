@@ -55,15 +55,24 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+  const nameInput = document.getElementById("name");
   const belongInput = document.getElementById("belong");
   const jobInput = document.getElementById("job");
   const submitButton = document.querySelector(".submit-button");
 
+  let nameError = document.querySelector(".nameError");
   let belongError = document.querySelector(".belongError");
   let jobError = document.querySelector(".jobError");
 
   function checkInputs() {
     let isValid = true;
+
+    if (nameInput.value.trim() === "") {
+      nameError.classList.add("show");
+      isValid = false;
+    } else {
+      nameError.classList.remove("show");
+    }
 
     if (belongInput.value.trim() === "") {
       belongError.classList.add("show");
