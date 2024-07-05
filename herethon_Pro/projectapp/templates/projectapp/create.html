@@ -1,17 +1,43 @@
-{% extends 'base.html' %}
-{% load bootstrap4 %}   <!-- {% bootstrap_form form %} 밑에 구현하면 위에 이거 꼭 선언해줘야함 -->
+{% load static %}
 
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{user}}의 롤링페이퍼</title>
+    <link rel="stylesheet" href="{% static '/css/admin.css'}" />
+</head>
+<body>
+    <div class="container">
+    <h2>롤링페이퍼 생성<h2>
+    <form method="POST" action="{% url 'projectapp:create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
 
-    <div style = "text-align: center; max-width: 500px; margin : 4rem auto">
-        <div class = "mb-4">
-            <h4> Create Paper </h4>
-        </div>
-        <form action="{% url 'projectapp:create' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {% bootstrap_form form %}
-            <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
-        </form>
-    </div>
+        이름을 입력해 주세요<br>
+        <input type="text" name="name"><br><br>
 
-{% endblock %}
+        제목을 입력해 주세요<br>
+        <input type="text" name="title"><br><br>
+
+        키워드 입력해 주세요<br>
+        <input type="char" name="keyword"><br><br>
+        <input type="char" name="keyword2"><br><br>
+        <input type="char" name="keyword3"><br><br>
+
+        관계 입력해 주세요<br>
+        <select name="position">
+        <option value="family">가족</option>
+        <option value="friend">지인</option>
+        <option value="superior">직장상사</option>
+        <option value="etc">기타</option>
+        </select><br><br>
+
+        내용을 입력해 주세요<br>
+        <input type="text" name="content"><br><br>
+
+        <input type = "submit" value = "작성하기">
+    </form>
+</div>
+</body>
+</html>

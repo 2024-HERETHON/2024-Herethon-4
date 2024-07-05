@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rolling Paper</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Rolling Paper</h1>
+
+    {% if is_author %}
+        <h2>My Rolling Papers</h2>
+        {% for article in articles %}
+            <div class="rolling-paper">
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.content }}</p>
+                <small>Written by: {{ article.author.username }}</small>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h2>Rolling Papers Sent to Me</h2>
+        {% for article in articles %}
+            <div class="rolling-paper">
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.content }}</p>
+                <small>Written by: {{ article.author.username }}</small>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <a href="{% url 'articleapp:create' %}">Create New Rolling Paper</a>
+</body>
+</html>

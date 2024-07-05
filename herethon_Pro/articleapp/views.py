@@ -43,4 +43,32 @@ def detail2(request, id):
     return render(request, 'articleapp/article_list.html', {'article' : article})
 
 
+from django.shortcuts import render, get_object_or_404
+from .models import Article
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def view_rolling_paper(request, article_id):
+    # 현재 로그인한 사용자
+    current_user = request.user
+
+    article = get_object_or_404(Article, id=article_id)
+    # 롤링페이퍼 작성자
+    author = article.user
+
+    if current_user == author:
+        # 내가 쓴 롤링페이퍼
+        context = {
+            'message': '내가 쓴 롤링페이퍼',
+            'article': article,
+        }
+    else:
+        # 받은 롤링페이퍼
+        context = {
+            'message': '받은 롤링페이퍼',
+            'article': article,
+        }
+
+    return render(request, 'view_rolling_paper.html', context)
+
 
