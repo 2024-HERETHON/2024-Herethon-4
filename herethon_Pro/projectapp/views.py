@@ -53,7 +53,7 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
 class ProjectListView(ListView):
     model = Project
     context_object_name = 'project_list'
-    template_name = 'projectapp/list.html'
+    template_name = 'projectapp/article_list.html'
     paginate_by = 25      #한 페이지에 25개의 객체가 표시됩니다. 그러면 페이지마다 25개의 객체가 표시되고, 사용자가 다음 페이지로 이동할 수 있는 페이지 링크가 제공됩니다
 
 

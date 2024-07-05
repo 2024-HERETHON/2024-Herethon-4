@@ -14,9 +14,9 @@ def RollFront(request):
 def RollBack(request):
     return render(request, "RollBack.html")
 
-def home(request):
-    return render(request, 'articleapp/home.html')
-
+def list(request):
+    articles = Article.objects.all()  # 예시로 모든 Article 객체를 가져오는 코드
+    return render(request, 'articleapp/article_list.html', {'articles': articles})
 # 내 롤링페이퍼 만들기 (create)
 @login_required
 def create(request):
@@ -26,7 +26,6 @@ def create(request):
         content = request.POST.get('content')
         keyword = request.POST.get('keyword')  # 폼에서 받아오는 데이터의 키 이름 확인
         image = request.FILES.get('image')
-        share = request.POST.get('share') == 'on'  # 폼에서 'share' 필드 처리
         user = request.user  # 현재 로그인한 사용자 정보 가져오기
 
         # Article 객체 생성 및 저장
@@ -50,6 +49,8 @@ def update(request, id):
     if request.method == "POST":
         article.name = request.POST.get('name')
         article.position = request.POST.get('position')
+        article.position2 = request.POST.get('position')
+        article.position3 = request.POST.get('position')
         article.content = request.POST.get('content')
         article.keyword = request.POST.get('keyword')  # 폼에서 받아오는 데이터의 키 이름 확인
 

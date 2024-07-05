@@ -12,5 +12,6 @@ urlpatterns = [
     path('delete/<int:id>/', delete, name="delete"),  # 롤링페이퍼 삭제
     path('detail/<int:id>/', detail, name="detail"), # 롤링페이퍼 상세조회
     path('rollback/', views.RollBack, name='RollBack'),
+    path('list/', views.list, name='article_list'),
 
 ]
