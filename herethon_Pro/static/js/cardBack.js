@@ -5,34 +5,34 @@ document.addEventListener("DOMContentLoaded", () => {
     "../img/card-blue.svg",
   ];
 
-  const cardsData = [
-    {
-      tagFirst: "#키워드",
-      tagSecond: "#키워드",
-      tagThird: "#키워드",
-      title: "제목",
-      content: "길동이는 착하고 배려심이 깊은 친구입니다.",
-      writeDate: "2024.07.03",
-      writerPhoto: "../img/borderPhoto.svg",
-      writerName: "김철수",
-      relation: "친구",
-      writerBelong: "가나대학교",
-      writerJob: "학생/UX디자이너",
-    },
-    {
-      tagFirst: "#키워드",
-      tagSecond: "#키워드",
-      tagThird: "#키워드",
-      title: "제목",
-      content: "길동이는 착하고 배려심이 깊은 친구입니다.",
-      writeDate: "2024.07.03",
-      writerPhoto: "../img/borderPhoto.svg",
-      writerName: "김철수",
-      relation: "친구",
-      writerBelong: "가나대학교",
-      writerJob: "학생/UX디자이너",
-    },
-  ];
+  // const cardsData = [
+  //   {
+  //     tagFirst: "#키워드",
+  //     tagSecond: "#키워드",
+  //     tagThird: "#키워드",
+  //     title: "제목",
+  //     content: "길동이는 착하고 배려심이 깊은 친구입니다.",
+  //     writeDate: "2024.07.03",
+  //     writerPhoto: "../img/borderPhoto.svg",
+  //     writerName: "김철수",
+  //     relation: "친구",
+  //     writerBelong: "가나대학교",
+  //     writerJob: "학생/UX디자이너",
+  //   },
+  //   {
+  //     tagFirst: "#키워드",
+  //     tagSecond: "#키워드",
+  //     tagThird: "#키워드",
+  //     title: "제목",
+  //     content: "길동이는 착하고 배려심이 깊은 친구입니다.",
+  //     writeDate: "2024.07.03",
+  //     writerPhoto: "../img/borderPhoto.svg",
+  //     writerName: "김철수",
+  //     relation: "친구",
+  //     writerBelong: "가나대학교",
+  //     writerJob: "학생/UX디자이너",
+  //   },
+  // ];
   const contentZone = ["#FFD2E5", "#FDF2AF", "#AFC5FD"];
 
   const container = document.getElementById("cards-container");

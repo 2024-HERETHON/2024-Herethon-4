@@ -16,6 +16,7 @@ def cardBack(request, id):
     card = get_object_or_404(Card, id=id)
     selected_article = card.selected_article
     return render(request, "cardBack.html", {'card' : card, 'selected_article': selected_article})
+    
 # 내 명함 보기 - 앞
 def mycardFront(request):
     cards = Card.objects.filter(user=request.user).order_by('-id')  # 로그인 한 사용자가 쓴 명함 불러오기

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -31,4 +31,120 @@
 
     <a href="{% url 'cards:mycardFront' %}">앞면보기</a>
   </body>
+</html> -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 명함 조회</title>
+    <link rel="stylesheet" href="{% static 'css/mycardBack.css' %}">
+    <script src="{% static 'js/mycardBack.js' %}" defer></script>
+</head>
+<body>
+    <div class="container" id="container">
+        <header class="header">
+            <button class="backBtn" type="button">
+                <img src="{% static 'img/backBtn.svg' %}" alt="뒤로가기 버튼">
+            </button>
+            <h1 class="title">홍길동 님의 명함</h1>
+            <button class="shareBtn">
+                <img src="{% static 'img/shareBtn.svg' %}" alt="공유하기 버튼">
+            </button>
+        </header>
+        <div class="dummy">
+            <div id="toast-message">링크가 복사되었어요</div>
+        </div>
+        <div class="carousel">
+            <div class="cards-container" id="cards-container">
+                {% if selected_article %}
+                <div class="card" style="background-image: url('{% static "img/cardpink.svg" %}')">
+                    <a href="{% url 'cards:mycardFront' %}">
+                        <div class="first">
+                            <div class="tags">
+                                <div class="tag">{{ selected_article.keyword }}</div>
+                            </div>
+                            <div class="titleZone">{{ selected_article.title }}</div>
+                        </div>
+                        <div class="main">
+                            <div class="content" style="color: {% cycle '#FFD2E5' '#FDF2AF' '#AFC5FD' %}">
+                                {{ selected_article.content }}
+                            </div>
+                            <div class="writeDate">{{ selected_article.created_at }}</div>
+                        </div>
+                    </a>
+                    <a href="{% url 'cards:cardFront' selected_article.writer.id %}">
+                        <div class="clickable-area">
+                            <img src="{{ selected_article.writerPhoto }}" class="callerPhoto" alt="Writer Photo">
+                            <div class="whole">
+                                <div class="top">
+                                    <div class="othersName">{{ selected_article.writer }}</div>
+                                    <div class="relation">{{ selected_article.get_category_display }}</div>
+                                </div>
+                                <div class="down">
+                                    <div class="belong">{{ selected_article.writer_job }}</div>
+                                    <div class="detail">{{ selected_article.writer_position }}</div>
+                                </div>
+                            </div>
+                            <div class="go">
+                                <img src="{% static 'img/detailBtn.svg' %}" alt="Detail Button">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="dots" id="dots">
+            <!-- 카드의 개수에 따라 점의 개수도 정해짐 -->
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const bgColor = [
+                "{% static 'img/cardpink.svg' %}",
+                "{% static 'img/cardyellow.svg' %}",
+                "{% static 'img/cardblue.svg' %}",
+            ];
+            const contentZone = ["#FFD2E5", "#FDF2AF", "#AFC5FD"];
+
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.backgroundImage = `url(${bgColor[index % bgColor.length]})`;
+            });
+
+            let currentIndex = 0;
+            const cardWidth = 320;
+            const container = document.getElementById('container');
+
+            function showCard(index) {
+                const dots = document.querySelectorAll(".dot");
+                container.style.transform = `translateX(-${index * cardWidth}px)`;
+                dots[currentIndex].classList.remove("active");
+                dots[index].classList.add("active");
+                currentIndex = index;
+            }
+
+            let toastMessage = document.getElementById("toast-message");
+            let toastBtn = document.getElementsByClassName("shareBtn")[0];
+
+            toastBtn.addEventListener("click", function () {
+                console.log("이벤트가 잘 연결 됐는지 확인");
+                toastOn();
+            });
+
+            function toastOn() {
+                toastMessage.classList.add("active");
+                setTimeout(function () {
+                    toastMessage.classList.remove("active");
+                }, 1000);
+            }
+
+            // Add the showCard function to the global scope
+            window.showCard = showCard;
+        });
+    </script>
+</body>
 </html>
