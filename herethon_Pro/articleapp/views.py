@@ -16,7 +16,7 @@ def RollBack(request):
 
 def list(request):
     articles = Article.objects.all()  # 예시로 모든 Article 객체를 가져오는 코드
-    return render(request, 'articleapp/article_list.html', {'articles': articles})
+    return render(request, 'articleapp/detail.html', {'articles': articles})
 # 내 롤링페이퍼 만들기 (create)
 @login_required
 def create(request):
@@ -72,28 +72,10 @@ def delete(request, id):
 
 @login_required
 @require_http_methods(["GET", "POST"])
-def detail(request, pk):
-    article = get_object_or_404(Article, pk=pk)
+def detail(request, id):
+    article = get_object_or_404(Article, id=id)
+    return render(request, 'detail.html', {'article' : article})
 
-    if request.method == 'POST':
-        content = request.POST.get('content', '')
-        name = request.POST.get('name', '')
-        position = request.POST.get('position', '')
-
-        # Article 객체 수정
-        article.name = name
-        article.position = position
-        article.content = content
-
-        article.save()
-
-        return redirect('articleapp:detail', pk=article.pk)  # 수정된 글의 상세 페이지로 리디렉션
-
-    context = {
-        'article': article,
-    }
-
-    return render(request, 'detail.html', context)  # 잘못된 중괄호 제거 및 올바른 return 문 추가
 
 
 

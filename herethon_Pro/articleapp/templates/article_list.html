@@ -1,3 +1,4 @@
+<!--상세 조회페이지-->
 
 {% load static %}
 
@@ -32,7 +33,7 @@
   <div class="container">
     <p><a href="{% url 'article_list' %}"></a></p>
     {% for article in article_list %}
-    <a href = "{% url 'articleapp:detail' pk=article.pk %}">
+    <a href = "{% url 'articleapp:article_list' pk=article.pk %}">
        <!-- 앞으로 이부분만 수정하면 카드레이아웃 모두 변경 및 적용 한번에 되는것-->
       {% include 'snippets/card.html' with article=article %} <!--include에 작성한 article이 외부 card.html article과 같다는거 나타내기 위해 with 구문 사용. 외부에 구현한 내용이므로 % include로 불러온것-->
     </a>
@@ -43,17 +44,24 @@
   <div class="text-center">
     <h1>No Article YET!</h1>
   </div>
-  {% endif %}
+<div>
 
-  {% include 'snippets/pagination.html' with page_obj=page_obj %}
-
+    <div>
+{% for article in articles %}
+    <p>{{ article.name }}</p>
+    <p>{{ article.content }}</p>
+    <p>{{ article.keyword }}</p>
+    <p>{{ article.created_at }}</p>
+    {% empty %}
+    작성한 롤링페이퍼가 없습니다.
+    {% endfor %}
+</div>
   <div style="text-align:center">
     <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
       Create Article
     </a>
   </div>
 
-{% endblock %}
 
 
 

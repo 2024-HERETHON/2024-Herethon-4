@@ -30,6 +30,19 @@
         <div class="rp-selector">
             <div class="rp-selector-recv" onclick="showRecv()">받은 롤링페이퍼</div>
             <div class="rp-selector-send" onclick="showSend()">작성한 롤링페이퍼</div>
+            {% for article in articles %}
+        <p>{{ article.name }}</p>
+        <p>{{ article.content }}</p>
+        <p>{{ article.keyword }}</p>
+        <p>{{ article.created_at }}</p>
+        {% if article.id %}
+        <a href="{% url 'articleapp:detail' article.id %}"> 자세히보기</a>
+        {% endif %}
+    {% empty %}
+    작성한 롤링페이퍼가 없습니다.
+{% endfor %}
+
+
         </div>
         <div class="paperlist">
             <div class="rp-recv-list"></div>
